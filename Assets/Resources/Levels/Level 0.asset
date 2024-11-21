@@ -78,3 +78,19 @@ MonoBehaviour:
     - {x: 4, y: 4, z: 4}
     - {x: 4, y: 4, z: 4}
     - {x: 4, y: 4, z: 4}
+  - prefabName: car4
+    objectType: 1
+    positions:
+    - {x: 6.8699703, y: 0.0000019073486, z: -5.628546}
+    rotations:
+    - {x: -0, y: -0, z: -0, w: 1}
+    scales:
+    - {x: 1, y: 1, z: 1}
+  - prefabName: tree1
+    objectType: 3
+    positions:
+    - {x: -25.45278, y: 0.030151367, z: 3.313013}
+    rotations:
+    - {x: 0.00000008146034, y: 0, z: -0, w: 1}
+    scales:
+    - {x: 1, y: 1, z: 1}
