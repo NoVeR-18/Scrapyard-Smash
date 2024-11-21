@@ -8,7 +8,6 @@ public class BrokenMachine : MonoBehaviour
     public Transform RepairLine;
     [SerializeField]
     private float _secondsToBrokeMachine = 120f;
-    [SerializeField] private bool forTutor = false;
     private void Start()
     {
         _secondsToBrokeMachine = PlayerPrefs.GetInt("SecondsToBrokeMachine", 60);
