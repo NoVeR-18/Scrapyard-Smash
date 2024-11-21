@@ -10,5 +10,7 @@ public enum ObjectType
     Wall,
     Car,
     Trash,
-    Decoration
+    Decoration,
+    Details,
+    Coins
 }

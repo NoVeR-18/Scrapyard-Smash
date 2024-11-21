@@ -41,7 +41,7 @@ namespace Player
                 );
 
             _move = transform.forward * _inputMove.x + transform.right * -_inputMove.z;
-            _rigidbody.position = _rigidbody.position + _move * 0.3f;
+            _rigidbody.position = _rigidbody.position + _move;
         }
         private void rotateModel()
         {
