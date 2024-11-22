@@ -19,18 +19,23 @@ namespace Player
         [SerializeField]
         private PlayerControls _controls;
         private Rigidbody _rigidbody;
+        public BoxCollider boxCollider;
         private Vector3 _inputMove;
         private Vector3 _move;
-
+        public bool CanMoving = true;
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            boxCollider = GetComponent<BoxCollider>();
         }
 
         private void Update()
         {
-            move();
-            rotateModel();
+            if (CanMoving)
+            {
+                move();
+                rotateModel();
+            }
         }
         private void move()
         {
@@ -45,7 +50,7 @@ namespace Player
         }
         private void rotateModel()
         {
-            Vector3 rotationLookAtVector = Quaternion.AngleAxis(0, Vector3.up) * new Vector3(_controls.Horizontal, 0, _controls.Vertical);
+            Vector3 rotationLookAtVector = Quaternion.AngleAxis(90, Vector3.up) * new Vector3(_controls.Horizontal, 0, _controls.Vertical);
 
             if (rotationLookAtVector == Vector3.zero)
                 return;

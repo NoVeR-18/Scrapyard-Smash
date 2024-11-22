@@ -40,6 +40,10 @@ namespace Items.Container
             _storeItemType = storeItemType;
             _slots = CreateSlots(transform, _capacity, _sizeX, _sizeZ);
         }
+        public void Init()
+        {
+            _slots = CreateSlots(transform, _capacity, _sizeX, _sizeZ);
+        }
         public ContainerSlot[] CreateSlots(Transform parent, int slotsCount, int sizeX = 3, int sizeZ = 3)
         {
             List<ContainerSlot> slots = new List<ContainerSlot>();
@@ -85,7 +89,6 @@ namespace Items.Container
             {
                 return false;
             }
-
             _items.Add(item);
             item.GoToSlot(this, _items);
 

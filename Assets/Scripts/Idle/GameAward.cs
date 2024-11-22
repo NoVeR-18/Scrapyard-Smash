@@ -12,6 +12,23 @@ public class GameAward : StoragePad
             base.Interact(collision.gameObject.GetComponent<Player.Player>());
         }
     }
+
+    public override void giveItemsToPlayer(Player.Player player)
+    {
+        if (ItemsContainer.Count == 0)
+            return;
+
+        if (!player.Backpack.ItemsContainer.CanAddItem())
+            return;
+
+        Item takenItem = null;
+        if (!ItemsContainer.TakeItem(out takenItem))
+            return;
+        if (takenItem.Type == Items.ItemType.Money)
+        {
+            Destroy(takenItem.gameObject);
+        }
+    }
     bool CanCreaft()
     {
         if (ItemsContainer.CanAddItem() == false)

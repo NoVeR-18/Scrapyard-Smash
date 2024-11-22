@@ -1,31 +1,21 @@
-using System.Collections;
-using TMPro;
-using UnityEngine;
-
 public class FrameMachineTab : StoragePad
 {
-    [SerializeField] private GameAward _gameAward;
-    [SerializeField] private TextMeshPro text;
-    [SerializeField] private int _sceneNumber;
-    [SerializeField] private Transform SpawnPoint;
-    public override void CloseInteract()
+    public SellPad sellPad;
+    private void OnTriggerStay(UnityEngine.Collider other)
     {
-        base.CloseInteract();
-        text.text = "FRAIM MACHINE" + (_sceneNumber - 1);
+        if (other.tag == "Player")
+        {
+            base.Interact(other.gameObject.GetComponent<Player.Player>());
+        }
     }
-    public override void Interact(Player.Player player)
+    private void FixedUpdate()
     {
-        base.Interact(player);
-        StartCoroutine(Timer(player));
-    }
-    IEnumerator Timer(Player.Player player)
-    {
-        text.text = 3.ToString();
-        yield return new WaitForSeconds(1f);
-        text.text = 2.ToString();
-        yield return new WaitForSeconds(1f);
-        text.text = 1.ToString();
-        yield return new WaitForSeconds(1f);
-        GameManager.Instance.SelectedLevel = PlayerPrefs.GetInt($"Frame{_sceneNumber}CompletedLevel", 0);
+        if (ItemsContainer.Count > 0 && !sellPad.ItemsContainer.IsFull)
+        {
+            Item item;
+            ItemsContainer.TakeItem(out item);
+            sellPad.ItemsContainer.AddItem(item);
+            sellPad.StartCoroutine(sellPad.Sell());
+        }
     }
 }

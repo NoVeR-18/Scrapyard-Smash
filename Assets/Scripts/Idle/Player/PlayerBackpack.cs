@@ -14,12 +14,13 @@ namespace Player
 
         [SerializeField] private ItemsContainer _itemsContainer;
         [SerializeField] private List<Item> itemPrefabs;
+
         private Player _player;
 
         private void Awake()
         {
             _player = GetComponent<Player>();
-            _itemsContainer.Init(ItemType.Null);
+            _itemsContainer.Init();
         }
 
         public void SaveBackpack()
@@ -46,6 +47,7 @@ namespace Player
                 foreach (ItemData itemData in dataWrapper.items)
                 {
                     Item newItem = CreateItem(itemData);
+
                     _itemsContainer.AddItem(newItem);
                 }
             }

@@ -21,6 +21,17 @@ public class Item : MonoBehaviour
     private Vector3 _startPosition;
     private float _time;
     List<Item> _items;
+    public bool CanTake = true;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player" && CanTake)
+        {
+            var player = other.GetComponent<Player.Player>();
+            player.Backpack.ItemsContainer.AddItem(this);
+            CanTake = false;
+        }
+    }
 
     public void GoToSlot(ItemsContainer container, List<Item> items)
     {

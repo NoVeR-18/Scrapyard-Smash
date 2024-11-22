@@ -11,7 +11,7 @@ namespace Player
         public float ModelRotationLerp { get => _modelRotationLerp; }
 
         [SerializeField] private float _speed = 5;
-        [SerializeField] private float _modelRotationLerp = 0.1f;
+        [SerializeField] private float _modelRotationLerp = 10f;
         [SerializeField] private AnimationCurve _speedSensitivityCurve;
     }
 }

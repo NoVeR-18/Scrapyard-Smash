@@ -22,14 +22,14 @@ public class StoragePad : MonoBehaviour
 
     [SerializeField] private Item _itemPrefab;
 
-    public void OnTriggerEnter(UnityEngine.Collider other)
+    virtual public void OnTriggerEnter(UnityEngine.Collider other)
     {
         if (other.tag == "Player")
         {
             Interact(other.gameObject.GetComponent<Player.Player>());
         }
     }
-    public void OnTriggerExit(UnityEngine.Collider other)
+    virtual public void OnTriggerExit(UnityEngine.Collider other)
     {
         if (other.tag == "Player")
         {

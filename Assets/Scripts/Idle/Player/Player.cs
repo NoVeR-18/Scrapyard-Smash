@@ -9,6 +9,8 @@ namespace Player
         public PlayerBackpack Backpack { get => _backpack; }
         public PlayerWallet Wallet { get => _wallet; }
         public Transform DefaultSpawnPoss;
+        public Camera mainCamera;
+        public VehicleZone vehicleZone;
         [SerializeField] private Vector3 _spawnPoint;
         [SerializeField] private float _dieHeight = -20;
 
@@ -24,8 +26,12 @@ namespace Player
         }
         private void Start()
         {
+            _spawnPoint = new Vector3(DefaultSpawnPoss.position.x, transform.position.y, DefaultSpawnPoss.position.z);
             _backpack.LoadBackpack();
             SpawnPlayer();
+
+            if (vehicleZone.gameObject.activeSelf)
+                DisableVechicle();
         }
 
         private void Update()
@@ -46,6 +52,23 @@ namespace Player
         private void OnApplicationQuit()
         {
             _backpack.SaveBackpack();
+        }
+
+        public void DisableVechicle()
+        {
+            _movement.CanMoving = false;
+            mainCamera.gameObject.SetActive(false);
+            SpawnPlayer();
+            vehicleZone.gameObject.SetActive(true);
+            _movement.boxCollider.isTrigger = true;
+        }
+
+        public void EnableVechicle()
+        {
+            _movement.CanMoving = true;
+            _movement.boxCollider.isTrigger = false;
+            mainCamera.gameObject.SetActive(true);
+            vehicleZone.gameObject.SetActive(false);
         }
 
     }

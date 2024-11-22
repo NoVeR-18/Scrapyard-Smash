@@ -4,8 +4,8 @@
     {
         Null,
         Money,
-        Figure,
-        Form,
-        RepairKit
+        Car,
+        Trash,
+        Detail
     }
 }
