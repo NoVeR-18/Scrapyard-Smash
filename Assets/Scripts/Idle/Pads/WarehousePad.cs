@@ -22,8 +22,6 @@ public class WarehousePad : StoragePad
     }
     public override void Interact(Player.Player player)
     {
-        if (player.Backpack.RepairKitConteiner.CountItemTypeInSlots(ItemType) <= 0)
-            warehouse.produce();
         base.Interact(player);
     }
     public override void giveItemsToPlayer(Player.Player player)
@@ -31,14 +29,11 @@ public class WarehousePad : StoragePad
         if (ItemsContainer.Count == 0)
             return;
 
-        if (!player.Backpack.RepairKitConteiner.CanAddItem())
-            return;
 
         Item takenItem = null;
         if (!ItemsContainer.TakeItem(out takenItem))
             return;
 
-        player.Backpack.RepairKitConteiner.AddItem(takenItem);
     }
     IEnumerator Timer()
     {

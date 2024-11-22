@@ -76,8 +76,6 @@ public class RepairZone : StoragePad
             return;
 
         Item takenItem = null;
-        if (!player.Backpack.RepairKitConteiner.TakeItem(out takenItem))
-            return;
 
         ItemsContainer.AddItem(takenItem);
     }

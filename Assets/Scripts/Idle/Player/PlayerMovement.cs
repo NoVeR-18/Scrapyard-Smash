@@ -35,17 +35,17 @@ namespace Player
         private void move()
         {
             _inputMove = new Vector3(
-                applySensitivity(_controls.Horizontal),
+                _controls.Horizontal,
                 0,
-                applySensitivity(_controls.Vertical)
+                _controls.Vertical
                 );
 
-            _move = transform.forward * _inputMove.x + transform.right * -_inputMove.z;
-            _rigidbody.position = _rigidbody.position + _move;
+            _move = transform.right * _inputMove.x + transform.forward * _inputMove.z;
+            _rigidbody.MovePosition(_rigidbody.position + (_move * Time.deltaTime * _settings.Speed));
         }
         private void rotateModel()
         {
-            Vector3 rotationLookAtVector = Quaternion.AngleAxis(90, Vector3.up) * new Vector3(_controls.Horizontal, 0, _controls.Vertical);
+            Vector3 rotationLookAtVector = Quaternion.AngleAxis(0, Vector3.up) * new Vector3(_controls.Horizontal, 0, _controls.Vertical);
 
             if (rotationLookAtVector == Vector3.zero)
                 return;
@@ -55,10 +55,6 @@ namespace Player
                 Quaternion.LookRotation(rotationLookAtVector),
                 _settings.ModelRotationLerp * Time.deltaTime
                 );
-        }
-        private float applySensitivity(float value)
-        {
-            return _settings.SpeedSensitivityCurve.Evaluate(value);
         }
     }
 }

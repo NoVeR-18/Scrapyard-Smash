@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelEditor : EditorWindow
 {
+#if UNITY_EDITOR
     private static LevelManager levelManager;
     private LevelData levelData;
 
@@ -100,5 +101,5 @@ public class LevelEditor : EditorWindow
         }
     }
 
-
+#endif
 }

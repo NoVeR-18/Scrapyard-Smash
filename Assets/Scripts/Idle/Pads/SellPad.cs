@@ -11,7 +11,7 @@ public class SellPad : StoragePad
     [SerializeField] private Truck _truck;
     private void Start()
     {
-        _truck.ItemsCount.text = $"{ItemsContainer.Count}/{ItemsContainer.Capacity}";
+        //_truck.ItemsCount.text = $"{ItemsContainer.Count}/{ItemsContainer.Capacity}";
 
     }
     public override void CloseInteract()

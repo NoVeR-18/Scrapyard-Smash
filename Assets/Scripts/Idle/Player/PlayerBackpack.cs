@@ -11,10 +11,8 @@ namespace Player
     public class PlayerBackpack : MonoBehaviour
     {
         public ItemsContainer ItemsContainer { get => _itemsContainer; }
-        public ItemsContainer RepairKitConteiner { get => _repairKitConteiner; }
 
         [SerializeField] private ItemsContainer _itemsContainer;
-        [SerializeField] private ItemsContainer _repairKitConteiner;
         [SerializeField] private List<Item> itemPrefabs;
         private Player _player;
 
@@ -22,7 +20,6 @@ namespace Player
         {
             _player = GetComponent<Player>();
             _itemsContainer.Init(ItemType.Null);
-            _repairKitConteiner.Init(ItemType.RepairKit);
         }
 
         public void SaveBackpack()
