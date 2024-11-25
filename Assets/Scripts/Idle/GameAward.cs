@@ -26,6 +26,7 @@ public class GameAward : StoragePad
             return;
         if (takenItem.Type == Items.ItemType.Money)
         {
+            LevelManager.Instance.wallet.AddMoney(1);
             Destroy(takenItem.gameObject);
         }
     }

@@ -1,10 +1,12 @@
+using Player;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
-
+    public PlayerWallet wallet;
     [SerializeField] private Transform parentContainer; // Контейнер объектов уровня
     [SerializeField] private List<GameObject> prefabs; // Список префабов, связанных с типами объектов
 
@@ -42,41 +44,54 @@ public class LevelManager : MonoBehaviour
 
         Dictionary<string, ObjectData> objectGroups = new Dictionary<string, ObjectData>();
 
-        foreach (Transform child in parentContainer)
+        // Рекурсивный метод для обхода всех объектов, включая подгруппы
+        void SaveChildObjects(Transform parent)
         {
-            LevelObject levelObject = child.GetComponent<LevelObject>();
-            if (levelObject != null)
+            foreach (Transform child in parent)
             {
-                string prefabName = levelObject.Name; // Имя префаба
-                if (!prefabs.Exists(p => p.name == prefabName)) // Проверка существования префаба в списке
+                LevelObject levelObject = child.GetComponent<LevelObject>();
+                if (levelObject != null)
                 {
-                    Debug.LogError($"Prefab {prefabName} not found in prefabs list!");
-                    continue;
-                }
-
-                if (!objectGroups.ContainsKey(prefabName))
-                {
-                    objectGroups[prefabName] = new ObjectData
+                    string prefabName = levelObject.Name; // Имя префаба
+                    if (!prefabs.Exists(p => p.name == prefabName)) // Проверяем наличие префаба в списке
                     {
-                        prefabName = prefabName,
-                        objectType = levelObject.objectType
-                    };
+                        Debug.LogError($"Prefab {prefabName} not found in prefabs list!");
+                        continue;
+                    }
+
+                    if (!objectGroups.ContainsKey(prefabName))
+                    {
+                        objectGroups[prefabName] = new ObjectData
+                        {
+                            prefabName = prefabName,
+                            objectType = levelObject.objectType
+                        };
+                    }
+
+                    ObjectData group = objectGroups[prefabName];
+                    group.positions.Add(child.position);
+                    group.rotations.Add(child.rotation);
+                    group.scales.Add(child.localScale);
                 }
 
-                ObjectData group = objectGroups[prefabName];
-                group.positions.Add(child.position);
-                group.rotations.Add(child.rotation);
-                group.scales.Add(child.localScale);
+                // Рекурсивно обходим дочерние объекты
+                SaveChildObjects(child);
             }
         }
+
+        // Запускаем обход с основного контейнера
+        SaveChildObjects(parentContainer);
 
         foreach (var group in objectGroups.Values)
         {
             levelData.groupedObjects.Add(group);
         }
 
-        Debug.Log("Level saved to ScriptableObject!");
+        Debug.Log("Level saved to ScriptableObject, including parent-child hierarchy!");
     }
+
+
+
 
     public void LoadLevel(int levelIndex)
     {
@@ -94,13 +109,18 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel(LevelData levelData)
     {
         // Удаляем старые объекты
-        foreach (Transform child in parentContainer)
+        while (parentContainer.childCount > 0)
         {
-            DestroyImmediate(child.gameObject);
+            DestroyImmediate(parentContainer.GetChild(0).gameObject);
         }
 
+        // Словарь для хранения родительских объектов по типам
+        Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
+
+        // Загружаем новые объекты
         foreach (ObjectData group in levelData.groupedObjects)
         {
+            // Находим префаб
             GameObject prefab = prefabs.Find(p => p.name == group.prefabName);
 
             if (prefab == null)
@@ -109,16 +129,51 @@ public class LevelManager : MonoBehaviour
                 continue;
             }
 
+            // Получаем или создаем родительский объект для данного типа
+            if (!parentGroups.ContainsKey(group.objectType))
+            {
+                GameObject newParent = new GameObject(group.objectType.ToString());
+                newParent.transform.SetParent(parentContainer);
+                parentGroups[group.objectType] = newParent.transform;
+            }
+
+            Transform parentGroup = parentGroups[group.objectType];
+
+            // Создаем объекты
             for (int i = 0; i < group.positions.Count; i++)
             {
+                if (i >= group.positions.Count || i >= group.rotations.Count || i >= group.scales.Count)
+                {
+                    Debug.LogError("Invalid data in saved level!");
+                    continue;
+                }
+
                 Vector3 position = group.positions[i];
                 Quaternion rotation = group.rotations[i];
                 Vector3 scale = group.scales[i];
 
-                GameObject obj = Instantiate(prefab, position, rotation, parentContainer);
+                GameObject obj = null;
+
+#if UNITY_EDITOR
+                // Используем PrefabUtility для создания экземпляра префаба
+                obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parentGroup);
+#else
+            // Если не в редакторе, используем обычный Instantiate
+            obj = Instantiate(prefab, parentGroup);
+#endif
+
+                if (obj == null || obj.transform == null)
+                {
+                    Debug.LogError($"Failed to instantiate or find Transform for prefab {prefab.name}");
+                    continue;
+                }
+
+                // Применяем свойства
+                obj.transform.position = position;
+                obj.transform.rotation = rotation;
                 obj.transform.localScale = scale;
 
-                // Присваиваем тип объекта
+                // Назначаем тип объекта
                 LevelObject levelObject = obj.GetComponent<LevelObject>();
                 if (levelObject != null)
                 {
@@ -127,9 +182,22 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Level loaded from ScriptableObject!");
+        Debug.Log("Level loaded successfully and sorted by object types!");
     }
 
+
+
+    private GameObject FindObjectOnScene(string prefabName, Transform parentGroup)
+    {
+        foreach (Transform child in parentGroup)
+        {
+            if (child.name == prefabName)
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
     public void LoadNextLevel()
     {
         int nextLevelIndex = (currentLevelIndex + 1) % loadedLevels.Count;
