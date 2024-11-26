@@ -1,55 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3067142961157862337
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4774140954758077218}
-  - component: {fileID: 5526677184542107826}
-  m_Layer: 0
-  m_Name: PlayerBackpack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4774140954758077218
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3067142961157862337}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.12, y: 0, z: 3.97}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6027938957820402652}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5526677184542107826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3067142961157862337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8c37dd5c4a60c43a57825b50e0d894, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slotSize: 1
-  _storeItemType: 0
-  _capacity: 10
-  _sizeX: 3
-  _sizeZ: 3
-  _slotPrefab: {fileID: 2753802703129427108, guid: 5a5bcb85583f74e4cba507ca4ce65b97, type: 3}
 --- !u!1 &7149852988355726934
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +180,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   _modelContainer: {fileID: 6027938957820402652}
   _controls: {fileID: 0}
+  boxCollider: {fileID: 0}
   CanMoving: 1
 --- !u!114 &8387852067002226013
 MonoBehaviour:
@@ -260,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9422bf7e3d5e5140b42c2dd336cfe25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemsContainer: {fileID: 5526677184542107826}
+  _itemsContainer: {fileID: 4721576505281699045}
   itemPrefabs: []
 --- !u!65 &8714933255568778398
 BoxCollider:
@@ -337,12 +288,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1748320299459647015, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4774140954758077218}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+--- !u!114 &4721576505281699045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 748347779262140702, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+  m_PrefabInstance: {fileID: 5468709736209321467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8c37dd5c4a60c43a57825b50e0d894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6027938957820402652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1748320299459647015, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
