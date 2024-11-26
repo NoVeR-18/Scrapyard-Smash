@@ -22,7 +22,17 @@ namespace Player
         public BoxCollider boxCollider;
         private Vector3 _inputMove;
         private Vector3 _move;
+        public int MoveLevel = 0;
         public bool CanMoving = true;
+
+        [Header("Wheel Settings")]
+        [SerializeField] private Transform frontLeftWheel; // Передние колеса
+        [SerializeField] private Transform rearLeftWheel;  // Задние колеса
+        [SerializeField] private Transform rearRightWheel;
+        [SerializeField] private Transform frontRightWheel;
+        [SerializeField] private float wheelRotationSpeed = 360f; // Скорость вращения колес
+
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -35,6 +45,7 @@ namespace Player
             {
                 move();
                 rotateModel();
+                animateWheels();
             }
         }
         private void move()
@@ -46,7 +57,7 @@ namespace Player
                 );
 
             _move = transform.right * _inputMove.x + transform.forward * _inputMove.z;
-            _rigidbody.MovePosition(_rigidbody.position + (_move * Time.deltaTime * _settings.Speed));
+            _rigidbody.MovePosition(_rigidbody.position + (_move * Time.deltaTime * (_settings.Speed + MoveLevel * 0.1f)));
         }
         private void rotateModel()
         {
@@ -61,5 +72,51 @@ namespace Player
                 _settings.ModelRotationLerp * Time.deltaTime
                 );
         }
+        private void animateWheels()
+        {
+            // Рассчитываем скорость вращения колес при движении
+            float movementSpeed = _move.magnitude * _settings.Speed * wheelRotationSpeed * Time.deltaTime;
+
+            // Вращаем все колеса вокруг оси X (анимация движения)
+            if (frontLeftWheel != null)
+            {
+                frontLeftWheel.Rotate(Vector3.right, movementSpeed, Space.Self);
+            }
+            if (frontRightWheel != null)
+            {
+                frontRightWheel.Rotate(Vector3.right, -movementSpeed, Space.Self);
+            }
+            if (rearRightWheel != null)
+            {
+                rearRightWheel.Rotate(Vector3.right, -movementSpeed, Space.Self);
+            }
+            if (rearLeftWheel != null)
+            {
+                rearLeftWheel.Rotate(Vector3.right, movementSpeed, Space.Self);
+            }
+
+            //// Поворот передних колес (рулежка) по оси Y
+            //float steeringAngle = _controls.Horizontal * _settings.SteeringAngle; // Угол поворота рулежки
+
+            //if (frontLeftWheel != null && frontRightWheel != null)
+            //{
+            //    // Поворот переднего левого колеса (учитываем текущее вращение по X)
+            //    Quaternion leftWheelRotation = Quaternion.Euler(
+            //        frontLeftWheel.localRotation.x, // Текущее вращение по X
+            //        steeringAngle,                    // Угол поворота рулежки по Y
+            //        frontLeftWheel.rotation.z                                                       // Сохраняем текущий угол по Z
+            //    );
+            //    frontLeftWheel.localRotation = leftWheelRotation;
+
+            //    // Поворот переднего правого колеса (учитываем текущее вращение по X)
+            //    Quaternion rightWheelRotation = Quaternion.Euler(
+            //        frontRightWheel.localEulerAngles.x, // Текущее вращение по X
+            //        steeringAngle - 180f,                      // Угол поворота рулежки по Y
+            //        0  // Сохраняем текущий угол по Z
+            //    );
+            //    frontRightWheel.localRotation = rightWheelRotation;
+            //}
+        }
+
     }
 }

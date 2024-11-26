@@ -42,6 +42,13 @@ namespace Player
             }
         }
 
+        public bool CanWithdrawMoney(float amount)
+        {
+            if (Balance >= amount)
+                return true;
+            else
+                return false;
+        }
         private void SaveBalance()
         {
             PlayerPrefs.SetFloat(BalanceKey, Balance);

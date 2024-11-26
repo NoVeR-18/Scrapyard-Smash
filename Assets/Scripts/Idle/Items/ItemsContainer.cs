@@ -22,7 +22,7 @@ namespace Items.Container
             }
         }
         public int Capacity { get => _capacity; }
-
+        public int CapacityLevel = 0;
         private readonly int _maxTotalMultipleSlots = 500;
         [SerializeField] private float _slotSize = 1f;
 
@@ -37,11 +37,13 @@ namespace Items.Container
 
         public void Init(ItemType storeItemType)
         {
+            _capacity += CapacityLevel;
             _storeItemType = storeItemType;
             _slots = CreateSlots(transform, _capacity, _sizeX, _sizeZ);
         }
         public void Init()
         {
+            _capacity += CapacityLevel;
             _slots = CreateSlots(transform, _capacity, _sizeX, _sizeZ);
         }
         public ContainerSlot[] CreateSlots(Transform parent, int slotsCount, int sizeX = 3, int sizeZ = 3)

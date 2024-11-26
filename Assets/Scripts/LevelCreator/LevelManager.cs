@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    private const string CurrentLevelKey = "currentLevelIndexKey";
+
     public static LevelManager Instance { get; private set; }
     public PlayerWallet wallet;
     [SerializeField] private Transform parentContainer; // Контейнер объектов уровня
@@ -12,7 +14,8 @@ public class LevelManager : MonoBehaviour
 
     private List<LevelData> loadedLevels; // Список загруженных уровней
     public int currentLevelIndex; // Индекс текущего уровня
-
+    public int CarsOnScene = 0;
+    public int TrashOnScene = 0;
     private void Awake()
     {
         if (Instance == null)
@@ -27,7 +30,11 @@ public class LevelManager : MonoBehaviour
 
         LoadLevelsFromResources(); // Загружаем все уровни из папки Resources/Levels
     }
-
+    private void Start()
+    {
+        currentLevelIndex = PlayerPrefs.GetInt(CurrentLevelKey, 0);
+        LoadLevel(currentLevelIndex);
+    }
     private void LoadLevelsFromResources()
     {
         loadedLevels = new List<LevelData>(Resources.LoadAll<LevelData>("Levels"));
@@ -101,7 +108,6 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        currentLevelIndex = levelIndex;
         LevelData levelData = loadedLevels[levelIndex];
         LoadLevel(levelData);
     }
@@ -109,11 +115,25 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel(LevelData levelData)
     {
         // Удаляем старые объекты
-        while (parentContainer.childCount > 0)
+        if (Application.isPlaying)
         {
-            DestroyImmediate(parentContainer.GetChild(0).gameObject);
+            // Если в игровом режиме, используем Destroy
+            foreach (Transform child in parentContainer)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        else
+        {
+            // Если в редакторе, используем DestroyImmediate
+            while (parentContainer.childCount > 0)
+            {
+                DestroyImmediate(parentContainer.GetChild(0).gameObject);
+            }
         }
 
+        CarsOnScene = 0;
+        TrashOnScene = 0;
         // Словарь для хранения родительских объектов по типам
         Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
 
@@ -142,6 +162,10 @@ public class LevelManager : MonoBehaviour
             // Создаем объекты
             for (int i = 0; i < group.positions.Count; i++)
             {
+                if (group.objectType == ObjectType.Car)
+                    CarsOnScene++;
+                if (group.objectType == ObjectType.Trash)
+                    TrashOnScene++;
                 if (i >= group.positions.Count || i >= group.rotations.Count || i >= group.scales.Count)
                 {
                     Debug.LogError("Invalid data in saved level!");
@@ -155,8 +179,11 @@ public class LevelManager : MonoBehaviour
                 GameObject obj = null;
 
 #if UNITY_EDITOR
-                // Используем PrefabUtility для создания экземпляра префаба
-                obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parentGroup);
+                if (!Application.isPlaying)
+                    // Используем PrefabUtility для создания экземпляра префаба
+                    obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parentGroup);
+                else
+                    obj = Instantiate(prefab, parentGroup);
 #else
             // Если не в редакторе, используем обычный Instantiate
             obj = Instantiate(prefab, parentGroup);
@@ -201,6 +228,7 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         int nextLevelIndex = (currentLevelIndex + 1) % loadedLevels.Count;
+        PlayerPrefs.SetInt(CurrentLevelKey, nextLevelIndex);
         LoadLevel(nextLevelIndex);
     }
 
@@ -208,5 +236,13 @@ public class LevelManager : MonoBehaviour
     {
         int prevLevelIndex = (currentLevelIndex - 1 + loadedLevels.Count) % loadedLevels.Count;
         LoadLevel(prevLevelIndex);
+    }
+    public void CheckWining()
+    {
+        if (CarsOnScene > 0) return;
+        if (TrashOnScene > 0) return;
+
+        Debug.Log("Wining");
+        LoadNextLevel();
     }
 }

@@ -28,6 +28,10 @@ public class Item : MonoBehaviour
         if (other.tag == "Player" && CanTake)
         {
             var player = other.GetComponent<Player.Player>();
+
+            if (!player.Backpack.ItemsContainer.CanAddItem())
+                return;
+
             player.Backpack.ItemsContainer.AddItem(this);
             CanTake = false;
         }

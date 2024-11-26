@@ -24,7 +24,7 @@ namespace Player
             _movement = GetComponent<PlayerMovement>();
             _wallet = GetComponent<PlayerWallet>();
         }
-        private void Start()
+        virtual public void Start()
         {
             _spawnPoint = new Vector3(DefaultSpawnPoss.position.x, transform.position.y, DefaultSpawnPoss.position.z);
             _backpack.LoadBackpack();

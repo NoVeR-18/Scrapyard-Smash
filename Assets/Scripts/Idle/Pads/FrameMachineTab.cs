@@ -1,3 +1,4 @@
+
 public class FrameMachineTab : StoragePad
 {
     public SellPad sellPad;
@@ -7,6 +8,19 @@ public class FrameMachineTab : StoragePad
         {
             base.Interact(other.gameObject.GetComponent<Player.Player>());
         }
+    }
+    public override void takeItemsFromPlayer(Player.Player player)
+    {
+        if (!ItemsContainer.CanAddItem())
+            return;
+
+        Item takenItem = null;
+        if (!player.Backpack.ItemsContainer.TakeItem(out takenItem, ItemType))
+            return;
+
+        ItemsContainer.AddItem(takenItem);
+        LevelManager.Instance.CarsOnScene--;
+        LevelManager.Instance.CheckWining();
     }
     private void FixedUpdate()
     {
