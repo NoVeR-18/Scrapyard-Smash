@@ -242,6 +242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9183537783719631419}
     m_Modifications:
+    - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Time
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1748320299459647015, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -285,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 3121410049507715885, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Name
       value: Magnet_Car1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Time
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
