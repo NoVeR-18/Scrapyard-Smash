@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8627,7 +8627,7 @@ PrefabInstance:
     - target: {fileID: 8128845104977701136, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: rearRightWheel
       value: 
-      objectReference: {fileID: 137349854}
+      objectReference: {fileID: 0}
     - target: {fileID: 8128845104977701136, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: frontRightWheel
       value: 
@@ -8651,7 +8651,7 @@ PrefabInstance:
     - target: {fileID: 8128845104977701136, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: rearWheels.Array.data[1]
       value: 
-      objectReference: {fileID: 137349854}
+      objectReference: {fileID: 0}
     - target: {fileID: 8128845104977701136, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: frontWheels.Array.data[0]
       value: 
@@ -25556,6 +25556,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1503000015941620038, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2040667081034570305, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_SizeDelta.x
       value: 334.64
@@ -25570,6 +25574,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2040667081034570305, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125316531362610609, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2594855468344965879, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
@@ -25676,6 +25684,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -102
       objectReference: {fileID: 0}
+    - target: {fileID: 4164248578938143829, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4559229504961192845, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -25728,9 +25740,17 @@ PrefabInstance:
       propertyPath: m_FillMethod
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6991567499356212229, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7710530239139046202, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_Name
       value: Canvas_main
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739343091479107333, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8235593170735654188, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
@@ -30633,3 +30653,4 @@ SceneRoots:
   - {fileID: 342024654}
   - {fileID: 1701691298}
   - {fileID: 1855711879}
+  - {fileID: 1852059034}
