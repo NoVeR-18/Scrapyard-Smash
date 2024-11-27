@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7505,6 +7505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 1434137633}
+  TutorialSwipe: {fileID: 0}
 --- !u!1001 &502646914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10385,6 +10386,10 @@ PrefabInstance:
       propertyPath: _controls
       value: 
       objectReference: {fileID: 500946986}
+    - target: {fileID: 8128845104977701136, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
+      propertyPath: TutorialSwipe
+      value: 
+      objectReference: {fileID: 1745209491}
     - target: {fileID: 8128845104977701136, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: rearLeftWheel
       value: 
@@ -27185,6 +27190,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8670253327725746708, guid: 705ae527afbbc864b9b24074e2881657, type: 3}
   m_PrefabInstance: {fileID: 1744848928}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1745209491 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7427521780509506161, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1747062287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28931,6 +28941,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1503000015941620038, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2040667081034570305, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_SizeDelta.x
       value: 334.64
@@ -28945,6 +28959,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2040667081034570305, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125316531362610609, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583264017913178361, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2594855468344965879, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
@@ -29075,6 +29097,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -4.724
       objectReference: {fileID: 0}
+    - target: {fileID: 5879959954882748602, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275083751608720140, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6333059376226331647, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -29101,6 +29131,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6890215352657916127, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991567499356212229, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7710530239139046202, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
@@ -34504,6 +34538,10 @@ PrefabInstance:
       propertyPath: _controls
       value: 
       objectReference: {fileID: 500946986}
+    - target: {fileID: 2803939097798210927, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
+      propertyPath: TutorialSwipe
+      value: 
+      objectReference: {fileID: 1745209491}
     - target: {fileID: 2803939097798210927, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
       propertyPath: rearLeftWheel
       value: 
