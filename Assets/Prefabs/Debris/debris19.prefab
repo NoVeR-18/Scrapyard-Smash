@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6713958985014348930}
   - component: {fileID: 8244699510786946600}
   - component: {fileID: 8065329557004970339}
+  - component: {fileID: 6430529385290090148}
   m_Layer: 0
   m_Name: debris19
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6430529385290090148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969612907667253505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0aa3ce0d7f0c340bb4aea34fc8a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 0
+  Name: debris19
