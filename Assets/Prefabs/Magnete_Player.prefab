@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings:
-    _speed: 5
+    _speed: 6
     _modelRotationLerp: 0.1
     _speedSensitivityCurve:
       serializedVersion: 2
@@ -178,10 +178,17 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    _steeringAngle: 30
   _modelContainer: {fileID: 3700224247514678107}
   _controls: {fileID: 0}
   boxCollider: {fileID: 0}
+  MoveLevel: 0
   CanMoving: 1
+  frontLeftWheel: {fileID: 0}
+  rearLeftWheel: {fileID: 0}
+  rearRightWheel: {fileID: 0}
+  frontRightWheel: {fileID: 0}
+  wheelRotationSpeed: 360
 --- !u!114 &7473464867745970863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +296,10 @@ PrefabInstance:
     - target: {fileID: 3121410049507715885, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Name
       value: Magnet_Car1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272609329256914888, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: _capacity
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Time

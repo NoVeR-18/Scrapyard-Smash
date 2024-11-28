@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class Forkliff : Player.Player
+public class Magnete : Player.Player
 {
     public int SpeedLevel;
     public int WeightLevel;
+    public int MagnetLevel;
 
-    const string SpeedKey = "SpeedKey";
-    const string WeightKey = "WeightKey";
+    const string SpeedKey = "MagneteSpeedKey";
+    const string WeightKey = "MagneteWeightKey";
+    const string MagnetKey = "MagneteMagnetKey";
 
     // Start is called before the first frame update
     public override void Start()
@@ -19,6 +21,7 @@ public class Forkliff : Player.Player
     {
         SpeedLevel = PlayerPrefs.GetInt(SpeedKey, 0);
         WeightLevel = PlayerPrefs.GetInt(WeightKey, 0);
+        MagnetLevel = PlayerPrefs.GetInt(MagnetKey, 0);
         Movement.MoveLevel = SpeedLevel;
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         Backpack.ItemsContainer.Init();
@@ -41,5 +44,12 @@ public class Forkliff : Player.Player
         PlayerPrefs.SetInt(SpeedKey, SpeedLevel);
 
         Movement.MoveLevel = SpeedLevel;
+    }
+    public void UpgradeMagnete()
+    {
+        MagnetLevel++;
+
+        PlayerPrefs.SetInt(MagnetKey, MagnetLevel);
+
     }
 }

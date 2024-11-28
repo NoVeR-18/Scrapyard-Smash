@@ -1,148 +1,44 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UpgradePanel : MonoBehaviour
 {
-    public ExperienceTable experienceTable;
-    public Button closeButton;
-    public Transform UpgradePanelTransform;
-    public Forkliff forkliff;
-    [Header("Speed")]
-    public Button SpeedUpgradeButton;
-    public Image SpeedLevelFillAmount;
-    public TextMeshProUGUI SpeedUpgradeCostText;
-    public TextMeshProUGUI SpeedLevelText;
-    public Transform SpeedUpgradeBlocked;
-    public TextMeshProUGUI SpeedBlockedCostText;
-    public Transform SpeedUpgradeMax;
+    public ForkliffUpgradeTab forkliffUpgradeTab;
+    public MagneteUpgradeTab magneteUpgradeTab;
 
-    [Header("Weight")]
-    public Button WeightUpgradeButton;
-    public Image WeightLevelFillAmount;
-    public TextMeshProUGUI WeightUpgradeCostText;
-    public TextMeshProUGUI WeightLevelText;
-    public Transform WeightUpgradeBlocked;
-    public TextMeshProUGUI WeightBlockedCostText;
-    public Transform WeightUpgradeMax;
+    public Button forkliffOpenButton;
+    public Button magneteOpenButton;
 
     private void Start()
     {
-        UpdatePanel();
-        closeButton.onClick.AddListener(() => { CloseTab(); });
-
-        SpeedUpgradeButton.onClick.AddListener(() => { OnUpgradeSpeedButton(); });
-        WeightUpgradeButton.onClick.AddListener(() => { OnUpgradeWeightButton(); });
-        if (experienceTable == null)
-            experienceTable = Resources.Load<ExperienceTable>("ExperienceTable");
+        forkliffOpenButton.onClick.AddListener(() => { OpenForkliffTab(); });
+        magneteOpenButton.onClick.AddListener(() => { OpenMagneteTab(); });
     }
 
-
-    public void OnUpgradeSpeedButton()
+    public void OpenTab(Player.Player player)
     {
-        if (forkliff != null)
+        if (player as Magnete)
         {
-            var currentLevel = experienceTable.experiencePerLevel[forkliff.SpeedLevel];
-            if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
-            {
-                forkliff.UpgradeSpeed();
-                UpdatePanel();
-            }
-            else
-            {
-                Debug.Log("������������ ������ ��� ��������� �����������.");
-            }
+            OpenMagneteTab();
         }
-
-    }
-
-    public void OnUpgradeWeightButton()
-    {
-        if (forkliff != null)
+        else if (player as Forkliff)
         {
-            var currentLevel = experienceTable.experiencePerLevel[forkliff.WeightLevel];
-            if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
-            {
-                forkliff.UpgradeWeight();
-                UpdatePanel();
-            }
-            else
-            {
-                Debug.Log("������������ ������ ��� ��������� �����������.");
-            }
+            OpenForkliffTab();
         }
     }
 
 
-    private void UpdatePanel()
+    private void OpenMagneteTab()
     {
-        if (forkliff != null)
-        {
-
-            SpeedUpgradeCostText.text = experienceTable.experiencePerLevel[forkliff.SpeedLevel].ToString();
-            WeightUpgradeCostText.text = experienceTable.experiencePerLevel[forkliff.WeightLevel].ToString();
-            SpeedLevelText.text = forkliff.SpeedLevel.ToString();
-            WeightLevelText.text = forkliff.WeightLevel.ToString();
-            SpeedLevelFillAmount.fillAmount = (float)forkliff.SpeedLevel / experienceTable.experiencePerLevel.Count;
-            WeightLevelFillAmount.fillAmount = (float)forkliff.WeightLevel / experienceTable.experiencePerLevel.Count;
-
-            if (forkliff.SpeedLevel == experienceTable.experiencePerLevel.Count)
-            {
-                SpeedUpgradeMax.gameObject.SetActive(true);
-            }
-            else
-            {
-                SpeedUpgradeMax.gameObject.SetActive(false);
-
-                var currentCost = experienceTable.experiencePerLevel[forkliff.SpeedLevel];
-                if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
-                {
-                    SpeedUpgradeBlocked.gameObject.SetActive(true);
-                    SpeedBlockedCostText.text = currentCost.ToString();
-                    SpeedUpgradeButton.gameObject.SetActive(false);
-                }
-                else
-                {
-                    SpeedUpgradeBlocked.gameObject.SetActive(false);
-                    SpeedUpgradeButton.gameObject.SetActive(true);
-                    SpeedUpgradeCostText.text = $"{experienceTable.experiencePerLevel[forkliff.SpeedLevel]}";
-                }
-            }
-            if (forkliff.WeightLevel == experienceTable.experiencePerLevel.Count)
-            {
-                WeightUpgradeMax.gameObject.SetActive(true);
-            }
-            else
-            {
-                WeightUpgradeMax.gameObject.SetActive(false);
-
-                var currentCost = experienceTable.experiencePerLevel[forkliff.WeightLevel];
-                if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
-                {
-                    WeightUpgradeBlocked.gameObject.SetActive(true);
-                    WeightBlockedCostText.text = currentCost.ToString();
-                    WeightUpgradeButton.gameObject.SetActive(false);
-                }
-                else
-                {
-                    WeightUpgradeBlocked.gameObject.SetActive(false);
-                    WeightUpgradeButton.gameObject.SetActive(true);
-                    WeightUpgradeCostText.text = $"{experienceTable.experiencePerLevel[forkliff.WeightLevel]}";
-                }
-            }
-        }
+        magneteUpgradeTab.gameObject.SetActive(true);
+        forkliffUpgradeTab.gameObject.SetActive(false);
     }
 
-    public void CloseTab()
+    private void OpenForkliffTab()
     {
-        UpgradePanelTransform.gameObject.SetActive(false);
+        magneteUpgradeTab.gameObject.SetActive(false);
+        forkliffUpgradeTab.gameObject.SetActive(true);
     }
-    public void AddCoins()
-    {
-        LevelManager.Instance.wallet.AddMoney(1000);
-    }
-    private void OnEnable()
-    {
-        UpdatePanel();
-    }
+
+
 }
