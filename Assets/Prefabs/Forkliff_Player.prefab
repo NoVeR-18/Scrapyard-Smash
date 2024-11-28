@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings:
-    _speed: 5
+    _speed: 6
     _modelRotationLerp: 50
     _speedSensitivityCurve:
       serializedVersion: 2
@@ -178,10 +178,17 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    _steeringAngle: 30
   _modelContainer: {fileID: 6027938957820402652}
   _controls: {fileID: 0}
   boxCollider: {fileID: 0}
+  MoveLevel: 0
   CanMoving: 1
+  frontLeftWheel: {fileID: 0}
+  rearLeftWheel: {fileID: 0}
+  rearRightWheel: {fileID: 0}
+  frontRightWheel: {fileID: 0}
+  wheelRotationSpeed: 360
 --- !u!114 &8387852067002226013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +249,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1957985867103856701}
     m_Modifications:
+    - target: {fileID: 748347779262140702, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: _sizeX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 748347779262140702, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: _sizeZ
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 748347779262140702, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: _capacity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1748320299459647015, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
