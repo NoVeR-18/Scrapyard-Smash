@@ -1,29 +1,17 @@
-using TMPro;
 using UnityEngine;
 
 public class UpgradeTab : StoragePad
 {
-    [SerializeField] private TextMeshPro text;
-    [SerializeField] private float _costUpgrade = 50f;
-    private float _spendetCoin = 0;
-    private void Start()
+    [SerializeField] private UpgradePanel upgradePanel;
+    public override void Interact(Player.Player player)
     {
-        UpdateUI();
+        upgradePanel.gameObject.SetActive(true);
+        upgradePanel.OpenTab(player);
     }
+
     public override void CloseInteract()
     {
-        base.CloseInteract();
-        text.text = "Update";
+        upgradePanel.gameObject.SetActive(false);
     }
-    //void OnTriggerStay(Collider collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        Interact(collision.gameObject.GetComponent<Player.Player>());
-    //    }
-    //}
-    void UpdateUI()
-    {
-        text.text = $"Upgrade \n{_spendetCoin}/{_costUpgrade}";
-    }
+
 }

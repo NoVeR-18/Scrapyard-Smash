@@ -22303,7 +22303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6820939759102612619}
-  - component: {fileID: 6727766653552430221}
+  - component: {fileID: 2538897452241469517}
   m_Layer: 5
   m_Name: forkliff_tab
   m_TagString: Untagged
@@ -22336,7 +22336,7 @@ RectTransform:
   m_AnchoredPosition: {x: 102, y: 980}
   m_SizeDelta: {x: -95.06641, y: 1078.4175}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6727766653552430221
+--- !u!114 &2538897452241469517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22345,27 +22345,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 4896144179875981947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 312dcc81fc8647c4b8ea13bdb05a75c6, type: 3}
+  m_Script: {fileID: 11500000, guid: df9035cc70448874da1e428c32a71c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   experienceTable: {fileID: 11400000, guid: 9d9ff2604ea86404aaa356ba0e8d4401, type: 2}
   closeButton: {fileID: 4174282088153248242}
   UpgradePanelTransform: {fileID: 5010596449578649828}
   forkliff: {fileID: 0}
-  SpeedUpgradeButton: {fileID: 7286742202287464231}
+  SpeedUpgradeButton: {fileID: 0}
   SpeedLevelFillAmount: {fileID: 946909754271181952}
   SpeedUpgradeCostText: {fileID: 8350337922620694275}
   SpeedLevelText: {fileID: 3585276022345065214}
   SpeedUpgradeBlocked: {fileID: 8290711759947059954}
   SpeedBlockedCostText: {fileID: 5769562725709933306}
-  SpeedUpgradeMax: {fileID: 8290711759947059954}
-  WeightUpgradeButton: {fileID: 335281399651030844}
+  SpeedUpgradeMax: {fileID: 8896593899446182807}
+  WeightUpgradeButton: {fileID: 0}
   WeightLevelFillAmount: {fileID: 6890215352657916127}
   WeightUpgradeCostText: {fileID: 1333248134667486811}
   WeightLevelText: {fileID: 7081278824601534494}
   WeightUpgradeBlocked: {fileID: 4083538448693568026}
   WeightBlockedCostText: {fileID: 2011376345702432882}
-  WeightUpgradeMax: {fileID: 4083538448693568026}
+  WeightUpgradeMax: {fileID: 4498638052435447214}
 --- !u!1 &4904137166800705015
 GameObject:
   m_ObjectHideFlags: 0
@@ -30214,7 +30214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6727766653552430221}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UpgradePanel, Assembly-CSharp
         m_MethodName: AddCoins
         m_Mode: 1

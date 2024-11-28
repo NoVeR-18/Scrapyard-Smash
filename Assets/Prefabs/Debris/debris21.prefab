@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7015459263149582507}
   - component: {fileID: 3700908567618036415}
   - component: {fileID: 3610901258574544490}
+  - component: {fileID: 4418557446721209874}
+  - component: {fileID: 6655073990925605113}
   m_Layer: 0
   m_Name: debris21
   m_TagString: Untagged
@@ -96,5 +98,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0aa3ce0d7f0c340bb4aea34fc8a279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectType: 0
+  objectType: 2
   Name: debris21
+--- !u!114 &4418557446721209874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443303165932394599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d4558570a876b48aea0c31a1b02ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemType: 3
+  _itemRotationLerp: 10
+  CanTake: 1
+--- !u!65 &6655073990925605113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443303165932394599}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1919687, y: 1.4466407, z: 1.1919687}
+  m_Center: {x: -0.013298124, y: 0.114709646, z: -0.029263616}

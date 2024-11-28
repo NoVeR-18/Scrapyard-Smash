@@ -77,6 +77,30 @@ namespace Items.Container
                 y++;
             }
         }
+
+        public void AddContainer(int additionalSlots)
+        {
+            // Увеличиваем максимальную емкость
+            int newCapacity = _capacity + additionalSlots;
+            if (newCapacity > _maxTotalMultipleSlots)
+            {
+                throw new ArgumentOutOfRangeException($"Cannot exceed the maximum number of slots ({_maxTotalMultipleSlots}).");
+            }
+
+            List<ContainerSlot> newSlots = new List<ContainerSlot>();
+            // Создаем новые слоты
+            for (int i = 0; additionalSlots > i; i++)
+            {
+                newSlots.Add(instantiateSlotPrefab(transform));
+            }
+
+            // Объединяем существующие и новые слоты
+            _slots = _slots.Concat(newSlots).ToArray();
+
+            // Обновляем текущую емкость
+            _capacity = newCapacity;
+        }
+
         private ContainerSlot instantiateSlotPrefab(Transform parent)
         {
             ContainerSlot instance = Instantiate(_slotPrefab, parent);

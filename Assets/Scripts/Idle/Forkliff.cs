@@ -31,7 +31,7 @@ public class Forkliff : Player.Player
         PlayerPrefs.SetInt(WeightKey, WeightLevel);
 
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
-        Backpack.ItemsContainer.Init();
+        Backpack.ItemsContainer.AddContainer(1);
     }
 
     public void UpgradeSpeed()

@@ -20,7 +20,7 @@ namespace Player
         private void Awake()
         {
             _player = GetComponent<Player>();
-            _itemsContainer.Init();
+            //_itemsContainer.Init();
         }
 
         public void SaveBackpack()
