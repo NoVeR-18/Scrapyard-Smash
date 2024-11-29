@@ -4453,6 +4453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallet: {fileID: 342024653}
+  victoryTab: {fileID: 1668693742}
   parentContainer: {fileID: 1484826460}
   prefabs:
   - {fileID: 8664994168961869668, guid: 1ef531770deb3f04b856ea7eed8cb77a, type: 3}
@@ -13511,6 +13512,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5443538307072992576, guid: edc6e57332cdb2a4f8d6d78c62561f22, type: 3}
   m_PrefabInstance: {fileID: 686483111}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &686975103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7739343091479107333, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &686975104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6358339162779954487, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &686975105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686975103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &691971908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1778905071381059428, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
@@ -31749,8 +31810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fc7874c7ec0bb44aaee49bc49d7b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceTable: {fileID: 0}
-  AwardCount: {fileID: 0}
+  experienceTable: {fileID: 11400000, guid: 9d9ff2604ea86404aaa356ba0e8d4401, type: 2}
+  AwardCount: {fileID: 686975104}
+  takeButton: {fileID: 686975105}
 --- !u!1001 &1669482874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35540,7 +35602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2125316531362610609, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2512759032303169477, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
@@ -35956,6 +36018,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2125316531362610609, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1668693742}
+    - targetCorrespondingSourceObject: {fileID: 7739343091479107333, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 686975105}
   m_SourcePrefab: {fileID: 100100000, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
 --- !u!114 &1852059035 stripped
 MonoBehaviour:
