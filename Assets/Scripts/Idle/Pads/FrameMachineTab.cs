@@ -29,7 +29,7 @@ public class FrameMachineTab : StoragePad
             Item item;
             ItemsContainer.TakeItem(out item);
             sellPad.ItemsContainer.AddItem(item);
-            sellPad.StartCoroutine(sellPad.Sell());
+            StartCoroutine(sellPad.Sell());
         }
     }
 }

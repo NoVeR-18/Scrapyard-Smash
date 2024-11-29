@@ -11,6 +11,9 @@ public class SellPad : StoragePad
     public StoragePad OutputStoragePads;
     public float timeToSell = 2f;
 
+    public Animator animator;
+    public ParticleSystem particle;
+
     public override void OnTriggerEnter(Collider other)
     {
     }
@@ -20,13 +23,16 @@ public class SellPad : StoragePad
 
     public IEnumerator Sell()
     {
-        yield return new WaitForSeconds(timeToSell);
+        animator?.SetTrigger("Crash");
+        yield return new WaitForSeconds(timeToSell / 2);
         if (!OutputStoragePads.ItemsContainer.CanAddItem())
             StopCoroutine(Sell());
         if (!ItemsContainer.CanTakeItem())
             StopCoroutine(Sell());
+        particle?.Play();
+        ItemsContainer.gameObject.SetActive(false);
 
-
+        yield return new WaitForSeconds(timeToSell / 2);
 
         if (Type == StorageBuildingType.Input)
         {
@@ -42,6 +48,7 @@ public class SellPad : StoragePad
             }
             newItem.transform.position = OutputStoragePads.transform.position;
         }
+        ItemsContainer.gameObject.SetActive(true);
     }
 }
 
