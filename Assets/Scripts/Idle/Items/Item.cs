@@ -32,8 +32,13 @@ public class Item : MonoBehaviour
             if (!player.Backpack.ItemsContainer.CanAddItem())
                 return;
 
-            player.Backpack.ItemsContainer.AddItem(this);
-            CanTake = false;
+            if (player.Backpack.ItemsContainer.AddItem(this))
+            {
+                CanTake = false;
+                Destroy(GetComponent<BoxCollider>());
+
+            }
+
         }
     }
 

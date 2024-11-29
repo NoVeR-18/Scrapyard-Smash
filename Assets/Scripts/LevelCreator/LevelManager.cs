@@ -11,16 +11,21 @@ public class LevelManager : MonoBehaviour
     public PlayerWallet wallet;
     public VictoryTab victoryTab;
 
+    public Transform nextLevel;
 
     [SerializeField] private Transform parentContainer; // Контейнер объектов уровня
     [SerializeField] private List<GameObject> prefabs; // Список префабов, связанных с типами объектов
 
-
+    [SerializeField] private List<Player.Player> vechicles;
+    [SerializeField] private Player.Player ufo;
 
     private List<LevelData> loadedLevels; // Список загруженных уровней
     public int currentLevelIndex; // Индекс текущего уровня
-    public int CarsOnScene = 0;
-    public int TrashOnScene = 0;
+    public int CarsCollected = 0;
+    public int TrashCollected = 0;
+    private int CarsOnScene = 0;
+    private int TrashOnScene = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -137,8 +142,11 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        CarsCollected = 0;
         CarsOnScene = 0;
+        TrashCollected = 0;
         TrashOnScene = 0;
+        nextLevel.gameObject.SetActive(false);
         // Словарь для хранения родительских объектов по типам
         Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
 
@@ -235,6 +243,20 @@ public class LevelManager : MonoBehaviour
         int nextLevelIndex = (currentLevelIndex + 1) % loadedLevels.Count;
         PlayerPrefs.SetInt(CurrentLevelKey, nextLevelIndex);
         LoadLevel(nextLevelIndex);
+
+        if (nextLevelIndex % 5 == 0)
+        {
+            foreach (var player in vechicles)
+            {
+                player.DisableVechicle();
+            }
+            ufo.EnableVechicle();
+        }
+        else
+        {
+            vechicles[0].EnableVechicle();
+        }
+
     }
 
     public void LoadPreviousLevel()
@@ -244,12 +266,21 @@ public class LevelManager : MonoBehaviour
     }
     public void CheckWining()
     {
-        if (CarsOnScene > 0) return;
-        if (TrashOnScene > 0) return;
+        if (CarsCollected < (0.9f * CarsOnScene) || TrashCollected < (0.9f * TrashOnScene))
+            return;
+        if (CarsCollected > (0.9f * CarsOnScene) || TrashCollected > (0.9f * TrashOnScene))
+        {
+            nextLevel.gameObject.SetActive(true);
+            if ((CarsCollected < CarsOnScene) || (TrashCollected < TrashOnScene))
+                return;
+            else
+            {
+                victoryTab.OpenTab();
+
+                Debug.Log("Wining");
+            }
+        }
 
 
-        victoryTab.OpenTab();
-
-        Debug.Log("Wining");
     }
 }

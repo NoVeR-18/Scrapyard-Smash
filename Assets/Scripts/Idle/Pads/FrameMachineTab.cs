@@ -19,7 +19,7 @@ public class FrameMachineTab : StoragePad
             return;
 
         ItemsContainer.AddItem(takenItem);
-        LevelManager.Instance.CarsOnScene--;
+        LevelManager.Instance.CarsCollected++;
         LevelManager.Instance.CheckWining();
     }
     private void FixedUpdate()
@@ -29,7 +29,7 @@ public class FrameMachineTab : StoragePad
             Item item;
             ItemsContainer.TakeItem(out item);
             sellPad.ItemsContainer.AddItem(item);
-            StartCoroutine(sellPad.Sell());
+            sellPad.StartCoroutine(sellPad.Sell());
         }
     }
 }

@@ -63,7 +63,6 @@ public class MagneteUpgradeTab : MonoBehaviour
                 Debug.Log("недостаточно денег для увеличения скорости.");
             }
         }
-
     }
 
     public void OnUpgradeWeightButton()
@@ -73,7 +72,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             var currentLevel = experienceTable.experiencePerLevel[magnete.WeightLevel];
             if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
             {
-                magnete.UpgradeMagnete();
+                magnete.UpgradeWeight();
                 UpdatePanel();
             }
             else
@@ -90,7 +89,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             var currentLevel = experienceTable.experiencePerLevel[magnete.MagnetLevel];
             if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
             {
-                magnete.UpgradeWeight();
+                magnete.UpgradeMagnete();
                 UpdatePanel();
             }
             else
