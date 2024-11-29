@@ -57,7 +57,7 @@ namespace Player
                 );
 
             _move = transform.right * _inputMove.x + transform.forward * _inputMove.z;
-            _rigidbody.MovePosition(_rigidbody.position + (_move * Time.deltaTime * (_settings.Speed + MoveLevel * 0.1f)));
+            _rigidbody.MovePosition(_rigidbody.position + (_move * Time.deltaTime * ((_settings.Speed + MoveLevel * 0.5f))));
         }
         private void rotateModel()
         {
