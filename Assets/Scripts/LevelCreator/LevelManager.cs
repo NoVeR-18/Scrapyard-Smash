@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private List<Player.Player> vechicles;
     [SerializeField] private Player.Player ufo;
-
+    [SerializeField]
     private List<LevelData> loadedLevels; // Список загруженных уровней
     public int currentLevelIndex; // Индекс текущего уровня
     public int CarsCollected = 0;
@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
     }
     private void LoadLevelsFromResources()
     {
-        loadedLevels = new List<LevelData>(Resources.LoadAll<LevelData>("Levels"));
+        //loadedLevels = new List<LevelData>(Resources.LoadAll<LevelData>("Levels"));
 
         if (loadedLevels.Count == 0)
         {
@@ -120,13 +120,14 @@ public class LevelManager : MonoBehaviour
 
         LevelData levelData = loadedLevels[levelIndex];
 
-        if ((levelIndex - 1) % 5 == 0)
+        if ((levelIndex + 1) % 5 == 0 && levelIndex > 0)
         {
             foreach (var player in vechicles)
             {
                 player.DisableVechicle();
             }
             ufo.EnableVechicle();
+            ufo.SpawnPlayer();
         }
         else
         {
@@ -253,9 +254,11 @@ public class LevelManager : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        int nextLevelIndex = (currentLevelIndex + 1) % loadedLevels.Count;
-        PlayerPrefs.SetInt(CurrentLevelKey, nextLevelIndex);
-        LoadLevel(nextLevelIndex);
+        currentLevelIndex++;//= (currentLevelIndex + 1);
+        if (currentLevelIndex >= loadedLevels.Count)
+            currentLevelIndex = 0;
+        PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
+        LoadLevel(currentLevelIndex);
 
 
     }
@@ -276,6 +279,7 @@ public class LevelManager : MonoBehaviour
                 return;
             else
             {
+                nextLevel.gameObject.SetActive(false);
                 victoryTab.OpenTab();
 
                 Debug.Log("Wining");

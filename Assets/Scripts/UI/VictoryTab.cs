@@ -30,15 +30,29 @@ public class VictoryTab : MonoBehaviour
     private void TakeAward()
     {
         levelManager.wallet.AddMoney(experienceTable.AwardLevelComplete[levelManager.currentLevelIndex]);
-        levelManager.LoadNextLevel();
         CloseTab();
         foreach (Player.Player player in players)
         {
             player.SpawnPlayer();
+            player.DisableVechicle();
         }
         players[0]?.Movement._controls.EnableTutorial();
+        players[0]?.EnableVechicle();
+        levelManager.LoadNextLevel();
     }
+    public void NextLevel()
+    {
+        CloseTab();
+        foreach (Player.Player player in players)
+        {
+            player.SpawnPlayer();
+            player.DisableVechicle();
+        }
+        players[0]?.Movement._controls.EnableTutorial();
+        players[0]?.EnableVechicle();
+        levelManager.LoadNextLevel();
 
+    }
     public void OpenTab()
     {
         gameObject.SetActive(true);

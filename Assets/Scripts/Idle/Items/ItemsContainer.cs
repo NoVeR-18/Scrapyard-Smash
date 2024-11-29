@@ -150,6 +150,37 @@ namespace Items.Container
             // Обновляем текущую емкость
             _capacity = newCapacity;
         }
+        public void AddCloselyContainer(int additionalSlots)
+        {
+            // Увеличиваем максимальную емкость
+            int newCapacity = _capacity + additionalSlots;
+            if (newCapacity > _maxTotalMultipleSlots)
+            {
+                throw new ArgumentOutOfRangeException($"Cannot exceed the maximum number of slots ({_maxTotalMultipleSlots}).");
+            }
+
+            List<ContainerSlot> newSlots = new List<ContainerSlot>();
+            // Создаем новые слоты
+            for (int i = 0; additionalSlots > i; i++)
+            {
+                for (int x = 0; x < _sizeX; x++)
+                {
+                    for (int z = 0; z < _sizeZ; z++)
+                    {
+                        ContainerSlot slot = instantiateSlotPrefab(transform);
+                        slot.transform.localPosition = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+                        slot.transform.localRotation = Quaternion.identity;
+                        newSlots.Add(slot);
+                    }
+                }
+            }
+
+            // Объединяем существующие и новые слоты
+            _slots = _slots.Concat(newSlots).ToArray();
+
+            // Обновляем текущую емкость
+            _capacity = newCapacity;
+        }
 
         private ContainerSlot instantiateSlotPrefab(Transform parent)
         {
