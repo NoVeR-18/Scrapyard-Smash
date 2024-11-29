@@ -108,6 +108,23 @@ MonoBehaviour:
     - {x: 4, y: 4, z: 4}
     - {x: 4, y: 4, z: 4}
     - {x: 4, y: 4, z: 4}
+  - prefabName: Collider wall
+    objectType: 0
+    positions:
+    - {x: -19.058596, y: 0.35000038, z: 11.006002}
+    - {x: 48.739998, y: 0.35000038, z: 11.006002}
+    - {x: 3.82, y: 0.35000038, z: -19.088}
+    - {x: 3.82, y: 0.35000038, z: 26.03}
+    rotations:
+    - {x: -0, y: -0, z: -0, w: 1}
+    - {x: -0, y: -0, z: -0, w: 1}
+    - {x: -0, y: -0, z: -0, w: 1}
+    - {x: -0, y: -0, z: -0, w: 1}
+    scales:
+    - {x: 1, y: 1, z: 1}
+    - {x: 1, y: 1, z: 1}
+    - {x: 1, y: 1, z: 1}
+    - {x: 1, y: 1, z: 1}
   - prefabName: debris19
     objectType: 2
     positions:
