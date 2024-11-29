@@ -115,6 +115,7 @@ MonoBehaviour:
   _itemType: 3
   _itemRotationLerp: 10
   CanTake: 1
+  Cost: 20
 --- !u!65 &-3982386072141890560
 BoxCollider:
   m_ObjectHideFlags: 0

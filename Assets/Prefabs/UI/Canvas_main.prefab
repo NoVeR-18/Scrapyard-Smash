@@ -14632,7 +14632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085475335384967235}
-  - component: {fileID: 907331338771944984}
+  - component: {fileID: 745797962006616341}
   m_Layer: 5
   m_Name: victory_screen
   m_TagString: Untagged
@@ -14665,7 +14665,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &907331338771944984
+--- !u!114 &745797962006616341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14679,7 +14679,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experienceTable: {fileID: 11400000, guid: 9d9ff2604ea86404aaa356ba0e8d4401, type: 2}
   AwardCount: {fileID: 6358339162779954487}
-  takeButton: {fileID: 876867338092864271}
+  takeButton: {fileID: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2129426792783980240
 GameObject:
   m_ObjectHideFlags: 0
@@ -39595,7 +39598,6 @@ GameObject:
   - component: {fileID: 8722742366060758054}
   - component: {fileID: 8638879115555865545}
   - component: {fileID: 7323803864392699252}
-  - component: {fileID: 4644857788228425869}
   m_Layer: 5
   m_Name: Canvas_main
   m_TagString: Untagged
@@ -39732,19 +39734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 3134407315190655236}
---- !u!114 &4644857788228425869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7710530239139046202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221622d6406e7ea4f97c385f510addd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _joystick: {fileID: 3134407315190655236}
+  tutorialSwipe: {fileID: 0}
 --- !u!1 &7714543718442435462
 GameObject:
   m_ObjectHideFlags: 0

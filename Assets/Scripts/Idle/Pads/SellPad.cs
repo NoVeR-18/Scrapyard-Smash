@@ -39,6 +39,7 @@ public class SellPad : StoragePad
             Item takenItem;
             if (!ItemsContainer.TakeItem(out takenItem))
                 StopCoroutine(Sell());
+            var cost = takenItem.Cost;
             takenItem.Disappear();
             Item newItem = CreateItem();
             if (OutputStoragePads.ItemsContainer.AddItem(newItem) == false)
@@ -47,6 +48,8 @@ public class SellPad : StoragePad
                 StopCoroutine(Sell());
             }
             newItem.transform.position = OutputStoragePads.transform.position;
+            newItem.Cost = cost;
+
         }
         ItemsContainer.gameObject.SetActive(true);
     }

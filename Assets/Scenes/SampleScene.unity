@@ -5011,7 +5011,7 @@ MonoBehaviour:
   CapacityLevel: 0
   _slotSize: 1
   _storeItemType: 0
-  _capacity: 5
+  _capacity: 40
   _sizeX: 1
   _sizeZ: 1
   _slotPrefab: {fileID: 2753802703129427108, guid: 5a5bcb85583f74e4cba507ca4ce65b97, type: 3}
@@ -5585,6 +5585,7 @@ MonoBehaviour:
   - {fileID: 3805756899236720726, guid: b77a91c27b0d5474da5bbac4b0b5e5ae, type: 3}
   - {fileID: 4921027468950401568, guid: eaa11af2997ef194a83d2853e1146c45, type: 3}
   - {fileID: 6042444183213165969, guid: 1135809a7eed3b348a526a13d073014d, type: 3}
+  - {fileID: 3609029556993166522, guid: 374c55fbc62247e44a4248c15a8a080f, type: 3}
   vechicles:
   - {fileID: 1608499987}
   - {fileID: 1054895480}
@@ -6542,7 +6543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277fc95dc8f260d4897280ff515a3c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultSpawnPoss: {fileID: 0}
+  DefaultSpawnPoss: {fileID: 1645064177}
   mainCamera: {fileID: 647497229}
   vehicleZone: {fileID: 0}
   _spawnPoint: {x: 0, y: 0, z: 0}
@@ -8553,22 +8554,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0ffc5d202124f43a9d1558c0e58250, type: 3}
---- !u!114 &400923395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375941290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 312dcc81fc8647c4b8ea13bdb05a75c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forkliffUpgradeTab: {fileID: 1852059051}
-  magneteUpgradeTab: {fileID: 206832427}
-  forkliffOpenButton: {fileID: 237036299}
-  magneteOpenButton: {fileID: 129742508}
 --- !u!1001 &403471984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17233,7 +17218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9125347568427686207, guid: b768d4eb0a2c4454b81440b792a46171, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3896255
+      value: 1.62
       objectReference: {fileID: 0}
     - target: {fileID: 9125347568427686207, guid: b768d4eb0a2c4454b81440b792a46171, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20916,24 +20901,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2445128246455954629, guid: 6195f3bee79c9d445a261b8b027aca3d, type: 3}
   m_PrefabInstance: {fileID: 979410963}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &982767927
+--- !u!114 &982767927 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 745797962006616341, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852059039}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72fc7874c7ec0bb44aaee49bc49d7b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceTable: {fileID: 11400000, guid: 9d9ff2604ea86404aaa356ba0e8d4401, type: 2}
-  AwardCount: {fileID: 1852059038}
-  takeButton: {fileID: 1597707437}
-  players:
-  - {fileID: 1608499987}
-  - {fileID: 1054895480}
 --- !u!1001 &985579111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27674,11 +27652,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8670253327725746708, guid: e2ca90b1c47d3d04c985ac78c3949e77, type: 3}
   m_PrefabInstance: {fileID: 1373927784}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1375941290 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2594855468344965879, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
-  m_PrefabInstance: {fileID: 1852059034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1376301826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33067,6 +33040,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1769048996292656594, guid: 0d6cdbdefc210a44c8c80ab5d3f09a5e, type: 3}
   m_PrefabInstance: {fileID: 1644738674}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1645064176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645064177}
+  m_Layer: 0
+  m_Name: UfoDeffaultSpawnPoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645064177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645064176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.6, y: 2.3896255, z: -70.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1649385001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34412,7 +34416,7 @@ PrefabInstance:
     - target: {fileID: 6983425796326065223, guid: a0cd8253d50300b4eaeec6173d4c90b4, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 400923395}
+      objectReference: {fileID: 0}
     - target: {fileID: 6983425796326065223, guid: a0cd8253d50300b4eaeec6173d4c90b4, type: 3}
       propertyPath: _itemsContainer
       value: 
@@ -38178,6 +38182,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 696838768904522598, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: SpeedUpgradeButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 696838768904522598, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: MagnetUpgradeButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 696838768904522598, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: WeightUpgradeButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 745797962006616341, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: takeButton
+      value: 
+      objectReference: {fileID: 1597707437}
+    - target: {fileID: 745797962006616341, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 1608499987}
+    - target: {fileID: 745797962006616341, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 1054895480}
+    - target: {fileID: 801727418294782039, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: musicSet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 801727418294782039, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: soundSet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 801727418294782039, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: vibrationSet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 907331338771944984, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: takeButton
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 946909754271181952, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_Type
       value: 3
@@ -38398,6 +38442,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4644857788228425869, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: tutorialSwipe
+      value: 
+      objectReference: {fileID: 643967681}
+    - target: {fileID: 4834853467348184557, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: magneteOpenButton
+      value: 
+      objectReference: {fileID: 129742508}
+    - target: {fileID: 4834853467348184557, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: forkliffOpenButton
+      value: 
+      objectReference: {fileID: 237036299}
     - target: {fileID: 4896144179875981947, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -38509,6 +38565,10 @@ PrefabInstance:
     - target: {fileID: 7011775491494145168, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169184561253770391, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7323803864392699252, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: tutorialSwipe
@@ -38623,9 +38683,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6902529431612675408, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 64490076}
-    - targetCorrespondingSourceObject: {fileID: 2594855468344965879, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 400923395}
     - targetCorrespondingSourceObject: {fileID: 8137896071115326167, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 129742508}
@@ -38656,9 +38713,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5760984594535074519, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 640342145}
-    - targetCorrespondingSourceObject: {fileID: 2125316531362610609, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 982767927}
     - targetCorrespondingSourceObject: {fileID: 7739343091479107333, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1597707437}
@@ -38682,22 +38736,6 @@ RectTransform:
 --- !u!1 &1852059037 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7739343091479107333, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
-  m_PrefabInstance: {fileID: 1852059034}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1852059038 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6358339162779954487, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
-  m_PrefabInstance: {fileID: 1852059034}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1852059039 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2125316531362610609, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
   m_PrefabInstance: {fileID: 1852059034}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1852059040 stripped
@@ -45907,7 +45945,7 @@ MonoBehaviour:
   text: {fileID: 3050924888453835928}
   itemsTypeTaken: 0200000003000000
   OutputStoragePads: {fileID: 5061959512523072395}
-  timeToSell: 2
+  timeToSell: 0.5
   animator: {fileID: 91510802}
   particle: {fileID: 1974061401}
 --- !u!114 &7249206871640119473
@@ -46495,3 +46533,4 @@ SceneRoots:
   - {fileID: 1855711879}
   - {fileID: 1852059034}
   - {fileID: 789153912}
+  - {fileID: 1645064177}

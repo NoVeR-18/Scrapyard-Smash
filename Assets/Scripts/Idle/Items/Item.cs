@@ -23,8 +23,10 @@ public class Item : MonoBehaviour
     List<Item> _items;
     public bool CanTake = true;
 
+    public int Cost = 50;
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player" && CanTake)
         {
             var player = other.GetComponent<Player.Player>();

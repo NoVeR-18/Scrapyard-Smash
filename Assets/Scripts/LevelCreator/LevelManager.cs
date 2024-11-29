@@ -119,6 +119,19 @@ public class LevelManager : MonoBehaviour
         }
 
         LevelData levelData = loadedLevels[levelIndex];
+
+        if ((levelIndex - 1) % 5 == 0)
+        {
+            foreach (var player in vechicles)
+            {
+                player.DisableVechicle();
+            }
+            ufo.EnableVechicle();
+        }
+        else
+        {
+            vechicles[0].EnableVechicle();
+        }
         LoadLevel(levelData);
     }
 
@@ -244,18 +257,6 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt(CurrentLevelKey, nextLevelIndex);
         LoadLevel(nextLevelIndex);
 
-        if (nextLevelIndex % 5 == 0)
-        {
-            foreach (var player in vechicles)
-            {
-                player.DisableVechicle();
-            }
-            ufo.EnableVechicle();
-        }
-        else
-        {
-            vechicles[0].EnableVechicle();
-        }
 
     }
 

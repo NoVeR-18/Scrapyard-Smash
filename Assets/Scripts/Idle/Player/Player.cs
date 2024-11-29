@@ -29,9 +29,11 @@ namespace Player
             _spawnPoint = new Vector3(DefaultSpawnPoss.position.x, transform.position.y, DefaultSpawnPoss.position.z);
             //_backpack.LoadBackpack();
             SpawnPlayer();
-
-            if (vehicleZone.gameObject.activeSelf)
-                DisableVechicle();
+            if (vehicleZone != null)
+            {
+                if (vehicleZone.gameObject.activeSelf)
+                    DisableVechicle();
+            }
         }
 
         private void Update()
