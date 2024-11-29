@@ -17051,7 +17051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forkliffUpgradeTab: {fileID: 2538897452241469517}
-  magneteUpgradeTab: {fileID: 696838768904522598}
+  magneteUpgradeTab: {fileID: 0}
   forkliffOpenButton: {fileID: 8661969209758133888}
   magneteOpenButton: {fileID: 2251093957799531754}
 --- !u!1 &2669299492395093574
@@ -25102,7 +25102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6004891185038460317}
-  - component: {fileID: 696838768904522598}
+  - component: {fileID: 5623985675194044107}
   m_Layer: 5
   m_Name: magnet_tab
   m_TagString: Untagged
@@ -25136,7 +25136,7 @@ RectTransform:
   m_AnchoredPosition: {x: 102, y: 980}
   m_SizeDelta: {x: -95.06641, y: 1078.4175}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &696838768904522598
+--- !u!114 &5623985675194044107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25149,24 +25149,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceTable: {fileID: 11400000, guid: 9d9ff2604ea86404aaa356ba0e8d4401, type: 2}
-  closeButton: {fileID: 8514629923456515094}
+  closeButton: {fileID: 0}
   UpgradePanelTransform: {fileID: 5010596449578649828}
   magnete: {fileID: 0}
-  SpeedUpgradeButton: {fileID: 4550643574997144513}
+  SpeedUpgradeButton: {fileID: 0}
   SpeedLevelFillAmount: {fileID: 5483261599059370620}
   SpeedUpgradeCostText: {fileID: 6246190225219124230}
   SpeedLevelText: {fileID: 8750652795020665206}
   SpeedUpgradeBlocked: {fileID: 5417235284542235456}
   SpeedBlockedCostText: {fileID: 8541124484643966528}
   SpeedUpgradeMax: {fileID: 4377900958922707325}
-  WeightUpgradeButton: {fileID: 5224213052791414953}
+  WeightUpgradeButton: {fileID: 0}
   WeightLevelFillAmount: {fileID: 1156404438732765486}
   WeightUpgradeCostText: {fileID: 2169613405517259396}
   WeightLevelText: {fileID: 872295909563463765}
   WeightUpgradeBlocked: {fileID: 7742593923960863790}
   WeightBlockedCostText: {fileID: 3073447835989656576}
   WeightUpgradeMax: {fileID: 836703729470187964}
-  MagnetUpgradeButton: {fileID: 3181688826037698367}
+  MagnetUpgradeButton: {fileID: 0}
   MagnetLevelFillAmount: {fileID: 5731239628616271898}
   MagnetUpgradeCostText: {fileID: 447686616447657023}
   MagnetLevelText: {fileID: 2867220899923717229}
