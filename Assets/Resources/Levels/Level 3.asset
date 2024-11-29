@@ -442,7 +442,7 @@ MonoBehaviour:
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
   - prefabName: debris19
-    objectType: 0
+    objectType: 2
     positions:
     - {x: 41.78897, y: 0.28015518, z: 21.461452}
     - {x: 43.54367, y: 0.4501686, z: 8.923866}
@@ -486,7 +486,7 @@ MonoBehaviour:
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
   - prefabName: debris20
-    objectType: 0
+    objectType: 2
     positions:
     - {x: 41.624504, y: 0.7801647, z: -6.788614}
     - {x: 41.404503, y: 0.7801647, z: 11.811386}
@@ -509,7 +509,7 @@ MonoBehaviour:
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
   - prefabName: debris21
-    objectType: 0
+    objectType: 2
     positions:
     - {x: 43.20067, y: 0.5601654, z: 14.254513}
     - {x: 42.437218, y: 0.56015396, z: 22.623009}
@@ -547,7 +547,7 @@ MonoBehaviour:
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
   - prefabName: debris22
-    objectType: 0
+    objectType: 2
     positions:
     - {x: 43.132927, y: 1.1401653, z: 15.291267}
     - {x: 42.85514, y: 1.1401653, z: 8.087681}
@@ -567,7 +567,7 @@ MonoBehaviour:
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
   - prefabName: debris11
-    objectType: 0
+    objectType: 2
     positions:
     - {x: 41.42913, y: 0.030164719, z: 1.094851}
     - {x: 30.567678, y: 1.3601532, z: 0.61300945}
