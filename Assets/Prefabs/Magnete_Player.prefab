@@ -251,7 +251,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Time
-      value: 4
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 37779
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 0.43137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0.47058824
       objectReference: {fileID: 0}
     - target: {fileID: 1748320299459647015, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,7 +315,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Time
-      value: 4
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 37779
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 0.43137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0.47058824
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
