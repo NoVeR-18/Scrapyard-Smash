@@ -45,7 +45,7 @@ namespace Player
                 SpawnPlayer();
             }
         }
-        private void SpawnPlayer()
+        public void SpawnPlayer()
         {
             transform.position = _spawnPoint;
         }
@@ -59,7 +59,7 @@ namespace Player
             _movement.CanMoving = false;
             mainCamera.gameObject.SetActive(false);
             SpawnPlayer();
-            vehicleZone.gameObject.SetActive(true);
+            vehicleZone?.gameObject.SetActive(true);
             _movement.boxCollider.isTrigger = true;
         }
 
@@ -68,7 +68,7 @@ namespace Player
             _movement.CanMoving = true;
             _movement.boxCollider.isTrigger = false;
             mainCamera.gameObject.SetActive(true);
-            vehicleZone.gameObject.SetActive(false);
+            vehicleZone?.gameObject.SetActive(false);
         }
 
     }

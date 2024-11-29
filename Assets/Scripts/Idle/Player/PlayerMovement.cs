@@ -16,8 +16,7 @@ namespace Player
         [SerializeField] private PlayerMovementSettings _settings;
         [SerializeField] private Transform _modelContainer;
 
-        [SerializeField]
-        private PlayerControls _controls;
+        public PlayerControls _controls;
         private Rigidbody _rigidbody;
         public BoxCollider boxCollider;
         private Vector3 _inputMove;
@@ -32,6 +31,7 @@ namespace Player
         [SerializeField] private Transform frontRightWheel;
         [SerializeField] private float wheelRotationSpeed = 360f; // Скорость вращения колес
 
+        [SerializeField] private bool haveWheels = true;
 
         private void Awake()
         {
@@ -45,7 +45,8 @@ namespace Player
             {
                 move();
                 rotateModel();
-                animateWheels();
+                if (haveWheels)
+                    animateWheels();
             }
         }
         private void move()

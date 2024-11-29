@@ -1,7 +1,9 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Items.Container
 {
@@ -46,6 +48,11 @@ namespace Items.Container
             _capacity += CapacityLevel;
             _slots = CreateSlots(transform, _capacity, _sizeX, _sizeZ);
         }
+        public void InitClosely()
+        {
+            _capacity += CapacityLevel;
+            _slots = CreateCloselySlots(transform, _capacity, _sizeX, _sizeZ);
+        }
         public ContainerSlot[] CreateSlots(Transform parent, int slotsCount, int sizeX = 3, int sizeZ = 3)
         {
             List<ContainerSlot> slots = new List<ContainerSlot>();
@@ -75,6 +82,38 @@ namespace Items.Container
                     }
                 }
                 y++;
+            }
+        }
+
+        public ContainerSlot[] CreateCloselySlots(Transform parent, int slotsCount, int sizeX = 3, int sizeZ = 3)
+        {
+            List<ContainerSlot> slots = new List<ContainerSlot>();
+
+            int y = 0;
+            while (true)
+            {
+                for (int x = 0, i = 0; x < sizeX; x++)
+                {
+                    for (int z = 0; z < sizeZ; z++)
+                    {
+                        if (slots.Count >= slotsCount)
+                        {
+                            return slots.ToArray();
+                        }
+                        if (i >= _maxTotalMultipleSlots)
+                        {
+                            throw new ArgumentOutOfRangeException($"Too many slots are instantiated. Max: {_maxTotalMultipleSlots}; Current: {_maxTotalMultipleSlots}; Slots count: {slotsCount}");
+                        }
+
+                        ContainerSlot slot = instantiateSlotPrefab(parent);
+                        slot.transform.localPosition = new Vector3(Random.Range(-1f, 1f), y, Random.Range(-1f, 1f));
+                        slot.transform.localRotation = Quaternion.identity;
+
+                        slots.Add(slot);
+                        i++;
+                    }
+                }
+                //y++;
             }
         }
 

@@ -20,7 +20,7 @@ public class DebrisSellPad : StoragePad
             return;
 
         ItemsContainer.AddItem(takenItem);
-        LevelManager.Instance.CarsOnScene--;
+        LevelManager.Instance.TrashCollected++;
         LevelManager.Instance.CheckWining();
     }
     private void FixedUpdate()

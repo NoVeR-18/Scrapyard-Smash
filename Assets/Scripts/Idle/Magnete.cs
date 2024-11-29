@@ -24,7 +24,7 @@ public class Magnete : Player.Player
         MagnetLevel = PlayerPrefs.GetInt(MagnetKey, 0);
         Movement.MoveLevel = SpeedLevel;
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
-        Backpack.ItemsContainer.Init();
+        Backpack.ItemsContainer.InitClosely();
     }
 
     public void UpgradeWeight()
