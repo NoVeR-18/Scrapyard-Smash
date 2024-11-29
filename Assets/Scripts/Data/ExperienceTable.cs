@@ -5,4 +5,5 @@ using UnityEngine;
 public class ExperienceTable : ScriptableObject
 {
     public List<int> experiencePerLevel;
+    public List<int> AwardLevelComplete;
 }

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class DebrisSellPad : StoragePad
 {
     public SellPad sellPad;
@@ -30,5 +32,10 @@ public class DebrisSellPad : StoragePad
             sellPad.ItemsContainer.AddItem(item);
             sellPad.StartCoroutine(sellPad.Sell());
         }
+    }
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
     }
 }

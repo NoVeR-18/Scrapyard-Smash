@@ -27,7 +27,7 @@ namespace Player
         virtual public void Start()
         {
             _spawnPoint = new Vector3(DefaultSpawnPoss.position.x, transform.position.y, DefaultSpawnPoss.position.z);
-            _backpack.LoadBackpack();
+            //_backpack.LoadBackpack();
             SpawnPlayer();
 
             if (vehicleZone.gameObject.activeSelf)

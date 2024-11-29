@@ -9,6 +9,8 @@ public class SellPad : StoragePad
     [SerializeField] private TextMeshPro text;
     [SerializeField] private List<ItemType> itemsTypeTaken;
     public StoragePad OutputStoragePads;
+    public float timeToSell = 2f;
+
     public override void OnTriggerEnter(Collider other)
     {
     }
@@ -18,7 +20,7 @@ public class SellPad : StoragePad
 
     public IEnumerator Sell()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeToSell);
         if (!OutputStoragePads.ItemsContainer.CanAddItem())
             StopCoroutine(Sell());
         if (!ItemsContainer.CanTakeItem())

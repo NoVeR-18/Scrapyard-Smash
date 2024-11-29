@@ -91,7 +91,18 @@ namespace Items.Container
             // Создаем новые слоты
             for (int i = 0; additionalSlots > i; i++)
             {
-                newSlots.Add(instantiateSlotPrefab(transform));
+                int y = _capacity;
+                for (int x = 0; x < _sizeX; x++)
+                {
+                    for (int z = 0; z < _sizeZ; z++)
+                    {
+                        ContainerSlot slot = instantiateSlotPrefab(transform);
+                        slot.transform.localPosition = new Vector3(x - (_sizeX / 2), y, z - (_sizeZ / 2)) * _slotSize;
+                        slot.transform.localRotation = Quaternion.identity;
+                        newSlots.Add(slot);
+                    }
+                }
+                y++;
             }
 
             // Объединяем существующие и новые слоты

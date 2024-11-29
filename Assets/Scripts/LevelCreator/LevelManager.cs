@@ -9,8 +9,13 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance { get; private set; }
     public PlayerWallet wallet;
+    public VictoryTab victoryTab;
+
+
     [SerializeField] private Transform parentContainer; // Контейнер объектов уровня
     [SerializeField] private List<GameObject> prefabs; // Список префабов, связанных с типами объектов
+
+
 
     private List<LevelData> loadedLevels; // Список загруженных уровней
     public int currentLevelIndex; // Индекс текущего уровня
@@ -242,7 +247,9 @@ public class LevelManager : MonoBehaviour
         if (CarsOnScene > 0) return;
         if (TrashOnScene > 0) return;
 
+
+        victoryTab.OpenTab();
+
         Debug.Log("Wining");
-        LoadNextLevel();
     }
 }
