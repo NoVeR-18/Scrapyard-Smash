@@ -12,5 +12,6 @@ public enum ObjectType
     Trash,
     Decoration,
     Details,
-    Coins
+    Coins,
+    Floor
 }
