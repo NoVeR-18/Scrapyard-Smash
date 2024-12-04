@@ -1,7 +1,5 @@
 public class UFO : Player.Player
 {
-
-    // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
@@ -19,7 +17,7 @@ public class UFO : Player.Player
         {
             if (Backpack.ItemsContainer.Count > 0)
             {
-                Sell();
+                Invoke("Sell", 0.25f);
             }
         }
     }

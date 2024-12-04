@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ForkliffUpgradeTab : MonoBehaviour
 {
     public ExperienceTable experienceTable;
-    public Button closeButton;
     public Transform UpgradePanelTransform;
     public Forkliff forkliff;
     [Header("Speed")]
@@ -29,7 +28,6 @@ public class ForkliffUpgradeTab : MonoBehaviour
     private void Start()
     {
         UpdatePanel();
-        closeButton.onClick.AddListener(() => { CloseTab(); });
 
         SpeedUpgradeButton.onClick.AddListener(() => { OnUpgradeSpeedButton(); });
         WeightUpgradeButton.onClick.AddListener(() => { OnUpgradeWeightButton(); });
@@ -133,11 +131,6 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void CloseTab()
-    {
-        UpgradePanelTransform.gameObject.SetActive(false);
     }
     public void AddCoins()
     {

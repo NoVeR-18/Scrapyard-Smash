@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class MagneteUpgradeTab : MonoBehaviour
 {
     public ExperienceTable experienceTable;
-    public Button closeButton;
     public Transform UpgradePanelTransform;
     public Magnete magnete;
     [Header("Speed")]
@@ -38,7 +37,6 @@ public class MagneteUpgradeTab : MonoBehaviour
     private void Start()
     {
         UpdatePanel();
-        closeButton.onClick.AddListener(() => { CloseTab(); });
 
         SpeedUpgradeButton.onClick.AddListener(() => { OnUpgradeSpeedButton(); });
         WeightUpgradeButton.onClick.AddListener(() => { OnUpgradeWeightButton(); });

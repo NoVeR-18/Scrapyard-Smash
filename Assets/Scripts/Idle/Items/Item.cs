@@ -24,6 +24,8 @@ public class Item : MonoBehaviour
     public bool CanTake = true;
 
     public int Cost = 50;
+
+    private bool moveWithArc = true;
     private void OnTriggerEnter(Collider other)
     {
 
@@ -37,6 +39,14 @@ public class Item : MonoBehaviour
             if (player.Backpack.ItemsContainer.AddItem(this))
             {
                 CanTake = false;
+                if (player as Forkliff)
+                {
+                    moveWithArc = true;
+                }
+                else
+                {
+                    moveWithArc = false;
+                }
                 Destroy(GetComponent<BoxCollider>());
 
             }
@@ -83,8 +93,9 @@ public class Item : MonoBehaviour
         {
             return;
         }
-
-        MoveToSlotWithArc();
+        if (moveWithArc)
+            MoveToSlotWithArc();
+        else MoveToSlotDirectly();
 
         float distanceToTarget = Vector3.Distance(transform.position, _currentSlot.transform.position);
         if (distanceToTarget <= _moveEndThreshold)
@@ -96,7 +107,17 @@ public class Item : MonoBehaviour
             _currentSlot = null;
         }
     }
+    private void MoveToSlotDirectly()
+    {
+        _time += Time.deltaTime * _itemPositionLerp;
 
+        // Линейно интерполируем позицию предмета к позиции слота
+        transform.position = Vector3.Lerp(transform.position, _currentSlot.transform.position, _time);
+
+        // Линейно интерполируем вращение предмета к вращению слота
+        transform.rotation = Quaternion.Lerp(transform.rotation, _currentSlot.transform.rotation, _itemRotationLerp * Time.deltaTime);
+
+    }
     private void MoveToSlotWithArc()
     {
         _time += Time.deltaTime * _itemPositionLerp;

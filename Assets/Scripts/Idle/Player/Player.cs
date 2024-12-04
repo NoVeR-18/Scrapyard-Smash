@@ -11,12 +11,12 @@ namespace Player
         public Transform DefaultSpawnPoss;
         public Camera mainCamera;
         public VehicleZone vehicleZone;
-        [SerializeField] private Vector3 _spawnPoint;
+        [SerializeField] protected Vector3 _spawnPoint;
         [SerializeField] private float _dieHeight = -20;
 
-        private PlayerWallet _wallet;
-        private PlayerBackpack _backpack;
-        private PlayerMovement _movement;
+        protected PlayerWallet _wallet;
+        protected PlayerBackpack _backpack;
+        protected PlayerMovement _movement;
 
         private void Awake()
         {
@@ -56,7 +56,7 @@ namespace Player
             _backpack.SaveBackpack();
         }
 
-        public void DisableVechicle()
+        virtual public void DisableVechicle()
         {
             _movement.CanMoving = false;
             mainCamera.gameObject.SetActive(false);
@@ -65,7 +65,7 @@ namespace Player
             _movement.boxCollider.isTrigger = true;
         }
 
-        public void EnableVechicle()
+        virtual public void EnableVechicle()
         {
             _movement.CanMoving = true;
             _movement.boxCollider.isTrigger = false;
