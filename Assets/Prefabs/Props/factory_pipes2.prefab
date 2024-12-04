@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 246345056445798354}
   - component: {fileID: 4002215058971990866}
   - component: {fileID: 7098652415327535047}
+  - component: {fileID: -4789630902748900514}
   m_Layer: 0
   m_Name: factory_pipes2
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-4789630902748900514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813399163832229848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0aa3ce0d7f0c340bb4aea34fc8a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 3
+  Name: factory_pipes2
