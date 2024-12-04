@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7797544642720782376}
   - component: {fileID: 2124232121014090934}
+  - component: {fileID: 8024800965671843192}
   m_Layer: 0
   m_Name: cow
   m_TagString: Untagged
@@ -54,6 +55,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8024800965671843192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141562267286714487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0aa3ce0d7f0c340bb4aea34fc8a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 1
+  Name: cow
 --- !u!1001 &5461739867029378121
 PrefabInstance:
   m_ObjectHideFlags: 0
