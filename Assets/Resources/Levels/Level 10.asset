@@ -13,14 +13,6 @@ MonoBehaviour:
   m_Name: Level 10
   m_EditorClassIdentifier: 
   groupedObjects:
-  - prefabName: dirt_pit
-    objectType: 6
-    positions:
-    - {x: -5, y: 0, z: 12.5}
-    rotations:
-    - {x: -0, y: 0.70709854, z: -0, w: 0.7071151}
-    scales:
-    - {x: 1, y: 1, z: 1}
   - prefabName: dirt1
     objectType: 6
     positions:
@@ -130,8 +122,6 @@ MonoBehaviour:
     - {x: 7.75, y: 0, z: 14.75}
     - {x: 7.75, y: 0, z: 7.25}
     - {x: 7.75, y: 0, z: -0.25}
-    - {x: 7.75, y: 0, z: -7.75}
-    - {x: 7.75, y: 0, z: -15.25}
     - {x: 22.75, y: 0, z: 22.213428}
     - {x: 22.75, y: 0, z: 7.25}
     - {x: 22.75, y: 0, z: -7.75}
@@ -139,6 +129,8 @@ MonoBehaviour:
     - {x: 22.75, y: 0, z: -0.25}
     - {x: 22.75, y: 0, z: -15.25}
     - {x: -7.25, y: 0, z: -0.25}
+    - {x: -7.25, y: 0, z: 7.2499895}
+    - {x: -7.25, y: 0, z: 14.74999}
     - {x: -7.25, y: 0, z: -7.75}
     - {x: -7.25, y: 0, z: -15.25}
     rotations:
@@ -174,6 +166,14 @@ MonoBehaviour:
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
+    - {x: 1, y: 1, z: 1}
+  - prefabName: dirt_pit
+    objectType: 6
+    positions:
+    - {x: 9.979744, y: 0, z: -9.97975}
+    rotations:
+    - {x: -0, y: 0.7071062, z: -0, w: 0.7071074}
+    scales:
     - {x: 1, y: 1, z: 1}
   - prefabName: Wall
     objectType: 0
