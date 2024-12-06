@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 9183537783719631419}
   - component: {fileID: 3636580889935887791}
   - component: {fileID: 2803939097798210927}
-  - component: {fileID: 1608399902619865521}
+  - component: {fileID: 1024401297094349592}
   - component: {fileID: 1252552184211326685}
   - component: {fileID: 2144787317054773478}
   m_Layer: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   frontRightWheel: {fileID: 0}
   wheelRotationSpeed: 360
   haveWheels: 1
---- !u!114 &1608399902619865521
+--- !u!114 &1024401297094349592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -36,7 +36,8 @@ namespace Player
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            boxCollider = GetComponent<BoxCollider>();
+            if (boxCollider == null)
+                boxCollider = GetComponent<BoxCollider>();
         }
 
         private void Update()

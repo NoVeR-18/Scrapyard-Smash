@@ -1,5 +1,9 @@
+using TMPro;
+
 public class UFO : Player.Player
 {
+    private TextMeshPro MoneyCount;
+
     public override void Start()
     {
         base.Start();

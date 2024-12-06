@@ -120,7 +120,7 @@ public class LevelManager : MonoBehaviour
 
         LevelData levelData = loadedLevels[levelIndex];
 
-        if ((levelIndex + 1) % 5 == 0 && levelIndex > 0)
+        if ((levelIndex + 2) % 5 == 0 && levelIndex > 0)
         {
             foreach (var player in vechicles)
             {

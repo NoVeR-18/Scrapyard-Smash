@@ -224,10 +224,10 @@ MonoBehaviour:
     - {x: -0, y: -0, z: -0, w: 1}
     - {x: -0, y: -0, z: -0, w: 1}
     scales:
-    - {x: 1, y: 11, z: 54}
-    - {x: 2, y: 11, z: 54}
-    - {x: 100, y: 11, z: 2}
-    - {x: 100, y: 11, z: 2}
+    - {x: 1, y: 40, z: 54}
+    - {x: 2, y: 40, z: 54}
+    - {x: 100, y: 40, z: 2}
+    - {x: 100, y: 40, z: 2}
   - prefabName: fence2
     objectType: 3
     positions:
