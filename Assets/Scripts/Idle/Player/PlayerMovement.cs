@@ -43,22 +43,27 @@ namespace Player
         {
             if (CanMoving)
             {
-                move();
+                Move();
                 rotateModel();
                 if (haveWheels)
                     animateWheels();
             }
         }
-        private void move()
+        private void Move()
         {
+            // Получаем ввод пользователя
             _inputMove = new Vector3(
                 _controls.Horizontal,
                 0,
                 _controls.Vertical
-                );
+            );
 
+            // Рассчитываем направление движения
             _move = transform.right * _inputMove.x + transform.forward * _inputMove.z;
-            _rigidbody.MovePosition(_rigidbody.position + (_move * Time.deltaTime * ((_settings.Speed + MoveLevel * 0.5f))));
+
+            // Устанавливаем скорость Rigidbody
+            float speed = _settings.Speed + MoveLevel * 0.5f;
+            _rigidbody.velocity = _move * speed;
         }
         private void rotateModel()
         {
@@ -95,28 +100,6 @@ namespace Player
             {
                 rearLeftWheel.Rotate(Vector3.right, movementSpeed, Space.Self);
             }
-
-            //// Поворот передних колес (рулежка) по оси Y
-            //float steeringAngle = _controls.Horizontal * _settings.SteeringAngle; // Угол поворота рулежки
-
-            //if (frontLeftWheel != null && frontRightWheel != null)
-            //{
-            //    // Поворот переднего левого колеса (учитываем текущее вращение по X)
-            //    Quaternion leftWheelRotation = Quaternion.Euler(
-            //        frontLeftWheel.localRotation.x, // Текущее вращение по X
-            //        steeringAngle,                    // Угол поворота рулежки по Y
-            //        frontLeftWheel.rotation.z                                                       // Сохраняем текущий угол по Z
-            //    );
-            //    frontLeftWheel.localRotation = leftWheelRotation;
-
-            //    // Поворот переднего правого колеса (учитываем текущее вращение по X)
-            //    Quaternion rightWheelRotation = Quaternion.Euler(
-            //        frontRightWheel.localEulerAngles.x, // Текущее вращение по X
-            //        steeringAngle - 180f,                      // Угол поворота рулежки по Y
-            //        0  // Сохраняем текущий угол по Z
-            //    );
-            //    frontRightWheel.localRotation = rightWheelRotation;
-            //}
         }
 
     }

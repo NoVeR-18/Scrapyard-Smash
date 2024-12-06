@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2139532241565239461}
   - component: {fileID: 3035143203615590144}
   - component: {fileID: 1007128325554058186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dirt_pit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5289564307157689350}
   - component: {fileID: 5973138048946777020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dirt_pit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
