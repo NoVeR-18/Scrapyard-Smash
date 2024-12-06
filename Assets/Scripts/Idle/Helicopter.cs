@@ -8,7 +8,7 @@ public class Helicopter : Player.Player
     private int Fuel;
     public int WeightLevel;
     private int MaxFuel = 50;
-    public float FuelConsumptionRate = 1f;
+    public float FuelConsumptionRate = 0.5f;
     public float FuelRecoveryTime = 500f;
     public float RecoverySpeedMultiplier = 0.01f;
     public int RecoveryUpgradeLevel = 0;
