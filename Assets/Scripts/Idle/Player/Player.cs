@@ -23,13 +23,13 @@ namespace Player
             _backpack = GetComponent<PlayerBackpack>();
             _movement = GetComponent<PlayerMovement>();
             _wallet = GetComponent<PlayerWallet>();
-        }
-        virtual public void Start()
-        {
             if (DefaultSpawnPoss != null)
                 _spawnPoint = new Vector3(DefaultSpawnPoss.position.x, DefaultSpawnPoss.transform.position.y, DefaultSpawnPoss.position.z);
             else
                 _spawnPoint = transform.position;
+        }
+        virtual public void Start()
+        {
             SpawnPlayer();
             if (vehicleZone != null)
             {

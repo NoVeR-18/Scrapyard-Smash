@@ -2,6 +2,7 @@ using Player;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Player.Player ufo;
     [SerializeField]
     private List<LevelData> loadedLevels; // Список загруженных уровней
+
+    [SerializeField] private ChangeBackgroundZone changeBackgroundZone;
+
     public int currentLevelIndex; // Индекс текущего уровня
     public int CarsCollected = 0;
     public int TrashCollected = 0;
@@ -44,6 +48,11 @@ public class LevelManager : MonoBehaviour
     {
         currentLevelIndex = PlayerPrefs.GetInt(CurrentLevelKey, 0);
         LoadLevel(currentLevelIndex);
+        nextLevel.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            nextLevel.gameObject.SetActive(false);
+            victoryTab.OpenTab();
+        });
     }
     private void LoadLevelsFromResources()
     {
@@ -134,6 +143,7 @@ public class LevelManager : MonoBehaviour
             vechicles[0].EnableVechicle();
         }
         LoadLevel(levelData);
+        changeBackgroundZone.ChaneMaterial(levelIndex);
     }
 
     public void LoadLevel(LevelData levelData)
@@ -270,9 +280,9 @@ public class LevelManager : MonoBehaviour
     }
     public void CheckWining()
     {
-        if (CarsCollected < (0.9f * CarsOnScene) || TrashCollected < (0.9f * TrashOnScene))
+        if (CarsCollected < (0.8f * CarsOnScene) || TrashCollected < (0.8f * TrashOnScene))
             return;
-        if (CarsCollected > (0.9f * CarsOnScene) || TrashCollected > (0.9f * TrashOnScene))
+        if (CarsCollected > (0.8f * CarsOnScene) || TrashCollected > (0.8f * TrashOnScene))
         {
             nextLevel.gameObject.SetActive(true);
             if ((CarsCollected < CarsOnScene) || (TrashCollected < TrashOnScene))

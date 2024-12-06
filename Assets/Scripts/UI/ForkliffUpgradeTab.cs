@@ -81,8 +81,8 @@ public class ForkliffUpgradeTab : MonoBehaviour
             WeightUpgradeCostText.text = experienceTable.experiencePerLevel[forkliff.WeightLevel].ToString();
             SpeedLevelText.text = (forkliff.SpeedLevel + 1).ToString();
             WeightLevelText.text = (forkliff.WeightLevel + 1).ToString();
-            SpeedLevelFillAmount.fillAmount = (float)(forkliff.SpeedLevel + 1) / experienceTable.experiencePerLevel.Count;
-            WeightLevelFillAmount.fillAmount = (float)(forkliff.WeightLevel + 1) / experienceTable.experiencePerLevel.Count;
+            SpeedLevelFillAmount.fillAmount = (float)((forkliff.SpeedLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
+            WeightLevelFillAmount.fillAmount = (float)((forkliff.WeightLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
 
             if (forkliff.SpeedLevel + 1 == experienceTable.experiencePerLevel.Count)
             {

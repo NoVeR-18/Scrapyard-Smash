@@ -109,9 +109,9 @@ public class MagneteUpgradeTab : MonoBehaviour
             SpeedLevelText.text = (magnete.SpeedLevel + 1).ToString();
             WeightLevelText.text = (magnete.WeightLevel + 1).ToString();
             MagnetLevelText.text = magnete.MagnetLevel.ToString();
-            SpeedLevelFillAmount.fillAmount = (float)(magnete.SpeedLevel + 1) / experienceTable.experiencePerLevel.Count;
-            WeightLevelFillAmount.fillAmount = (float)(magnete.WeightLevel + 1) / experienceTable.experiencePerLevel.Count;
-            MagnetLevelFillAmount.fillAmount = (float)(magnete.MagnetLevel + 1) / experienceTable.experiencePerLevel.Count;
+            SpeedLevelFillAmount.fillAmount = (float)((magnete.SpeedLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
+            WeightLevelFillAmount.fillAmount = (float)((magnete.WeightLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
+            MagnetLevelFillAmount.fillAmount = (float)((magnete.MagnetLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
 
             if (magnete.SpeedLevel + 1 == experienceTable.experiencePerLevel.Count)
             {

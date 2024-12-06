@@ -32,7 +32,6 @@ public class SellPad : StoragePad
         particle?.Play();
         ItemsContainer.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(timeToSell / 2);
 
         if (Type == StorageBuildingType.Input)
         {
