@@ -8,7 +8,7 @@ public class Helicopter : Player.Player
     private int Fuel;
     public int WeightLevel;
     private int MaxFuel = 50;
-    public float FuelConsumptionRate = 1f;
+    public float FuelConsumptionRate = 0.5f;
     public float FuelRecoveryTime = 500f;
     public float RecoverySpeedMultiplier = 0.01f;
     public int RecoveryUpgradeLevel = 0;
@@ -28,7 +28,8 @@ public class Helicopter : Player.Player
 
     public override void Start()
     {
-        DefaultSpawnPoss.position = transform.position;
+
+        _spawnPoint = transform.position;
         base.Start();
         LoadProgress();
         RecoverFuel();
@@ -70,7 +71,7 @@ public class Helicopter : Player.Player
         }
     }
 
-    public override void EnableVechicle()
+    public override bool EnableVechicle()
     {
         if (Fuel > 0)
         {
@@ -78,13 +79,15 @@ public class Helicopter : Player.Player
             _movement.boxCollider.isTrigger = true;
             mainCamera.gameObject.SetActive(true);
             vehicleZone?.gameObject.SetActive(false);
-            StartCoroutine(MoveUpSmoothly(new Vector3(DefaultSpawnPoss.position.x, DefaultSpawnPoss.position.y + 15f, DefaultSpawnPoss.position.z)));
+            StartCoroutine(MoveUpSmoothly(new Vector3(_spawnPoint.x, _spawnPoint.y + 15f, _spawnPoint.z)));
             _fuelConsumptionCoroutine = StartCoroutine(ConsumeFuel());
+            return true;
 
         }
         else
         {
             Debug.LogWarning("Ќе хватает топлива дл€ использовани€ вертолета!");
+            return false;
         }
     }
 

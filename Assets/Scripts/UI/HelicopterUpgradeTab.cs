@@ -105,7 +105,7 @@ public class HelicopterUpgradeTab : MonoBehaviour
             // Обновление текста и заполнения для скорости восстановления
             RecoveryUpgradeCostText.text = experienceTable.experiencePerLevel[helicopter.RecoveryUpgradeLevel].ToString();
             RecoveryLevelText.text = (helicopter.RecoveryUpgradeLevel + 1).ToString();
-            RecoveryLevelFillAmount.fillAmount = (float)(helicopter.RecoveryUpgradeLevel + 1) / experienceTable.experiencePerLevel.Count;
+            RecoveryLevelFillAmount.fillAmount = (float)((helicopter.RecoveryUpgradeLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
 
             // Блокировка кнопок или отображение максимального уровня
             if (helicopter.RecoveryUpgradeLevel + 1 == experienceTable.experiencePerLevel.Count)
@@ -134,7 +134,7 @@ public class HelicopterUpgradeTab : MonoBehaviour
             // Топливный бак
             FuelUpgradeCostText.text = experienceTable.experiencePerLevel[helicopter.MaxFuelLevel].ToString();
             FuelLevelText.text = (helicopter.MaxFuelLevel + 1).ToString();
-            FuelLevelFillAmount.fillAmount = (float)(helicopter.MaxFuelLevel + 1) / experienceTable.experiencePerLevel.Count;
+            FuelLevelFillAmount.fillAmount = (float)((helicopter.MaxFuelLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
 
             if (helicopter.MaxFuelLevel + 1 == experienceTable.experiencePerLevel.Count)
             {
@@ -162,7 +162,7 @@ public class HelicopterUpgradeTab : MonoBehaviour
             // Грузоподъемность
             WeightUpgradeCostText.text = experienceTable.experiencePerLevel[helicopter.WeightLevel].ToString();
             WeightLevelText.text = (helicopter.WeightLevel + 1).ToString();
-            WeightLevelFillAmount.fillAmount = (float)(helicopter.WeightLevel + 1) / experienceTable.experiencePerLevel.Count;
+            WeightLevelFillAmount.fillAmount = (float)((helicopter.WeightLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
 
             if (helicopter.WeightLevel + 1 == experienceTable.experiencePerLevel.Count)
             {

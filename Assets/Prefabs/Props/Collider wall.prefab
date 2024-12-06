@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4241558867178111620}
   - component: {fileID: 4092734733074765937}
   - component: {fileID: 7351592274788314911}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Collider wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3609029556993166522}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f0fbe1fffd709564ba2ce5a1b03ae7ce, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
