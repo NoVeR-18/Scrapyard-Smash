@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16119,10 +16119,6 @@ PrefabInstance:
     - target: {fileID: 8673423684380956224, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0.6627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673423684380956224, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 8968469762166497723, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57843,10 +57839,6 @@ PrefabInstance:
     - target: {fileID: 5994020287944985824, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6050582938832434676, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 6763169451014550726, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
       propertyPath: _storeItemType
