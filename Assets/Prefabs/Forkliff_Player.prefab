@@ -368,9 +368,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forkliff_Car2
       objectReference: {fileID: 0}
+    - target: {fileID: 6924545094380992382, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924545094380992382, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924545094380992382, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924545094380992382, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282853101773567510, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282853101773567510, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282853101773567510, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282853101773567510, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Time
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.a
@@ -383,6 +423,14 @@ PrefabInstance:
     - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Time
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.a

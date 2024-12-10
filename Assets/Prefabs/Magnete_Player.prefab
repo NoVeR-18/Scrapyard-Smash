@@ -5083,6 +5083,14 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070724223152610976, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Parameters.colorGradient.atime1
       value: 37779
       objectReference: {fileID: 0}
@@ -5134,6 +5142,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2523892632880483389, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523892632880483389, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523892632880483389, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523892632880483389, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523892632880483389, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3121410049507715885, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Name
       value: Magnet_Car1
@@ -5142,9 +5170,37 @@ PrefabInstance:
       propertyPath: _capacity
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6828867808739483419, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828867808739483419, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828867808739483419, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828867808739483419, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828867808739483419, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Time
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7756478396018652171, guid: 5245dca82d5b1e643b6f8daa6ae085bf, type: 3}
       propertyPath: m_Parameters.colorGradient.atime1
