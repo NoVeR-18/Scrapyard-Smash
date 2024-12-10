@@ -441,6 +441,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.numCapVertices
       value: 5
       objectReference: {fileID: 0}
@@ -459,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Time
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.numCapVertices
