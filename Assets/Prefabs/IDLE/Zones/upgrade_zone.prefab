@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 25.001019, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -309,8 +309,7 @@ MonoBehaviour:
   _interactionRadius: 1.5
   _itemType: 1
   _itemPrefab: {fileID: 0}
-  text: {fileID: 4951703222354313669}
-  _costUpgrade: 50
+  upgradePanel: {fileID: 0}
 --- !u!65 &7602315337828388327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -376,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8c37dd5c4a60c43a57825b50e0d894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CapacityLevel: 0
   _slotSize: 1
   _storeItemType: 0
   _capacity: 10

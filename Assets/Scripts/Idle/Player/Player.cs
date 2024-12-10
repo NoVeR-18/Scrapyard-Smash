@@ -23,11 +23,13 @@ namespace Player
             _backpack = GetComponent<PlayerBackpack>();
             _movement = GetComponent<PlayerMovement>();
             _wallet = GetComponent<PlayerWallet>();
+            if (DefaultSpawnPoss != null)
+                _spawnPoint = new Vector3(DefaultSpawnPoss.position.x, DefaultSpawnPoss.transform.position.y, DefaultSpawnPoss.position.z);
+            else
+                _spawnPoint = transform.position;
         }
         virtual public void Start()
         {
-            _spawnPoint = new Vector3(DefaultSpawnPoss.position.x, transform.position.y, DefaultSpawnPoss.position.z);
-            //_backpack.LoadBackpack();
             SpawnPlayer();
             if (vehicleZone != null)
             {
@@ -65,12 +67,13 @@ namespace Player
             _movement.boxCollider.isTrigger = true;
         }
 
-        virtual public void EnableVechicle()
+        virtual public bool EnableVechicle()
         {
             _movement.CanMoving = true;
             _movement.boxCollider.isTrigger = false;
             mainCamera.gameObject.SetActive(true);
             vehicleZone?.gameObject.SetActive(false);
+            return true;
         }
 
     }

@@ -24,7 +24,7 @@ public class Item : MonoBehaviour
     public bool CanTake = true;
 
     public int Cost = 50;
-
+    [SerializeField] private BoxCollider phisicCollider;
     private bool moveWithArc = true;
     private void OnTriggerEnter(Collider other)
     {
@@ -47,7 +47,9 @@ public class Item : MonoBehaviour
                 {
                     moveWithArc = false;
                 }
-                Destroy(GetComponent<BoxCollider>());
+                if (phisicCollider != null)
+                    Destroy(phisicCollider);
+                Destroy(GetComponent<Rigidbody>());
 
             }
 
