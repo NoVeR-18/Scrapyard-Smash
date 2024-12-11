@@ -1,12 +1,11 @@
-using TMPro;
 using UnityEngine;
 
 public class UFO : Player.Player
 {
-    const string ColectedCashTriger = "GetCash";
-
-    [SerializeField] private TextMeshPro MoneyCount;
-    [SerializeField] private Animator CashColectedAnimator;
+    public ParticleSystem TrashPartickle;
+    public ParticleSystem CarPartickle;
+    public ParticleSystem CowPartickle;
+    public Transform ufoCash;
     public override void Start()
     {
         base.Start();
@@ -35,19 +34,21 @@ public class UFO : Player.Player
         if (!Backpack.ItemsContainer.TakeItem(out takenItem))
             return;
         LevelManager.Instance.wallet.AddMoney(takenItem.Cost);
-        PlayAnimation(takenItem.Cost);
         if (takenItem.Type == Items.ItemType.Car)
+        {
             LevelManager.Instance.CarsCollected++;
+            if (takenItem.name == "cow")
+                Instantiate(CowPartickle, ufoCash);
+            else
+                Instantiate(CarPartickle, ufoCash);
+        }
         if (takenItem.Type == Items.ItemType.Trash)
+        {
             LevelManager.Instance.TrashCollected++;
+            Instantiate(TrashPartickle, ufoCash);
+        }
         LevelManager.Instance.CheckWining();
         takenItem.Disappear();
 
-    }
-
-    private void PlayAnimation(int CashCount)
-    {
-        CashColectedAnimator.SetTrigger(ColectedCashTriger);
-        MoneyCount.text = CashCount.ToString();
     }
 }

@@ -11,7 +11,7 @@ public class Magnete : Player.Player
     const string MagnetKey = "MagneteMagnetKey";
 
     public CapsuleCollider magneteSize;
-
+    public UpgradeNotification upgradeNotification;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -33,7 +33,7 @@ public class Magnete : Player.Player
     public void UpgradeWeight()
     {
         WeightLevel++;
-
+        upgradeNotification.WeightUpgrade();
         PlayerPrefs.SetInt(WeightKey, WeightLevel);
 
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
@@ -43,7 +43,7 @@ public class Magnete : Player.Player
     public void UpgradeSpeed()
     {
         SpeedLevel++;
-
+        upgradeNotification.SpeedUpgrade();
         PlayerPrefs.SetInt(SpeedKey, SpeedLevel);
 
         Movement.MoveLevel = SpeedLevel;
@@ -51,7 +51,7 @@ public class Magnete : Player.Player
     public void UpgradeMagnete()
     {
         MagnetLevel++;
-
+        upgradeNotification.MagneteUpgrade();
         magneteSize.radius = 1 + MagnetLevel * 0.05f;
         PlayerPrefs.SetInt(MagnetKey, MagnetLevel);
 
