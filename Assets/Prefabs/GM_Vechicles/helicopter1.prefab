@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 882096934869688201}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710665, y: -0, z: -0, w: 0.707107}
-  m_LocalPosition: {x: 0, y: -16, z: -0}
+  m_LocalPosition: {x: 0, y: -13.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4889,12 +4889,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114404510393783932}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 2.9870995e-10, y: -0.99999326, z: 0.000000081459795, w: 0.003666937}
   m_LocalPosition: {x: 0, y: 0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8355945736400204310}
+  m_Father: {fileID: 1529020842572716925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &750871289226180850
 MeshFilter:
@@ -5243,6 +5243,7 @@ Transform:
   - {fileID: 2713385762745094869}
   - {fileID: 7740768693678670139}
   - {fileID: 5953498700945333763}
+  - {fileID: 2642910375031166663}
   m_Father: {fileID: 8355945736400204310}
   m_LocalEulerAnglesHint: {x: 0, y: 179.58, z: 0}
 --- !u!33 &2492733390050563288
@@ -5755,7 +5756,7 @@ Transform:
   m_GameObject: {fileID: 5090044162588901172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.09, z: 0}
+  m_LocalPosition: {x: 0, y: -5.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6080,7 +6081,7 @@ Transform:
   m_GameObject: {fileID: 6627872674819489714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.09, z: 0}
+  m_LocalPosition: {x: 0, y: -5.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6566,7 +6567,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6786359403094323144}
-  - {fileID: 2642910375031166663}
   - {fileID: 5925653434486915847}
   - {fileID: 2436436511013222699}
   - {fileID: 1529020842572716925}
@@ -6684,6 +6684,8 @@ MonoBehaviour:
   vehicleZone: {fileID: 0}
   _spawnPoint: {x: 0, y: 0, z: 0}
   _dieHeight: -20
+  audioSource: {fileID: 0}
+  particle: {fileID: 0}
   WeightLevel: 0
   FuelConsumptionRate: 2
   FuelRecoveryTime: 300
@@ -6692,6 +6694,7 @@ MonoBehaviour:
   MaxFuelLevel: 0
   fuelText: {fileID: 5756045330410231367}
   defaultVehickle: {fileID: 0}
+  upgradeNotification: {fileID: 0}
 --- !u!65 &5040005130591222412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6739,7 +6742,7 @@ Transform:
   m_GameObject: {fileID: 9107309479637852967}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.09, z: 0}
+  m_LocalPosition: {x: 0, y: -5.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
