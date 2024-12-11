@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public bool vibrations;
     public bool sounds;
     public bool musics;
-    public bool hasShownIncomePanel = false;
     public bool tutorialCompleted = true;
 
     public static GameManager Instance
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        hasShownIncomePanel = true;
     }
     private void Start()
     {
@@ -181,8 +179,4 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void OnApplicationQuit()
-    {
-        hasShownIncomePanel = false;
-    }
 }

@@ -108,7 +108,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             MagnetUpgradeCostText.text = experienceTable.experiencePerLevel[magnete.MagnetLevel].ToString();
             SpeedLevelText.text = (magnete.SpeedLevel + 1).ToString();
             WeightLevelText.text = (magnete.WeightLevel + 1).ToString();
-            MagnetLevelText.text = magnete.MagnetLevel.ToString();
+            MagnetLevelText.text = (magnete.MagnetLevel + 1).ToString();
             SpeedLevelFillAmount.fillAmount = (float)((magnete.SpeedLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
             WeightLevelFillAmount.fillAmount = (float)((magnete.WeightLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
             MagnetLevelFillAmount.fillAmount = (float)((magnete.MagnetLevel % (experienceTable.experiencePerLevel.Count / 3)) + 1) / (experienceTable.experiencePerLevel.Count / 3);
@@ -159,7 +159,7 @@ public class MagneteUpgradeTab : MonoBehaviour
                     WeightUpgradeCostText.text = $"{experienceTable.experiencePerLevel[magnete.WeightLevel]}";
                 }
             }
-            if (magnete.MagnetLevel == experienceTable.experiencePerLevel.Count)
+            if (magnete.MagnetLevel + 1 == experienceTable.experiencePerLevel.Count)
             {
                 MagnetUpgradeMax.gameObject.SetActive(true);
                 MagnetUpgradeButton.gameObject.SetActive(false);

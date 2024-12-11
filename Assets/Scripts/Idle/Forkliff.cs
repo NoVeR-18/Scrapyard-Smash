@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Forkliff : Player.Player
 {
+
     public int SpeedLevel;
     public int WeightLevel;
 
@@ -42,4 +43,5 @@ public class Forkliff : Player.Player
 
         Movement.MoveLevel = SpeedLevel;
     }
+
 }

@@ -11,13 +11,15 @@ public class FrameMachineTab : StoragePad
     }
     public override void takeItemsFromPlayer(Player.Player player)
     {
+        if (player == null)
+            return;
         if (!ItemsContainer.CanAddItem())
             return;
 
         Item takenItem = null;
         if (!player.Backpack.ItemsContainer.TakeItem(out takenItem, ItemType))
             return;
-
+        GameManager.Instance.Vibrate();
         ItemsContainer.AddItem(takenItem);
         LevelManager.Instance.CarsCollected++;
         LevelManager.Instance.CheckWining();
@@ -28,7 +30,9 @@ public class FrameMachineTab : StoragePad
         {
             Item item;
             ItemsContainer.TakeItem(out item);
+            item.gameObject.transform.localScale /= 2;
             sellPad.ItemsContainer.AddItem(item);
+
             sellPad.StartCoroutine(sellPad.Sell());
         }
     }

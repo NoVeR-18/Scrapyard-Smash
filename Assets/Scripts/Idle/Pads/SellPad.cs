@@ -39,6 +39,7 @@ public class SellPad : StoragePad
             if (!ItemsContainer.TakeItem(out takenItem))
                 StopCoroutine(Sell());
             var cost = takenItem.Cost;
+
             takenItem.Disappear();
             Item newItem = CreateItem();
             if (OutputStoragePads.ItemsContainer.AddItem(newItem) == false)

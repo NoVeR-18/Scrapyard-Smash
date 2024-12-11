@@ -14,6 +14,8 @@ namespace Player
         [SerializeField] protected Vector3 _spawnPoint;
         [SerializeField] private float _dieHeight = -20;
 
+        public AudioSource audioSource;
+        public ParticleSystem particle;
         protected PlayerWallet _wallet;
         protected PlayerBackpack _backpack;
         protected PlayerMovement _movement;
@@ -65,16 +67,32 @@ namespace Player
             SpawnPlayer();
             vehicleZone?.gameObject.SetActive(true);
             _movement.boxCollider.isTrigger = true;
+            audioSource?.Stop();
+            if (particle != null)
+                particle.Play();
         }
 
         virtual public bool EnableVechicle()
         {
             _movement.CanMoving = true;
             _movement.boxCollider.isTrigger = false;
+            audioSource?.Play();
+
+            if (particle != null)
+                particle.Stop();
             mainCamera.gameObject.SetActive(true);
             vehicleZone?.gameObject.SetActive(false);
             return true;
         }
 
+        public void SelectVehicle(Transform transform)
+        {
+            if (!_movement.CanMoving)
+            {
+                EnableVechicle();
+                this.transform.position = transform.position;
+                this.transform.rotation = transform.rotation;
+            }
+        }
     }
 }

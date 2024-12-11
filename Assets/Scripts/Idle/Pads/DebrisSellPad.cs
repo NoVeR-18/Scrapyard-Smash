@@ -12,13 +12,17 @@ public class DebrisSellPad : StoragePad
     }
     public override void takeItemsFromPlayer(Player.Player player)
     {
+        if (player == null)
+            return;
+
         if (!ItemsContainer.CanAddItem())
             return;
 
         Item takenItem = null;
+
         if (!player.Backpack.ItemsContainer.TakeItem(out takenItem, ItemType))
             return;
-
+        GameManager.Instance.Vibrate();
         ItemsContainer.AddItem(takenItem);
         LevelManager.Instance.TrashCollected++;
         LevelManager.Instance.CheckWining();

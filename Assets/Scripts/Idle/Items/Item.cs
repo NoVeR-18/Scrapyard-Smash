@@ -26,19 +26,26 @@ public class Item : MonoBehaviour
     public int Cost = 50;
     [SerializeField] private BoxCollider phisicCollider;
     private bool moveWithArc = true;
+
+    public AudioSource audioSource;
+
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.tag == "Player" && CanTake)
         {
             var player = other.GetComponent<Player.Player>();
-
+            if (player == null)
+                player = other.GetComponentInParent<Player.Player>();
             if (!player.Backpack.ItemsContainer.CanAddItem())
                 return;
 
             if (player.Backpack.ItemsContainer.AddItem(this))
             {
                 CanTake = false;
+                GameManager.Instance.Vibrate();
+                if (audioSource != null)
+                    audioSource?.Play();
                 if (player as Forkliff)
                 {
                     moveWithArc = true;
@@ -50,9 +57,7 @@ public class Item : MonoBehaviour
                 if (phisicCollider != null)
                     Destroy(phisicCollider);
                 Destroy(GetComponent<Rigidbody>());
-
             }
-
         }
     }
 

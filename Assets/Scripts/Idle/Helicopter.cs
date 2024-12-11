@@ -79,7 +79,7 @@ public class Helicopter : Player.Player
             _movement.boxCollider.isTrigger = true;
             mainCamera.gameObject.SetActive(true);
             vehicleZone?.gameObject.SetActive(false);
-            StartCoroutine(MoveUpSmoothly(new Vector3(_spawnPoint.x, _spawnPoint.y + 15f, _spawnPoint.z)));
+            StartCoroutine(MoveUpSmoothly(new Vector3(_spawnPoint.x, _spawnPoint.y + 12f, _spawnPoint.z)));
             _fuelConsumptionCoroutine = StartCoroutine(ConsumeFuel());
             return true;
 

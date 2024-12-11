@@ -11,7 +11,7 @@ public class SettingsPopUp : MonoBehaviour
     public Button musicSet;
     public Button soundSet;
 
-
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -27,6 +27,7 @@ public class SettingsPopUp : MonoBehaviour
                 GameManager.Instance.SetSound(true);
                 SoundsSlider.gameObject.SetActive(true);
             }
+            audioSource?.Play();
         });
         musicSet.onClick.AddListener(() =>
         {
@@ -40,6 +41,7 @@ public class SettingsPopUp : MonoBehaviour
                 GameManager.Instance.SetMusic(true);
                 MusicSlider.gameObject.SetActive(true);
             }
+            audioSource?.Play();
         });
         vibrationSet.onClick.AddListener(() =>
         {
@@ -54,6 +56,7 @@ public class SettingsPopUp : MonoBehaviour
                 VibrationSlider.gameObject.SetActive(false);
 
             }
+            audioSource?.Play();
         });
     }
     private void OnEnable()

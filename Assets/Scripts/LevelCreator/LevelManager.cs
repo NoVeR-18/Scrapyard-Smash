@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance { get; private set; }
     public PlayerWallet wallet;
     public VictoryTab victoryTab;
+    public LevelMap levelMap;
 
     public Transform nextLevel;
 
@@ -51,6 +52,7 @@ public class LevelManager : MonoBehaviour
         nextLevel.GetComponent<Button>().onClick.AddListener(() =>
         {
             nextLevel.gameObject.SetActive(false);
+            GameManager.Instance.Vibrate();
             victoryTab.OpenTab();
         });
     }
@@ -143,7 +145,8 @@ public class LevelManager : MonoBehaviour
             vechicles[0].EnableVechicle();
         }
         LoadLevel(levelData);
-        changeBackgroundZone.ChaneMaterial(levelIndex);
+        changeBackgroundZone.ChaneMaterial(levelIndex + 1);
+        levelMap.UpdateLevelMap(levelIndex);
     }
 
     public void LoadLevel(LevelData levelData)

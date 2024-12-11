@@ -15,6 +15,8 @@ public class GameAward : StoragePad
 
     public override void giveItemsToPlayer(Player.Player player)
     {
+        if (player == null)
+            return;
         if (ItemsContainer.Count == 0)
             return;
 

@@ -11,6 +11,9 @@ public class VictoryTab : MonoBehaviour
     public Button takeButton;
     public List<Player.Player> players;
     LevelManager levelManager;
+    public AudioSource audioSource;
+
+    public ParticleSystem VictoryVFX;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class VictoryTab : MonoBehaviour
 
     private void TakeAward()
     {
+        GameManager.Instance.Vibrate();
         levelManager.wallet.AddMoney(experienceTable.AwardLevelComplete[levelManager.currentLevelIndex]);
         CloseTab();
         foreach (Player.Player player in players)
@@ -55,6 +59,8 @@ public class VictoryTab : MonoBehaviour
     }
     public void OpenTab()
     {
+        audioSource?.Play();
+        VictoryVFX.Play();
         gameObject.SetActive(true);
     }
     public void CloseTab()

@@ -7,21 +7,42 @@ public class UpgradePanel : MonoBehaviour
     public MagneteUpgradeTab magneteUpgradeTab;
     public HelicopterUpgradeTab helicopterUpgradeTab;
 
+    public ChangeVehicleTab changeVehicleTab;
+
     public Button[] forkliffOpenButton;
     public Button[] magneteOpenButton;
     public Button[] helicopterOpenButton;
 
     public Button closeButton;
+
+    public AudioSource audioSource;
+
     private void Start()
     {
         foreach (var item in forkliffOpenButton)
-            item.onClick.AddListener(() => { OpenForkliffTab(); });
+            item.onClick.AddListener(() =>
+            {
+                OpenForkliffTab();
+                audioSource?.Play();
+            });
         foreach (var item in magneteOpenButton)
-            item.onClick.AddListener(() => { OpenMagneteTab(); });
+            item.onClick.AddListener(() =>
+            {
+                OpenMagneteTab();
+                audioSource?.Play();
+            });
         foreach (var item in helicopterOpenButton)
-            item.onClick.AddListener(() => { OpenHelicopterTab(); });
+            item.onClick.AddListener(() =>
+            {
+                OpenHelicopterTab();
+                audioSource?.Play();
+            });
 
-        closeButton.onClick.AddListener(() => { CloseTab(); });
+        closeButton.onClick.AddListener(() =>
+        {
+            CloseTab();
+            audioSource?.Play();
+        });
     }
 
     public void OpenTab(Player.Player player)
@@ -50,6 +71,7 @@ public class UpgradePanel : MonoBehaviour
         forkliffUpgradeTab.gameObject.SetActive(false);
         helicopterUpgradeTab.gameObject.SetActive(false);
         magneteUpgradeTab.gameObject.SetActive(true);
+        changeVehicleTab.SelectMagnete();
     }
 
     private void OpenForkliffTab()
@@ -57,6 +79,7 @@ public class UpgradePanel : MonoBehaviour
         magneteUpgradeTab.gameObject.SetActive(false);
         helicopterUpgradeTab.gameObject.SetActive(false);
         forkliffUpgradeTab.gameObject.SetActive(true);
+        changeVehicleTab.SelectForkliff();
     }
     private void OpenHelicopterTab()
     {
