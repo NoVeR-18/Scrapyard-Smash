@@ -26,6 +26,8 @@ public class Helicopter : Player.Player
 
     private Coroutine _fuelConsumptionCoroutine;
 
+    public UpgradeNotification upgradeNotification;
+
     public override void Start()
     {
 
@@ -151,6 +153,7 @@ public class Helicopter : Player.Player
     public void UpgradeWeight()
     {
         WeightLevel++;
+        upgradeNotification.WeightUpgrade();
         PlayerPrefs.SetInt(WeightKey, WeightLevel);
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         Backpack.ItemsContainer.AddCloselyContainer(1);
@@ -161,6 +164,7 @@ public class Helicopter : Player.Player
         MaxFuelLevel++;
         Fuel += 10;
         MaxFuel += MaxFuelLevel * 10;
+        upgradeNotification.FuelUpgrade();
         fuelText.text = $"{Fuel}/{MaxFuel}";
         PlayerPrefs.SetInt(FuelKey, Fuel);
         PlayerPrefs.SetInt(MaxFuelLevelKey, MaxFuelLevel);
@@ -169,6 +173,7 @@ public class Helicopter : Player.Player
     public void UpgradeRecoverySpeed()
     {
         RecoveryUpgradeLevel++;
+        upgradeNotification.RefilUpgrade();
         RecoverySpeedMultiplier += 0.002f;
         PlayerPrefs.SetInt(RecoverySpeedKey, RecoveryUpgradeLevel);
     }

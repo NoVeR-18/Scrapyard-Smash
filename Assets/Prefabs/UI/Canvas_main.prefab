@@ -14929,6 +14929,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  audioSource: {fileID: 0}
+  VictoryVFX: {fileID: 0}
 --- !u!1 &2129426792783980240
 GameObject:
   m_ObjectHideFlags: 0
@@ -15202,7 +15204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7332905368816102671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15973,7 +15975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8052090593246831217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17604,6 +17606,7 @@ MonoBehaviour:
   forkliffUpgradeTab: {fileID: 2538897452241469517}
   magneteUpgradeTab: {fileID: 5623985675194044107}
   helicopterUpgradeTab: {fileID: 1392304501640663526}
+  changeVehicleTab: {fileID: 0}
   forkliffOpenButton:
   - {fileID: 1363593490911354015}
   - {fileID: 4946124710222610504}
@@ -17614,6 +17617,7 @@ MonoBehaviour:
   - {fileID: 4482549567944698444}
   - {fileID: 4188836662826606537}
   closeButton: {fileID: 5583280284715747067}
+  audioSource: {fileID: 0}
 --- !u!1 &2700952827530702169
 GameObject:
   m_ObjectHideFlags: 0
@@ -18013,7 +18017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6090690149845793142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19635,7 +19639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8737913802784729109
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39244,6 +39248,7 @@ MonoBehaviour:
   vibrationSet: {fileID: 0}
   musicSet: {fileID: 0}
   soundSet: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &2251318581604999356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39262,6 +39267,7 @@ MonoBehaviour:
   vibrationSet: {fileID: 4164201812006838662}
   musicSet: {fileID: 6830903159626895558}
   soundSet: {fileID: 1164659022461917108}
+  audioSource: {fileID: 0}
 --- !u!1 &6997097823361647143
 GameObject:
   m_ObjectHideFlags: 0
@@ -42129,9 +42135,10 @@ RectTransform:
   m_Children:
   - {fileID: 8323555672080645350}
   - {fileID: 3134407315190655233}
+  - {fileID: 5202007407409757598}
+  - {fileID: 937522088446176551}
   - {fileID: 7709914632998947727}
   - {fileID: 3854596692723310531}
-  - {fileID: 937522088446176551}
   - {fileID: 1428883635244291096}
   - {fileID: 7938838193469800572}
   - {fileID: 5010596449578649828}
@@ -42140,7 +42147,6 @@ RectTransform:
   - {fileID: 420178512502446331}
   - {fileID: 6267366737497459435}
   - {fileID: 523911320415866161}
-  - {fileID: 5202007407409757598}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -52992,7 +52998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6169612059877889048, guid: a323c56a71fb76441b7d016502819790, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 700
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 6169612059877889048, guid: a323c56a71fb76441b7d016502819790, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

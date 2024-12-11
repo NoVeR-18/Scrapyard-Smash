@@ -67,7 +67,8 @@ namespace Player
             SpawnPlayer();
             vehicleZone?.gameObject.SetActive(true);
             _movement.boxCollider.isTrigger = true;
-            audioSource?.Stop();
+            if (audioSource != null)
+                audioSource?.Stop();
             if (particle != null)
                 particle.Play();
         }
@@ -76,7 +77,8 @@ namespace Player
         {
             _movement.CanMoving = true;
             _movement.boxCollider.isTrigger = false;
-            audioSource?.Play();
+            if (audioSource != null)
+                audioSource?.Play();
 
             if (particle != null)
                 particle.Stop();

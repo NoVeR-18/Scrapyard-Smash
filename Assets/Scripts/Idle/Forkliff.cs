@@ -9,6 +9,8 @@ public class Forkliff : Player.Player
     const string SpeedKey = "SpeedKey";
     const string WeightKey = "WeightKey";
 
+    public UpgradeNotification upgradeNotification;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -28,7 +30,7 @@ public class Forkliff : Player.Player
     public void UpgradeWeight()
     {
         WeightLevel++;
-
+        upgradeNotification.WeightUpgrade();
         PlayerPrefs.SetInt(WeightKey, WeightLevel);
 
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
@@ -38,7 +40,7 @@ public class Forkliff : Player.Player
     public void UpgradeSpeed()
     {
         SpeedLevel++;
-
+        upgradeNotification.SpeedUpgrade();
         PlayerPrefs.SetInt(SpeedKey, SpeedLevel);
 
         Movement.MoveLevel = SpeedLevel;
