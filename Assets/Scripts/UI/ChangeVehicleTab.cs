@@ -89,8 +89,10 @@ public class ChangeVehicleTab : MonoBehaviour
             MagneteActiveFrame.gameObject.SetActive(true);
             MagneteInactiveFrame.gameObject.SetActive(false);
         }
-
-        magnete.SelectVehicle(forkliff.transform);
-        forkliff.DisableVechicle();
+        if (magnete.unlocked)
+        {
+            magnete.SelectVehicle(forkliff.transform);
+            forkliff.DisableVechicle();
+        }
     }
 }

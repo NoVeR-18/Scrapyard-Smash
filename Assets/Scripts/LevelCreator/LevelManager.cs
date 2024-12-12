@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform parentContainer; // Контейнер объектов уровня
     [SerializeField] private List<GameObject> prefabs; // Список префабов, связанных с типами объектов
 
-    [SerializeField] private List<Player.Player> vechicles;
+    public List<Player.Player> vechicles;
     [SerializeField] private Player.Player ufo;
     [SerializeField]
     private List<LevelData> loadedLevels; // Список загруженных уровней

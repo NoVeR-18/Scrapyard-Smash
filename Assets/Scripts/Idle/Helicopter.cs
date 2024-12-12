@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -28,15 +29,58 @@ public class Helicopter : Player.Player
 
     public UpgradeNotification upgradeNotification;
 
+    [SerializeField] private List<Transform> helicopters;
+    [SerializeField] private Transform rotor;
+
+
+
+    [Header("Unlock Vehicle")]
+
+    public bool unlocked = false;
+    [SerializeField] private int _detailsToUnlock = 10;
+    public int colectedDetails = 0;
+    const string DetailsKey = "HelicopterDetailsKey";
+
+
     public override void Start()
     {
-
         _spawnPoint = transform.position;
         base.Start();
         LoadProgress();
         RecoverFuel();
-    }
+        UpdateModel();
 
+        CheckUnlocked();
+    }
+    public void ColectDetails()
+    {
+        colectedDetails++;
+        PlayerPrefs.SetInt(DetailsKey, colectedDetails);
+        PlayerPrefs.Save();
+        CheckUnlocked();
+    }
+    private void CheckUnlocked()
+    {
+        if (colectedDetails >= _detailsToUnlock)
+        {
+            unlocked = true;
+        }
+        else
+            unlocked = false;
+    }
+    private void UpdateModel()
+    {
+        int index = MaxFuelLevel / 9;
+        foreach (Transform t in helicopters)
+        {
+            t.gameObject.SetActive(false);
+        }
+        helicopters[index].gameObject.SetActive(true);
+        if (index != 0)
+            rotor.localPosition = new Vector3(rotor.localPosition.x, 2.2f, rotor.localPosition.z);
+        else
+            rotor.localPosition = new Vector3(rotor.localPosition.x, 1.45f, rotor.localPosition.z);
+    }
     void LoadProgress()
     {
         Fuel = PlayerPrefs.GetInt(FuelKey, MaxFuel);
@@ -75,22 +119,27 @@ public class Helicopter : Player.Player
 
     public override bool EnableVechicle()
     {
-        if (Fuel > 0)
+        if (unlocked)
         {
-            _movement.CanMoving = true;
-            _movement.boxCollider.isTrigger = true;
-            mainCamera.gameObject.SetActive(true);
-            vehicleZone?.gameObject.SetActive(false);
-            StartCoroutine(MoveUpSmoothly(new Vector3(_spawnPoint.x, _spawnPoint.y + 12f, _spawnPoint.z)));
-            _fuelConsumptionCoroutine = StartCoroutine(ConsumeFuel());
-            return true;
+            if (Fuel > 0)
+            {
+                _movement.CanMoving = true;
+                _movement.boxCollider.isTrigger = true;
+                mainCamera.gameObject.SetActive(true);
+                vehicleZone?.gameObject.SetActive(false);
+                StartCoroutine(MoveUpSmoothly(new Vector3(_spawnPoint.x, _spawnPoint.y + 12f, _spawnPoint.z)));
+                _fuelConsumptionCoroutine = StartCoroutine(ConsumeFuel());
+                return true;
 
+            }
+            else
+            {
+                Debug.LogWarning("Ќе хватает топлива дл€ использовани€ вертолета!");
+                return false;
+            }
         }
         else
-        {
-            Debug.LogWarning("Ќе хватает топлива дл€ использовани€ вертолета!");
-            return false;
-        }
+        { return false; }
     }
 
     public override void DisableVechicle()
@@ -157,6 +206,8 @@ public class Helicopter : Player.Player
         PlayerPrefs.SetInt(WeightKey, WeightLevel);
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         Backpack.ItemsContainer.AddCloselyContainer(1);
+
+        UpdateModel();
     }
 
     public void UpgradeFuel()
@@ -168,6 +219,8 @@ public class Helicopter : Player.Player
         fuelText.text = $"{Fuel}/{MaxFuel}";
         PlayerPrefs.SetInt(FuelKey, Fuel);
         PlayerPrefs.SetInt(MaxFuelLevelKey, MaxFuelLevel);
+
+        UpdateModel();
     }
 
     public void UpgradeRecoverySpeed()

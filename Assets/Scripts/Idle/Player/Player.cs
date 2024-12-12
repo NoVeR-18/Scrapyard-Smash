@@ -87,7 +87,7 @@ namespace Player
             return true;
         }
 
-        public void SelectVehicle(Transform transform)
+        virtual public void SelectVehicle(Transform transform)
         {
             if (!_movement.CanMoving)
             {

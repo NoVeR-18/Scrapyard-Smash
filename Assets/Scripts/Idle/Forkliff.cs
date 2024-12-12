@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Forkliff : Player.Player
@@ -11,11 +12,49 @@ public class Forkliff : Player.Player
 
     public UpgradeNotification upgradeNotification;
 
+    public List<Mesh> hullModels;
+    public List<Mesh> handModels;
+
+    [SerializeField] private MeshFilter hullMainModel;
+    [SerializeField] private MeshFilter handMainModel;
+
+    [SerializeField] private List<MeshFilter> wheelsMainModels;
+    [SerializeField] private List<Transform> wheelsLvlThird;
+    public Mesh wheelsFirstLevelMesh;
+    public Mesh wheelsSecondLevelMesh;
+
+
+
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
         LoadProgress();
+        UpdateModel();
+    }
+
+    private void UpdateModel()
+    {
+        int index = WeightLevel / 9;
+        hullMainModel.mesh = hullModels[index];
+        handMainModel.mesh = handModels[index];
+
+        int speedIndex = SpeedLevel / 9;
+        if (speedIndex == 2)
+        {
+            foreach (Transform t in wheelsLvlThird) { t.gameObject.SetActive(true); }
+            foreach (MeshFilter wheel in wheelsMainModels) { wheel.gameObject.SetActive(false); }
+        }
+        else if (speedIndex == 1)
+        {
+            foreach (Transform t in wheelsLvlThird) { t.gameObject.SetActive(false); }
+            foreach (MeshFilter wheel in wheelsMainModels) { wheel.mesh = wheelsSecondLevelMesh; }
+        }
+        else
+        {
+            foreach (Transform t in wheelsLvlThird) { t.gameObject.SetActive(false); }
+            foreach (MeshFilter wheel in wheelsMainModels) { wheel.mesh = wheelsFirstLevelMesh; }
+        }
     }
 
     void LoadProgress()
@@ -35,6 +74,8 @@ public class Forkliff : Player.Player
 
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         Backpack.ItemsContainer.AddContainer(1);
+
+        UpdateModel();
     }
 
     public void UpgradeSpeed()
@@ -44,6 +85,7 @@ public class Forkliff : Player.Player
         PlayerPrefs.SetInt(SpeedKey, SpeedLevel);
 
         Movement.MoveLevel = SpeedLevel;
+        UpdateModel();
     }
 
 }
