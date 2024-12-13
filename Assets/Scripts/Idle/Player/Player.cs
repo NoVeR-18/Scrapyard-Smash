@@ -73,8 +73,9 @@ namespace Player
                 audioSource?.Stop();
             if (particle != null)
                 particle.Play();
-
-            _backpack.ItemsContainer.editCountItems -= capacityBar.UpdateUI;
+            if (capacityBar != null)
+                if (_backpack.ItemsContainer.editCountItems == capacityBar.UpdateUI)
+                    _backpack.ItemsContainer.editCountItems -= capacityBar.UpdateUI;
         }
 
         virtual public bool EnableVechicle()

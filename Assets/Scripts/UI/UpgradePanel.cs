@@ -59,11 +59,11 @@ public class UpgradePanel : MonoBehaviour
         {
             OpenHelicopterTab();
         }
-        if (!magneteUpgradeTab.magnete.unlocked) { foreach (var item in magneteOpenButton) { item.interactable = false; } }
-        else { foreach (var item in magneteOpenButton) { item.interactable = true; } }
+        if (!magneteUpgradeTab.magnete.unlocked) { foreach (var item in magneteOpenButton) { item.gameObject.SetActive(false); } }
+        else { foreach (var item in magneteOpenButton) { item.gameObject.SetActive(true); } }
 
-        if (!helicopterUpgradeTab.helicopter.unlocked) { foreach (var item in helicopterOpenButton) { item.interactable = false; } }
-        else { foreach (var item in helicopterOpenButton) { item.interactable = true; } }
+        if (!helicopterUpgradeTab.helicopter.unlocked) { foreach (var item in helicopterOpenButton) { item.gameObject.SetActive(false); } }
+        else { foreach (var item in helicopterOpenButton) { item.gameObject.SetActive(true); } }
 
     }
 

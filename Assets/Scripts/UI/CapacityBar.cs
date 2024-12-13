@@ -17,7 +17,7 @@ public class CapacityBar : MonoBehaviour
         {
 
             count.text = $"{player.Backpack.ItemsContainer.Count}/{player.Backpack.ItemsContainer.Capacity}";
-            fillAmount.fillAmount = player.Backpack.ItemsContainer.Count / player.Backpack.ItemsContainer.Capacity;
+            fillAmount.fillAmount = (float)player.Backpack.ItemsContainer.Count / player.Backpack.ItemsContainer.Capacity;
         }
 
     }
@@ -30,7 +30,7 @@ public class CapacityBar : MonoBehaviour
         forkliffIcon.gameObject.SetActive(false);
 
         count.text = $"{player.Backpack.ItemsContainer.Count}/{player.Backpack.ItemsContainer.Capacity}";
-        fillAmount.fillAmount = player.Backpack.ItemsContainer.Count / player.Backpack.ItemsContainer.Capacity;
+        fillAmount.fillAmount = (float)player.Backpack.ItemsContainer.Count / player.Backpack.ItemsContainer.Capacity;
 
         if (player as Helicopter)
         {
