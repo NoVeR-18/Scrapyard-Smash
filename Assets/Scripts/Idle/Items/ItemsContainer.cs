@@ -37,6 +37,8 @@ namespace Items.Container
         private ContainerSlot[] _slots;
         [SerializeField] private ContainerSlot _slotPrefab;                         // Markdown #2
 
+        public Action editCountItems;
+
         public void Init(ItemType storeItemType)
         {
             _capacity += CapacityLevel;
@@ -198,7 +200,7 @@ namespace Items.Container
             }
             _items.Add(item);
             item.GoToSlot(this, _items);
-
+            editCountItems?.Invoke();
             return true;
         }
         public bool TakeItem(out Item item)
@@ -220,6 +222,7 @@ namespace Items.Container
 
             _items.RemoveAt(_items.Count - 1);
 
+            editCountItems?.Invoke();
             return true;
         }
         public bool TakeItem(out Item item, ItemType type)
@@ -248,6 +251,7 @@ namespace Items.Container
 
             _items.Remove(queryTakeItem);
 
+            editCountItems?.Invoke();
             return true;
         }
 

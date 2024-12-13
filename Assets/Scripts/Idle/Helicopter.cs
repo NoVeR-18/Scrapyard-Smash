@@ -51,6 +51,11 @@ public class Helicopter : Player.Player
         UpdateModel();
 
         CheckUnlocked();
+        if (capacityBar != null)
+        {
+            capacityBar.UpdateUI(this);
+            _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
+        }
     }
     public void ColectDetails()
     {
@@ -76,6 +81,7 @@ public class Helicopter : Player.Player
             t.gameObject.SetActive(false);
         }
         helicopters[index].gameObject.SetActive(true);
+        _movement.modelContainer = helicopters[index];
         if (index != 0)
             rotor.localPosition = new Vector3(rotor.localPosition.x, 2.2f, rotor.localPosition.z);
         else

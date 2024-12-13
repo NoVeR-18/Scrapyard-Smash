@@ -14,6 +14,7 @@ namespace Player
         [SerializeField] protected Vector3 _spawnPoint;
         [SerializeField] private float _dieHeight = -20;
 
+        public CapacityBar capacityBar;
         public AudioSource audioSource;
         public ParticleSystem particle;
         protected PlayerWallet _wallet;
@@ -38,6 +39,7 @@ namespace Player
                 if (vehicleZone.gameObject.activeSelf)
                     DisableVechicle();
             }
+
         }
 
         private void Update()
@@ -71,6 +73,8 @@ namespace Player
                 audioSource?.Stop();
             if (particle != null)
                 particle.Play();
+
+            _backpack.ItemsContainer.editCountItems -= capacityBar.UpdateUI;
         }
 
         virtual public bool EnableVechicle()
@@ -84,6 +88,11 @@ namespace Player
                 particle.Stop();
             mainCamera.gameObject.SetActive(true);
             vehicleZone?.gameObject.SetActive(false);
+            if (capacityBar != null)
+            {
+                capacityBar.UpdateUI(this);
+                _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
+            }
             return true;
         }
 

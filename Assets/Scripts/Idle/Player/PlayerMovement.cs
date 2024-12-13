@@ -14,7 +14,7 @@ namespace Player
         }
 
         [SerializeField] private PlayerMovementSettings _settings;
-        [SerializeField] private Transform _modelContainer;
+        public Transform modelContainer;
 
         public PlayerControls _controls;
         private Rigidbody _rigidbody;
@@ -73,8 +73,8 @@ namespace Player
             if (rotationLookAtVector == Vector3.zero)
                 return;
 
-            _modelContainer.rotation = Quaternion.Lerp(
-                _modelContainer.rotation,
+            modelContainer.rotation = Quaternion.Lerp(
+                modelContainer.rotation,
                 Quaternion.LookRotation(rotationLookAtVector),
                 _settings.ModelRotationLerp * Time.deltaTime
                 );

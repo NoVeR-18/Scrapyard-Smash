@@ -31,6 +31,11 @@ public class Forkliff : Player.Player
         base.Start();
         LoadProgress();
         UpdateModel();
+        if (capacityBar != null)
+        {
+            capacityBar.UpdateUI(this);
+            _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
+        }
     }
 
     private void UpdateModel()
