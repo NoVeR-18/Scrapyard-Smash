@@ -10,6 +10,10 @@ public class CapacityBar : MonoBehaviour
     public Transform helicopterIcon;
     public Transform forkliffIcon;
     public Transform magneticIcon;
+
+    public Transform fullIcon;
+
+
     private Player.Player player;
     public void UpdateUI()
     {
@@ -18,6 +22,32 @@ public class CapacityBar : MonoBehaviour
 
             count.text = $"{player.Backpack.ItemsContainer.Count}/{player.Backpack.ItemsContainer.Capacity}";
             fillAmount.fillAmount = (float)player.Backpack.ItemsContainer.Count / player.Backpack.ItemsContainer.Capacity;
+
+            if (player.Backpack.ItemsContainer.Count >= player.Backpack.ItemsContainer.Capacity)
+                fullIcon.gameObject.SetActive(true);
+            else fullIcon.gameObject.SetActive(false);
+
+        }
+
+    }
+    public void UpdateHelicopterUI()
+    {
+        if (player != null)
+        {
+            if (player as Helicopter)
+            {
+                Helicopter helicopter = (Helicopter)player;
+                count.text = $"{helicopter.Fuel}/{helicopter.MaxFuel}";
+                fillAmount.fillAmount = (float)helicopter.Fuel / helicopter.MaxFuel;
+
+                if (player.Backpack.ItemsContainer.Count >= player.Backpack.ItemsContainer.Capacity)
+                {
+                    if (!(player as Helicopter))
+                        fullIcon.gameObject.SetActive(true);
+                }
+                else fullIcon.gameObject.SetActive(false);
+            }
+
         }
 
     }
@@ -29,8 +59,7 @@ public class CapacityBar : MonoBehaviour
         magneticIcon.gameObject.SetActive(false);
         forkliffIcon.gameObject.SetActive(false);
 
-        count.text = $"{player.Backpack.ItemsContainer.Count}/{player.Backpack.ItemsContainer.Capacity}";
-        fillAmount.fillAmount = (float)player.Backpack.ItemsContainer.Count / player.Backpack.ItemsContainer.Capacity;
+        UpdateUI();
 
         if (player as Helicopter)
         {

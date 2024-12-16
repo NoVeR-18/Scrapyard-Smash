@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 20884914941295253}
   - component: {fileID: 3786105665169139352}
   - component: {fileID: -7924247638347824324}
+  - component: {fileID: 5079431062633926133}
   - component: {fileID: 2381711827948210625}
+  - component: {fileID: 9078743191382624606}
   m_Layer: 0
   m_Name: cash
   m_TagString: Untagged
@@ -99,6 +101,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 5
   Name: cash
+--- !u!114 &5079431062633926133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549903610122229547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7536ac6daac5d429fe2b53d95eb4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cost: 50
+  item: {fileID: 2381711827948210625}
 --- !u!114 &2381711827948210625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +129,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemType: 1
   _itemRotationLerp: 10
+  CanTake: 1
+  Cost: 50
+  phisicCollider: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!65 &9078743191382624606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549903610122229547}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.04666, y: 0.2240166, z: 0.60226876}
+  m_Center: {x: 0, y: 0.11200829, z: 0}

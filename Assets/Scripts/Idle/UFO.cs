@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class UFO : Player.Player
 {
-    public ParticleSystem TrashPartickle;
-    public ParticleSystem CarPartickle;
     public ParticleSystem CowPartickle;
     public Transform ufoCash;
     public override void Start()

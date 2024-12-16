@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player
@@ -64,6 +65,17 @@ namespace Player
 
         virtual public void DisableVechicle()
         {
+            while (_backpack.ItemsContainer.Count > 0)
+            {
+
+                Item item;
+                _backpack.ItemsContainer.TakeItem(out item);
+                item.gameObject.transform.parent = null;
+
+                item.CanTake = true;
+                item.phisicCollider.enabled = true;
+                item.AddComponent<Rigidbody>();
+            }
             _movement.CanMoving = false;
             mainCamera.gameObject.SetActive(false);
             SpawnPlayer();
@@ -72,7 +84,7 @@ namespace Player
             if (audioSource != null)
                 audioSource?.Stop();
             if (particle != null)
-                particle.Play();
+                particle.Stop();
             if (capacityBar != null)
                 if (_backpack.ItemsContainer.editCountItems == capacityBar.UpdateUI)
                     _backpack.ItemsContainer.editCountItems -= capacityBar.UpdateUI;
@@ -86,7 +98,7 @@ namespace Player
                 audioSource?.Play();
 
             if (particle != null)
-                particle.Stop();
+                particle.Play();
             mainCamera.gameObject.SetActive(true);
             vehicleZone?.gameObject.SetActive(false);
             if (capacityBar != null)
@@ -94,6 +106,7 @@ namespace Player
                 capacityBar.UpdateUI(this);
                 _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
             }
+            LevelManager.Instance.currentVehicle = this;
             return true;
         }
 
@@ -101,10 +114,33 @@ namespace Player
         {
             if (!_movement.CanMoving)
             {
-                EnableVechicle();
                 this.transform.position = transform.position;
                 this.transform.rotation = transform.rotation;
+                LevelManager.Instance.currentVehicle.DisableVechicle();
+                EnableVechicle();
             }
+        }
+        virtual public void SelectVehicle()
+        {
+            if (!_movement.CanMoving)
+            {
+                EnableVechicle();
+            }
+        }
+
+        public ParticleSystem TrashPartickle;
+        public ParticleSystem CarPartickle;
+        public void PlayEffect(int cost)
+        {
+            if (cost == 50)
+            {
+                Instantiate(CarPartickle, gameObject.transform);
+            }
+            if (cost == 20)
+            {
+                Instantiate(TrashPartickle, gameObject.transform);
+            }
+
         }
     }
 }

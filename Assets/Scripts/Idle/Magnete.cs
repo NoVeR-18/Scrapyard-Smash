@@ -1,5 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Magnete : Player.Player
 {
@@ -32,11 +35,19 @@ public class Magnete : Player.Player
     public Mesh wheelsSecondLevelMesh;
 
     [Header("Unlock Vehicle")]
+    [SerializeField] private Transform modelLock;
+    [SerializeField] private Transform modelAssemble;
 
     public bool unlocked = false;
     [SerializeField] private int _detailsToUnlock = 2;
     public int colectedDetails = 0;
     const string DetailsKey = "MagneteDetailsKey";
+
+
+    public Transform partNotification;
+    public TextMeshProUGUI partsCount;
+    public Image partsFill;
+
 
     public override void Start()
     {
@@ -55,7 +66,12 @@ public class Magnete : Player.Player
     {
         if (unlocked)
             base.SelectVehicle(transform);
+    }
 
+    public override void SelectVehicle()
+    {
+        if (unlocked)
+            base.SelectVehicle();
     }
 
     public void ColectDetails()
@@ -64,6 +80,18 @@ public class Magnete : Player.Player
         PlayerPrefs.SetInt(DetailsKey, colectedDetails);
         PlayerPrefs.Save();
         CheckUnlocked();
+        StartCoroutine(closeTab());
+        UpdateModel();
+    }
+    private IEnumerator closeTab()
+    {
+
+        partNotification.gameObject.SetActive(true);
+        partsCount.text = $"{colectedDetails}/{_detailsToUnlock}";
+        partsFill.fillAmount = (float)colectedDetails / _detailsToUnlock;
+        yield return new WaitForSeconds(1.0f);
+        partNotification.gameObject.SetActive(false);
+
     }
     private void CheckUnlocked()
     {
@@ -76,6 +104,20 @@ public class Magnete : Player.Player
     }
     private void UpdateModel()
     {
+        modelLock.gameObject.SetActive(false);
+        modelAssemble.gameObject.SetActive(false);
+        if (colectedDetails == 0)
+        {
+            Movement.modelContainer.gameObject.SetActive(false);
+            modelLock.gameObject.SetActive(true);
+            return;
+        }
+        else if (colectedDetails < _detailsToUnlock)
+        {
+            Movement.modelContainer.gameObject.SetActive(false);
+            modelAssemble.gameObject.SetActive(true);
+            return;
+        }
         int index = WeightLevel / 9;
         hullMainModel.mesh = hullModels[index];
         handMainModel.mesh = handModels[index];

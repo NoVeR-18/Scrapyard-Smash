@@ -23,6 +23,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private List<LevelData> loadedLevels; // Список загруженных уровней
 
+    public Player.Player currentVehicle;
+
     [SerializeField] private ChangeBackgroundZone changeBackgroundZone;
 
     public int currentLevelIndex; // Индекс текущего уровня

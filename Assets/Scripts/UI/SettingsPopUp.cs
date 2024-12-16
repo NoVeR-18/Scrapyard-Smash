@@ -53,7 +53,7 @@ public class SettingsPopUp : MonoBehaviour
             else
             {
                 GameManager.Instance.SetVibration(true);
-                VibrationSlider.gameObject.SetActive(false);
+                VibrationSlider.gameObject.SetActive(true);
 
             }
             audioSource?.Play();

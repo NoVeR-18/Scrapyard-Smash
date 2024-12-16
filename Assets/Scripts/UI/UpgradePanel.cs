@@ -45,8 +45,10 @@ public class UpgradePanel : MonoBehaviour
         });
     }
 
-    public void OpenTab(Player.Player player)
+    public void OpenTab()
     {
+        changeVehicleTab.CloseTab();
+        var player = LevelManager.Instance.currentVehicle;
         if (player as Magnete)
         {
             OpenMagneteTab();
@@ -77,7 +79,7 @@ public class UpgradePanel : MonoBehaviour
         forkliffUpgradeTab.gameObject.SetActive(false);
         helicopterUpgradeTab.gameObject.SetActive(false);
         magneteUpgradeTab.gameObject.SetActive(true);
-        changeVehicleTab.SelectMagnete();
+        if (!(LevelManager.Instance.currentVehicle as Magnete)) changeVehicleTab.SelectMagnete();
     }
 
     private void OpenForkliffTab()
@@ -85,7 +87,8 @@ public class UpgradePanel : MonoBehaviour
         magneteUpgradeTab.gameObject.SetActive(false);
         helicopterUpgradeTab.gameObject.SetActive(false);
         forkliffUpgradeTab.gameObject.SetActive(true);
-        changeVehicleTab.SelectForkliff();
+        if (!(LevelManager.Instance.currentVehicle as Forkliff))
+            changeVehicleTab.SelectForkliff();
     }
     private void OpenHelicopterTab()
     {

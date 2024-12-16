@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Helicopter : Player.Player
 {
-    private int Fuel;
+    public int Fuel;
     public int WeightLevel;
-    private int MaxFuel = 50;
+    public int MaxFuel = 50;
     public float FuelConsumptionRate = 0.5f;
     public float FuelRecoveryTime = 500f;
     public float RecoverySpeedMultiplier = 0.01f;
@@ -28,11 +30,14 @@ public class Helicopter : Player.Player
     private Coroutine _fuelConsumptionCoroutine;
 
     public UpgradeNotification upgradeNotification;
-
+    [SerializeField] private Transform modelLock;
+    [SerializeField] private Transform modelAssemble;
     [SerializeField] private List<Transform> helicopters;
     [SerializeField] private Transform rotor;
 
+    [SerializeField] private List<BoxCollider> phisicColiders;
 
+    public Transform heliFuel;
 
     [Header("Unlock Vehicle")]
 
@@ -41,6 +46,11 @@ public class Helicopter : Player.Player
     public int colectedDetails = 0;
     const string DetailsKey = "HelicopterDetailsKey";
 
+    public Transform partNotification;
+    public TextMeshProUGUI partsCount;
+    public Image partsFill;
+
+    [SerializeField] private BoxCollider boxCollider;
 
     public override void Start()
     {
@@ -50,12 +60,11 @@ public class Helicopter : Player.Player
         RecoverFuel();
         UpdateModel();
 
-        CheckUnlocked();
-        if (capacityBar != null)
+        foreach (var item in phisicColiders)
         {
-            capacityBar.UpdateUI(this);
-            _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
+            item.enabled = false;
         }
+        CheckUnlocked();
     }
     public void ColectDetails()
     {
@@ -63,7 +72,21 @@ public class Helicopter : Player.Player
         PlayerPrefs.SetInt(DetailsKey, colectedDetails);
         PlayerPrefs.Save();
         CheckUnlocked();
+
+        StartCoroutine(closeTab());
+        UpdateModel();
     }
+    private IEnumerator closeTab()
+    {
+
+        partNotification.gameObject.SetActive(true);
+        partsCount.text = $"{colectedDetails}/{_detailsToUnlock}";
+        partsFill.fillAmount = (float)colectedDetails / _detailsToUnlock;
+        yield return new WaitForSeconds(1.0f);
+        partNotification.gameObject.SetActive(false);
+
+    }
+
     private void CheckUnlocked()
     {
         if (colectedDetails >= _detailsToUnlock)
@@ -75,11 +98,25 @@ public class Helicopter : Player.Player
     }
     private void UpdateModel()
     {
-        int index = MaxFuelLevel / 9;
         foreach (Transform t in helicopters)
         {
             t.gameObject.SetActive(false);
         }
+        modelLock.gameObject.SetActive(false);
+        modelAssemble.gameObject.SetActive(false);
+        if (colectedDetails == 0)
+        {
+            modelLock.gameObject.SetActive(true);
+            rotor.gameObject.SetActive(false);
+            return;
+        }
+        else if (colectedDetails < _detailsToUnlock)
+        {
+            rotor.gameObject.SetActive(false);
+            modelAssemble.gameObject.SetActive(true);
+            return;
+        }
+        int index = MaxFuelLevel / 9;
         helicopters[index].gameObject.SetActive(true);
         _movement.modelContainer = helicopters[index];
         if (index != 0)
@@ -97,6 +134,7 @@ public class Helicopter : Player.Player
         MaxFuel += MaxFuelLevel * 10;
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         fuelText.text = $"{Fuel}/{MaxFuel}";
+        colectedDetails = PlayerPrefs.GetInt(DetailsKey, 0);
 
         Backpack.ItemsContainer.InitClosely();
     }
@@ -127,14 +165,23 @@ public class Helicopter : Player.Player
     {
         if (unlocked)
         {
-            if (Fuel > 0)
+            if (Fuel > 2)
             {
+                boxCollider.enabled = true;
                 _movement.CanMoving = true;
                 _movement.boxCollider.isTrigger = true;
                 mainCamera.gameObject.SetActive(true);
                 vehicleZone?.gameObject.SetActive(false);
                 StartCoroutine(MoveUpSmoothly(new Vector3(_spawnPoint.x, _spawnPoint.y + 12f, _spawnPoint.z)));
                 _fuelConsumptionCoroutine = StartCoroutine(ConsumeFuel());
+                capacityBar.UpdateUI(this);
+                capacityBar.UpdateHelicopterUI();
+                foreach (var item in phisicColiders)
+                {
+                    item.enabled = true;
+                }
+                heliFuel.gameObject.SetActive(false);
+                LevelManager.Instance.currentVehicle = this;
                 return true;
 
             }
@@ -150,12 +197,29 @@ public class Helicopter : Player.Player
 
     public override void DisableVechicle()
     {
+        boxCollider.enabled = false;
         _movement.CanMoving = false;
+        foreach (var item in phisicColiders)
+        {
+            item.enabled = false;
+        }
         mainCamera.gameObject.SetActive(false);
         vehicleZone?.gameObject.SetActive(true);
         _movement.boxCollider.isTrigger = true;
         StartCoroutine(MoveUpSmoothly(_spawnPoint));
+        while (_backpack.ItemsContainer.Count > 0)
+        {
 
+            Item item;
+            _backpack.ItemsContainer.TakeItem(out item);
+            item.gameObject.transform.parent = null;
+
+            item.CanTake = true;
+            item.phisicCollider.enabled = true;
+            item.AddComponent<Rigidbody>();
+        }
+
+        heliFuel.gameObject.SetActive(true);
         if (_fuelConsumptionCoroutine != null)
         {
             StopCoroutine(_fuelConsumptionCoroutine);
@@ -168,7 +232,7 @@ public class Helicopter : Player.Player
         while (Fuel > 0)
         {
             Fuel--;
-
+            capacityBar.UpdateHelicopterUI();
             fuelText.text = $"{Fuel}/{MaxFuel}";
             PlayerPrefs.SetInt(FuelKey, Fuel);
             yield return new WaitForSeconds(FuelConsumptionRate);

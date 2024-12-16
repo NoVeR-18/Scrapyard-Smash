@@ -61,6 +61,7 @@ public class ChangeVehicleTab : MonoBehaviour
         {
             animator?.SetTrigger(open);
             TabIsOpen = true;
+            UpdateUI();
         }
 
     }
@@ -68,31 +69,58 @@ public class ChangeVehicleTab : MonoBehaviour
 
     public void SelectForkliff()
     {
-        if (TabIsOpen)
+
+        if (LevelManager.Instance.currentVehicle as Magnete)
         {
-            ForkliffActiveFrame.gameObject.SetActive(true);
-            ForkliffInactiveFrame.gameObject.SetActive(false);
-            MagneteActiveFrame.gameObject.SetActive(false);
-            MagneteInactiveFrame.gameObject.SetActive(true);
+            forkliff.SelectVehicle(LevelManager.Instance.currentVehicle.transform);
+        }
+        else
+        {
+            LevelManager.Instance.currentVehicle.DisableVechicle();
+            forkliff.SelectVehicle();
         }
 
-        forkliff.SelectVehicle(magnete.transform);
-        magnete.DisableVechicle();
+        CloseTab();
     }
 
     public void SelectMagnete()
+    {
+
+        if (magnete.unlocked)
+        {
+            if (LevelManager.Instance.currentVehicle as Forkliff)
+            {
+                magnete.SelectVehicle(LevelManager.Instance.currentVehicle.transform);
+            }
+            else
+            {
+                LevelManager.Instance.currentVehicle.DisableVechicle();
+                magnete.SelectVehicle();
+            }
+        }
+        CloseTab();
+    }
+    private void UpdateUI()
     {
         if (TabIsOpen)
         {
             ForkliffActiveFrame.gameObject.SetActive(false);
             ForkliffInactiveFrame.gameObject.SetActive(true);
-            MagneteActiveFrame.gameObject.SetActive(true);
-            MagneteInactiveFrame.gameObject.SetActive(false);
-        }
-        if (magnete.unlocked)
-        {
-            magnete.SelectVehicle(forkliff.transform);
-            forkliff.DisableVechicle();
+            MagneteActiveFrame.gameObject.SetActive(false);
+            MagneteInactiveFrame.gameObject.SetActive(true);
+
+            if (LevelManager.Instance.currentVehicle as Forkliff)
+            {
+                ForkliffInactiveFrame.gameObject.SetActive(false);
+                ForkliffActiveFrame.gameObject.SetActive(true);
+            }
+            if (LevelManager.Instance.currentVehicle as Magnete)
+            {
+                MagneteActiveFrame.gameObject.SetActive(true);
+                MagneteInactiveFrame.gameObject.SetActive(false);
+            }
+
         }
     }
+
 }

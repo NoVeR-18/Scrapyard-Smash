@@ -13,6 +13,8 @@ public class VictoryTab : MonoBehaviour
     LevelManager levelManager;
     public AudioSource audioSource;
 
+    public CapacityBar capacityBar;
+
     public ParticleSystem VictoryVFX;
 
     private void Awake()
@@ -43,6 +45,7 @@ public class VictoryTab : MonoBehaviour
         players[0]?.Movement._controls.EnableTutorial();
         players[0]?.EnableVechicle();
         levelManager.LoadNextLevel();
+        capacityBar.gameObject.SetActive(true);
     }
     public void NextLevel()
     {
@@ -62,6 +65,7 @@ public class VictoryTab : MonoBehaviour
         audioSource?.Play();
         VictoryVFX.Play();
         gameObject.SetActive(true);
+        capacityBar.gameObject.SetActive(false);
     }
     public void CloseTab()
     {

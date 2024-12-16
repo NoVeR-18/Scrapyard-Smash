@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 public class GameManager : MonoBehaviour
 {
     private const string VibrationPrefKey = "VibrationEnabled";
-    private const string SoundsPrefKey = "SoundsEnabled";
+    private const string SoundsPrefKey = "SoundEnabled";
     private const string MusicsPrefKey = "MusicEnabled";
     private const string TutorialPrefKey = "TutorialEnabled";
     public string currentScene;

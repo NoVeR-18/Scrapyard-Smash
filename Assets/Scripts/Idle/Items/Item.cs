@@ -24,7 +24,7 @@ public class Item : MonoBehaviour
     public bool CanTake = true;
 
     public int Cost = 50;
-    [SerializeField] private BoxCollider phisicCollider;
+    public BoxCollider phisicCollider;
     private bool moveWithArc = true;
 
     public AudioSource audioSource;
@@ -55,7 +55,7 @@ public class Item : MonoBehaviour
                     moveWithArc = false;
                 }
                 if (phisicCollider != null)
-                    Destroy(phisicCollider);
+                    phisicCollider.enabled = false;
                 Destroy(GetComponent<Rigidbody>());
             }
         }
