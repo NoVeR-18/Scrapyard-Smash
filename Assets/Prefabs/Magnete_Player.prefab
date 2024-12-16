@@ -198,7 +198,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     _steeringAngle: 30
-  _modelContainer: {fileID: 3700224247514678107}
+  modelContainer: {fileID: 0}
   _controls: {fileID: 0}
   boxCollider: {fileID: 0}
   MoveLevel: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   vehicleZone: {fileID: 0}
   _spawnPoint: {x: 0, y: 0, z: 0}
   _dieHeight: -20
+  capacityBar: {fileID: 0}
   audioSource: {fileID: 4280662473453164102}
   particle: {fileID: 1793622197438630376}
   SpeedLevel: 0
@@ -263,6 +264,9 @@ MonoBehaviour:
   - {fileID: 5779001452447209368}
   wheelsFirstLevelMesh: {fileID: -7873018817726936866, guid: 5048b9db60fd7a345bf038e18ae4ad63, type: 3}
   wheelsSecondLevelMesh: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
+  unlocked: 0
+  _detailsToUnlock: 2
+  colectedDetails: 0
 --- !u!114 &1252552184211326685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5629,7 +5633,7 @@ PrefabInstance:
     - target: {fileID: 5618245324010896010, guid: c0a3ba2084551d04991d21af8e90581d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8e8ff5f538a66ae479e0e3d035a65123, type: 2}
+      objectReference: {fileID: 2100000, guid: 6b5c00054cdf0a74aa37c746fbeb4e93, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5766,7 +5770,7 @@ PrefabInstance:
     - target: {fileID: 5618245324010896010, guid: c0a3ba2084551d04991d21af8e90581d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8e8ff5f538a66ae479e0e3d035a65123, type: 2}
+      objectReference: {fileID: 2100000, guid: 6b5c00054cdf0a74aa37c746fbeb4e93, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

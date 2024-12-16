@@ -301,7 +301,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7064400324079547154, guid: 8a248374426101c4688474c692629691, type: 2}
+  - {fileID: -5031274508209413615, guid: 4397858fd762e454c96997d0d1c0f101, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -345,8 +345,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MONEY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a248374426101c4688474c692629691, type: 2}
-  m_sharedMaterial: {fileID: -7064400324079547154, guid: 8a248374426101c4688474c692629691, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4397858fd762e454c96997d0d1c0f101, type: 2}
+  m_sharedMaterial: {fileID: -5031274508209413615, guid: 4397858fd762e454c96997d0d1c0f101, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8c37dd5c4a60c43a57825b50e0d894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CapacityLevel: 0
   _slotSize: 0.5
   _storeItemType: 0
   _capacity: 10
