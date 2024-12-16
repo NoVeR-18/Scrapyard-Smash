@@ -38,6 +38,9 @@ public class Magnete : Player.Player
     [SerializeField] private Transform modelLock;
     [SerializeField] private Transform modelAssemble;
 
+
+    [SerializeField] private List<Transform> AssemblyDetails;
+
     public bool unlocked = false;
     [SerializeField] private int _detailsToUnlock = 2;
     public int colectedDetails = 0;
@@ -80,7 +83,8 @@ public class Magnete : Player.Player
         PlayerPrefs.SetInt(DetailsKey, colectedDetails);
         PlayerPrefs.Save();
         CheckUnlocked();
-        StartCoroutine(closeTab());
+        if (colectedDetails <= _detailsToUnlock)
+            StartCoroutine(closeTab());
         UpdateModel();
     }
     private IEnumerator closeTab()
@@ -89,7 +93,7 @@ public class Magnete : Player.Player
         partNotification.gameObject.SetActive(true);
         partsCount.text = $"{colectedDetails}/{_detailsToUnlock}";
         partsFill.fillAmount = (float)colectedDetails / _detailsToUnlock;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(3.0f);
         partNotification.gameObject.SetActive(false);
 
     }
@@ -116,8 +120,23 @@ public class Magnete : Player.Player
         {
             Movement.modelContainer.gameObject.SetActive(false);
             modelAssemble.gameObject.SetActive(true);
+
+
+            float step = (float)_detailsToUnlock / AssemblyDetails.Count + 1;
+
+            int targetActiveIndex = Mathf.FloorToInt(colectedDetails / step);
+
+            for (int i = 0; i <= targetActiveIndex && i < AssemblyDetails.Count; i++)
+            {
+                if (!AssemblyDetails[i].gameObject.activeSelf)
+                {
+                    AssemblyDetails[i].gameObject.SetActive(true);
+                }
+            }
+
             return;
         }
+        Movement.modelContainer.gameObject.SetActive(true);
         int index = WeightLevel / 9;
         hullMainModel.mesh = hullModels[index];
         handMainModel.mesh = handModels[index];
@@ -165,6 +184,8 @@ public class Magnete : Player.Player
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         Backpack.ItemsContainer.AddCloselyContainer(1);
         UpdateModel();
+
+        capacityBar.UpdateUI();
     }
 
     public void UpgradeSpeed()
@@ -175,6 +196,7 @@ public class Magnete : Player.Player
 
         Movement.MoveLevel = SpeedLevel;
         UpdateModel();
+
     }
     public void UpgradeMagnete()
     {

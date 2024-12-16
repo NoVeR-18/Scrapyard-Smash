@@ -8793,6 +8793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6267366737497459435}
+  - component: {fileID: 844009201233539966}
   m_Layer: 5
   m_Name: full_sign
   m_TagString: Untagged
@@ -8820,6 +8821,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1000}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!111 &844009201233539966
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017972288615301861}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 46b3450fa0c6eff45880a8746158aa5f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 46b3450fa0c6eff45880a8746158aa5f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1027973162024122963
 GameObject:
   m_ObjectHideFlags: 0
@@ -13951,6 +13968,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   audioSource: {fileID: 0}
+  capacityBar: {fileID: 0}
   VictoryVFX: {fileID: 0}
 --- !u!1 &2129426792783980240
 GameObject:
@@ -41477,9 +41495,9 @@ RectTransform:
   - {fileID: 7938838193469800572}
   - {fileID: 5010596449578649828}
   - {fileID: 2085475335384967235}
+  - {fileID: 6267366737497459435}
   - {fileID: 3405835660717782275}
   - {fileID: 420178512502446331}
-  - {fileID: 6267366737497459435}
   - {fileID: 523911320415866161}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

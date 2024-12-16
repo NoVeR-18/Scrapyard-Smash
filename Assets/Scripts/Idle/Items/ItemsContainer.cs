@@ -213,7 +213,8 @@ namespace Items.Container
 
             Item lastItem = _items[_items.Count - 1];
             item = lastItem;
-
+            if (item == null)
+                return false;
             IEnumerable<ContainerSlot> busySlotsWithItem = _slots.Where(x => x.BusyItem == lastItem);
             if (busySlotsWithItem.Count() != 0)
             {

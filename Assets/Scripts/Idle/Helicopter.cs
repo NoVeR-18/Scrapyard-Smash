@@ -35,6 +35,8 @@ public class Helicopter : Player.Player
     [SerializeField] private List<Transform> helicopters;
     [SerializeField] private Transform rotor;
 
+    [SerializeField] private List<Transform> AssemblyDetails;
+
     [SerializeField] private List<BoxCollider> phisicColiders;
 
     public Transform heliFuel;
@@ -73,7 +75,8 @@ public class Helicopter : Player.Player
         PlayerPrefs.Save();
         CheckUnlocked();
 
-        StartCoroutine(closeTab());
+        if (colectedDetails <= _detailsToUnlock)
+            StartCoroutine(closeTab());
         UpdateModel();
     }
     private IEnumerator closeTab()
@@ -82,7 +85,7 @@ public class Helicopter : Player.Player
         partNotification.gameObject.SetActive(true);
         partsCount.text = $"{colectedDetails}/{_detailsToUnlock}";
         partsFill.fillAmount = (float)colectedDetails / _detailsToUnlock;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(3.0f);
         partNotification.gameObject.SetActive(false);
 
     }
@@ -90,11 +93,12 @@ public class Helicopter : Player.Player
     private void CheckUnlocked()
     {
         if (colectedDetails >= _detailsToUnlock)
-        {
             unlocked = true;
-        }
         else
             unlocked = false;
+
+        heliFuel.gameObject.SetActive(unlocked);
+        vehicleZone.gameObject.SetActive(unlocked);
     }
     private void UpdateModel()
     {
@@ -114,10 +118,26 @@ public class Helicopter : Player.Player
         {
             rotor.gameObject.SetActive(false);
             modelAssemble.gameObject.SetActive(true);
+
+            if (AssemblyDetails == null || AssemblyDetails.Count == 0) return;
+
+            float step = (float)_detailsToUnlock / AssemblyDetails.Count;
+
+            int targetActiveIndex = Mathf.FloorToInt(colectedDetails / step);
+
+            for (int i = 0; i <= targetActiveIndex && i < AssemblyDetails.Count; i++)
+            {
+                if (!AssemblyDetails[i].gameObject.activeSelf)
+                {
+                    AssemblyDetails[i].gameObject.SetActive(true);
+                }
+            }
+
             return;
         }
         int index = MaxFuelLevel / 9;
         helicopters[index].gameObject.SetActive(true);
+        rotor.gameObject.SetActive(true);
         _movement.modelContainer = helicopters[index];
         if (index != 0)
             rotor.localPosition = new Vector3(rotor.localPosition.x, 2.2f, rotor.localPosition.z);
@@ -207,9 +227,8 @@ public class Helicopter : Player.Player
         vehicleZone?.gameObject.SetActive(true);
         _movement.boxCollider.isTrigger = true;
         StartCoroutine(MoveUpSmoothly(_spawnPoint));
-        while (_backpack.ItemsContainer.Count > 0)
+        while (_backpack.ItemsContainer.CanTakeItem())
         {
-
             Item item;
             _backpack.ItemsContainer.TakeItem(out item);
             item.gameObject.transform.parent = null;
@@ -278,6 +297,7 @@ public class Helicopter : Player.Player
         Backpack.ItemsContainer.AddCloselyContainer(1);
 
         UpdateModel();
+        capacityBar.UpdateUI();
     }
 
     public void UpgradeFuel()

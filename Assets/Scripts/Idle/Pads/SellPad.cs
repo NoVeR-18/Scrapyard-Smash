@@ -27,8 +27,6 @@ public class SellPad : StoragePad
         yield return new WaitForSeconds(timeToSell / 2);
         if (!OutputStoragePads.ItemsContainer.CanAddItem())
             StopCoroutine(Sell());
-        if (!ItemsContainer.CanTakeItem())
-            StopCoroutine(Sell());
         particle?.Play();
         ItemsContainer.gameObject.SetActive(false);
 
@@ -52,6 +50,8 @@ public class SellPad : StoragePad
 
         }
         ItemsContainer.gameObject.SetActive(true);
+        if (!ItemsContainer.CanTakeItem())
+            StopCoroutine(Sell());
     }
 }
 

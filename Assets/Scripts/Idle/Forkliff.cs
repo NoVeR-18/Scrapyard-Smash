@@ -79,7 +79,7 @@ public class Forkliff : Player.Player
 
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         Backpack.ItemsContainer.AddContainer(1);
-
+        capacityBar.UpdateUI();
         UpdateModel();
     }
 

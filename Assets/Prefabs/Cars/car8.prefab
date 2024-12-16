@@ -257,8 +257,9 @@ MonoBehaviour:
   _itemType: 2
   _itemRotationLerp: 10
   CanTake: 1
-  Cost: 50
+  Cost: 30
   phisicCollider: {fileID: 5672350472750958738}
+  audioSource: {fileID: 0}
 --- !u!65 &1460086110288452378
 BoxCollider:
   m_ObjectHideFlags: 0

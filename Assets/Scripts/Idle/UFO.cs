@@ -25,7 +25,6 @@ public class UFO : Player.Player
             }
         }
     }
-
     public void Sell()
     {
         Item takenItem;

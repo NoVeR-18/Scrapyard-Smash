@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public LevelMap levelMap;
 
     public Transform nextLevel;
+    public ExperienceTable experienceTable;
 
     [SerializeField] private Transform parentContainer; // Контейнер объектов уровня
     [SerializeField] private List<GameObject> prefabs; // Список префабов, связанных с типами объектов
@@ -57,6 +58,8 @@ public class LevelManager : MonoBehaviour
             GameManager.Instance.Vibrate();
             victoryTab.OpenTab();
         });
+        if (experienceTable == null)
+            experienceTable = Resources.Load<ExperienceTable>("ExperienceTable");
     }
     private void LoadLevelsFromResources()
     {
@@ -140,11 +143,13 @@ public class LevelManager : MonoBehaviour
                 player.DisableVechicle();
             }
             ufo.EnableVechicle();
+            ufo.capacityBar.gameObject.SetActive(false);
             ufo.SpawnPlayer();
         }
         else
         {
             vechicles[0].EnableVechicle();
+            currentVehicle.capacityBar.gameObject.SetActive(true);
         }
         LoadLevel(levelData);
         changeBackgroundZone.ChaneMaterial(levelIndex + 1);

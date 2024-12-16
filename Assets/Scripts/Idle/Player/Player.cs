@@ -132,11 +132,11 @@ namespace Player
         public ParticleSystem CarPartickle;
         public void PlayEffect(int cost)
         {
-            if (cost == 50)
+            if (cost == LevelManager.Instance.experienceTable.CarCost)
             {
                 Instantiate(CarPartickle, gameObject.transform);
             }
-            if (cost == 20)
+            if (cost == LevelManager.Instance.experienceTable.TrashCost)
             {
                 Instantiate(TrashPartickle, gameObject.transform);
             }

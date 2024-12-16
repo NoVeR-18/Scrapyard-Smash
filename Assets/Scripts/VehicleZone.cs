@@ -50,7 +50,8 @@ public class VehicleZone : MonoBehaviour
 
         var player = other.gameObject.GetComponent<Player.Player>();
         LevelManager.Instance.currentVehicle.DisableVechicle();
-        vehicle.EnableVechicle();
+        if (!vehicle.EnableVechicle())
+            player.EnableVechicle();
         // ƒополнительна€ логика дл€ управлени€ транспортом
         //PlayerController playerController = FindObjectOfType<PlayerController>();
         //if (playerController != null)
