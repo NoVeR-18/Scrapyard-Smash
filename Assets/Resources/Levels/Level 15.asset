@@ -1657,7 +1657,7 @@ MonoBehaviour:
   - prefabName: Helicopter_Newpart_Pickup
     objectType: 4
     positions:
-    - {x: 61.037224, y: 2.4698467, z: 3.5630093}
+    - {x: 61.037224, y: 0, z: 3.5630093}
     rotations:
     - {x: -0, y: -0, z: -0, w: 1}
     scales:
