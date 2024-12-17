@@ -10606,7 +10606,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -12807,7 +12807,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4690184521925734024, guid: 46916fb49e020404f899cd8fd0bf42e8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 48980fcb0114291498e36eaced5f7c18, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15509,7 +15509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366079665831890306, guid: b768d4eb0a2c4454b81440b792a46171, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9125347568427686207, guid: b768d4eb0a2c4454b81440b792a46171, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17883,6 +17883,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6251908917775123643, guid: 1ef531770deb3f04b856ea7eed8cb77a, type: 3}
   m_PrefabInstance: {fileID: 836362850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &897405960 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3828115081922500645, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
+  m_PrefabInstance: {fileID: 6874860880105723293}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &902747683
 PrefabInstance:
@@ -42233,6 +42238,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2803939097798210927, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
+      propertyPath: crane
+      value: 
+      objectReference: {fileID: 897405960}
+    - target: {fileID: 2803939097798210927, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
       propertyPath: CanMoving
       value: 0
       objectReference: {fileID: 0}
@@ -42315,6 +42324,10 @@ PrefabInstance:
     - target: {fileID: 3636580889935887791, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280662473453164102, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4441682570895848230, guid: 583bf900587b93f43b6ff3a6a025a714, type: 3}
       propertyPath: m_Name

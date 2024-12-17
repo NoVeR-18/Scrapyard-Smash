@@ -32,7 +32,7 @@ namespace Player
         [SerializeField] private float wheelRotationSpeed = 360f; // Скорость вращения колес
 
         [SerializeField] private bool haveWheels = true;
-
+        [SerializeField] private Transform crane;
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -48,6 +48,8 @@ namespace Player
                 rotateModel();
                 if (haveWheels)
                     animateWheels();
+                if (crane != null)
+                    rotateCrane();
             }
         }
         private void Move()
@@ -77,6 +79,19 @@ namespace Player
                 modelContainer.rotation,
                 Quaternion.LookRotation(rotationLookAtVector),
                 _settings.ModelRotationLerp * Time.deltaTime
+                );
+        }
+        private void rotateCrane()
+        {
+            Vector3 rotationLookAtVector = Quaternion.AngleAxis(90, Vector3.up) * new Vector3(_controls.Horizontal, 0, _controls.Vertical);
+
+            if (rotationLookAtVector == Vector3.zero)
+                return;
+
+            crane.rotation = Quaternion.Lerp(
+                crane.rotation,
+                Quaternion.LookRotation(rotationLookAtVector),
+                _settings.ModelRotationLerp * Time.deltaTime * 0.5f
                 );
         }
         private void animateWheels()

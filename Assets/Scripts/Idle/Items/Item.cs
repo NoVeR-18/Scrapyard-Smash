@@ -29,6 +29,8 @@ public class Item : MonoBehaviour
 
     public AudioSource audioSource;
 
+    private float _slowFactor = 1f;
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -46,6 +48,8 @@ public class Item : MonoBehaviour
                 GameManager.Instance.Vibrate();
                 if (audioSource != null)
                     audioSource?.Play();
+                if (player as UFO)
+                    _slowFactor = 0.2f;
                 if (player as Forkliff)
                 {
                     moveWithArc = true;
@@ -116,7 +120,8 @@ public class Item : MonoBehaviour
     }
     private void MoveToSlotDirectly()
     {
-        _time += Time.deltaTime * _itemPositionLerp;
+
+        _time += Time.deltaTime * _itemPositionLerp * _slowFactor;
 
         // Линейно интерполируем позицию предмета к позиции слота
         transform.position = Vector3.Lerp(transform.position, _currentSlot.transform.position, _time);

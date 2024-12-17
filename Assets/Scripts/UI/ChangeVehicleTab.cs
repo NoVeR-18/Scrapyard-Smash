@@ -74,7 +74,7 @@ public class ChangeVehicleTab : MonoBehaviour
         {
             forkliff.SelectVehicle(LevelManager.Instance.currentVehicle.transform);
         }
-        else
+        else if (!(LevelManager.Instance.currentVehicle as Forkliff))
         {
             LevelManager.Instance.currentVehicle.DisableVechicle();
             forkliff.SelectVehicle();
@@ -85,14 +85,14 @@ public class ChangeVehicleTab : MonoBehaviour
 
     public void SelectMagnete()
     {
-
         if (magnete.unlocked)
         {
             if (LevelManager.Instance.currentVehicle as Forkliff)
             {
                 magnete.SelectVehicle(LevelManager.Instance.currentVehicle.transform);
             }
-            else
+            else if (!(LevelManager.Instance.currentVehicle as Magnete))
+
             {
                 LevelManager.Instance.currentVehicle.DisableVechicle();
                 magnete.SelectVehicle();
