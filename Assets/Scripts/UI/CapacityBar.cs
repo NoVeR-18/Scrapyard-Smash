@@ -13,7 +13,7 @@ public class CapacityBar : MonoBehaviour
 
     public Transform fullIcon;
 
-
+    [SerializeField]
     private Player.Player player;
     public void UpdateUI()
     {
@@ -51,9 +51,9 @@ public class CapacityBar : MonoBehaviour
         }
 
     }
-    public void UpdateUI(Player.Player player)
+    public void UpdateUI(Player.Player players)
     {
-        this.player = player;
+        player = LevelManager.Instance.currentVehicle;
 
         helicopterIcon.gameObject.SetActive(false);
         magneticIcon.gameObject.SetActive(false);
@@ -63,14 +63,23 @@ public class CapacityBar : MonoBehaviour
 
         if (player as Helicopter)
         {
+            gameObject.SetActive(true);
             helicopterIcon.gameObject.SetActive(true);
         }
         else if (player as Magnete)
         {
+            gameObject.SetActive(true);
             magneticIcon.gameObject.SetActive(true);
         }
-        else
+        else if (player as Forkliff)
+        {
+            gameObject.SetActive(true);
             forkliffIcon.gameObject.SetActive(true);
+        }
+        if (player as UFO)
+        {
+            gameObject.SetActive(false);
+        }
 
     }
 }

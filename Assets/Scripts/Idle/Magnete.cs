@@ -58,11 +58,6 @@ public class Magnete : Player.Player
         LoadProgress();
         UpdateModel();
         CheckUnlocked();
-        if (capacityBar != null)
-        {
-            capacityBar.UpdateUI(this);
-            _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
-        }
     }
 
     public override void SelectVehicle(Transform transform)

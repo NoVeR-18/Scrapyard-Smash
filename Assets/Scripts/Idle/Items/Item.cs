@@ -49,7 +49,7 @@ public class Item : MonoBehaviour
                 if (audioSource != null)
                     audioSource?.Play();
                 if (player as UFO)
-                    _slowFactor = 0.2f;
+                    _slowFactor = 0.05f;
                 if (player as Forkliff)
                 {
                     moveWithArc = true;

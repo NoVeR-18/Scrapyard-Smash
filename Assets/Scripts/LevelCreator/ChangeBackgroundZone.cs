@@ -20,7 +20,7 @@ public class ChangeBackgroundZone : MonoBehaviour
     {
         _floorsNumber = numberofmaterial / 5;
 
-
+        _floorsNumber = Mathf.Min(_floorsNumber, florsMaterial.Count - 1);
 
         foreach (var item in _floors)
         {

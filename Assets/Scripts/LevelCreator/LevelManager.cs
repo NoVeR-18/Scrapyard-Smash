@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance { get; private set; }
     public PlayerWallet wallet;
     public VictoryTab victoryTab;
+    public ChangeVehicleTab changeVehicleTab;
     public LevelMap levelMap;
 
     public Transform nextLevel;
@@ -136,6 +137,7 @@ public class LevelManager : MonoBehaviour
 
         LevelData levelData = loadedLevels[levelIndex];
 
+        changeVehicleTab.gameObject.SetActive(true);
         if ((levelIndex + 2) % 5 == 0 && levelIndex > 0)
         {
             foreach (var player in vechicles)
@@ -144,6 +146,7 @@ public class LevelManager : MonoBehaviour
             }
             ufo.EnableVechicle();
             ufo.capacityBar.gameObject.SetActive(false);
+            changeVehicleTab.gameObject.SetActive(false);
             ufo.SpawnPlayer();
         }
         else

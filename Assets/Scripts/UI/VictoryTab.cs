@@ -45,7 +45,6 @@ public class VictoryTab : MonoBehaviour
         players[0]?.Movement._controls.EnableTutorial();
         players[0]?.EnableVechicle();
         levelManager.LoadNextLevel();
-        capacityBar.gameObject.SetActive(true);
     }
     public void NextLevel()
     {

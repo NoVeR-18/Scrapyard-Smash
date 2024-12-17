@@ -21,10 +21,11 @@ public class UFO : Player.Player
         {
             if (Backpack.ItemsContainer.Count > 0)
             {
-                Invoke("Sell", 0.25f);
+                Invoke("Sell", 0.5f);
             }
         }
     }
+
     public void Sell()
     {
         Item takenItem;

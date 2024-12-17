@@ -31,7 +31,7 @@ public class Forkliff : Player.Player
         base.Start();
         LoadProgress();
         UpdateModel();
-        if (capacityBar != null)
+        if (capacityBar != null && (LevelManager.Instance.currentVehicle is Forkliff))
         {
             capacityBar.UpdateUI(this);
             _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;

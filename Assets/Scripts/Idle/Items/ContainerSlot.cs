@@ -12,7 +12,7 @@ namespace Items.Container
             }
         }
         public Item BusyItem { get => _busyItem; }
-
+        [SerializeField]
         private Item _busyItem;
 
         public void Attach(Item item)

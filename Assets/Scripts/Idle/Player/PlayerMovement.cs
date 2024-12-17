@@ -38,8 +38,10 @@ namespace Player
             _rigidbody = GetComponent<Rigidbody>();
             if (boxCollider == null)
                 boxCollider = GetComponent<BoxCollider>();
+            if (crane != null)
+                cranePoss = crane.localPosition;
         }
-
+        private Vector3 cranePoss;
         private void Update()
         {
             if (CanMoving)
@@ -83,16 +85,30 @@ namespace Player
         }
         private void rotateCrane()
         {
+            // Вычисляем целевой вектор для вращения
             Vector3 rotationLookAtVector = Quaternion.AngleAxis(90, Vector3.up) * new Vector3(_controls.Horizontal, 0, _controls.Vertical);
+
+            // Возвращаем кран в изначальную позицию
+            crane.localPosition = cranePoss;
 
             if (rotationLookAtVector == Vector3.zero)
                 return;
 
+            // Сохраняем текущего родителя
+            Transform originalParent = crane.parent;
+
+            // Временно отсоединяем кран от модели, чтобы вращать в глобальных координатах
+            crane.parent = null;
+
+            // Выполняем плавное вращение в глобальных координатах
             crane.rotation = Quaternion.Lerp(
                 crane.rotation,
                 Quaternion.LookRotation(rotationLookAtVector),
                 _settings.ModelRotationLerp * Time.deltaTime * 0.5f
-                );
+            );
+
+            // Возвращаем кран обратно в иерархию
+            crane.parent = originalParent;
         }
         private void animateWheels()
         {

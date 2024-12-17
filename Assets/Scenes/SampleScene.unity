@@ -5026,6 +5026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallet: {fileID: 342024653}
   victoryTab: {fileID: 982767927}
+  changeVehicleTab: {fileID: 1353818531}
   levelMap: {fileID: 133949027}
   nextLevel: {fileID: 1981106254}
   experienceTable: {fileID: 11400000, guid: 9d9ff2604ea86404aaa356ba0e8d4401, type: 2}
@@ -5874,10 +5875,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d8f73280888374c92bce15ebfef005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _storageType: 0
+  _storageType: 1
   _itemsContainer: {fileID: 963484660}
   _interactionRadius: 1.5
-  _itemType: 0
+  _itemType: 1
   _itemPrefab: {fileID: 2381711827948210625, guid: 002b1aaee9fc83246a0ba0f05c6948c9, type: 3}
   _outputPoint: {fileID: 514821502}
 --- !u!65 &304907010
@@ -7093,6 +7094,7 @@ MonoBehaviour:
   forkliffIcon: {fileID: 903109577}
   magneticIcon: {fileID: 5609976}
   fullIcon: {fileID: 1477622189}
+  player: {fileID: 0}
 --- !u!4 &382945700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8935512293159435205, guid: b502663245847d943b8e51c5dae1cdaa, type: 3}
@@ -19091,7 +19093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CapacityLevel: 0
   _slotSize: 1
-  _storeItemType: 2
+  _storeItemType: 1
   _capacity: 20
   _sizeX: 3
   _sizeZ: 3
@@ -41673,10 +41675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d8f73280888374c92bce15ebfef005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _storageType: 0
+  _storageType: 1
   _itemsContainer: {fileID: 7249206871640119473}
   _interactionRadius: 1.5
-  _itemType: 4
+  _itemType: 1
   _itemPrefab: {fileID: 2381711827948210625, guid: 002b1aaee9fc83246a0ba0f05c6948c9, type: 3}
   _outputPoint: {fileID: 1495025548394711172}
 --- !u!23 &5302495684530624877
@@ -42552,7 +42554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CapacityLevel: 0
   _slotSize: 1
-  _storeItemType: 2
+  _storeItemType: 1
   _capacity: 20
   _sizeX: 3
   _sizeZ: 3

@@ -101,12 +101,12 @@ namespace Player
                 particle.Play();
             mainCamera.gameObject.SetActive(true);
             vehicleZone?.gameObject.SetActive(false);
+            LevelManager.Instance.currentVehicle = this;
             if (capacityBar != null)
             {
                 capacityBar.UpdateUI(this);
                 _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
             }
-            LevelManager.Instance.currentVehicle = this;
             return true;
         }
 
