@@ -1,3 +1,4 @@
+using GameAnalyticsSDK;
 using Player;
 using System.Collections.Generic;
 using UnityEditor;
@@ -183,6 +184,7 @@ public class LevelManager : MonoBehaviour
         CarsOnScene = 0;
         TrashCollected = 0;
         TrashOnScene = 0;
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, $"{currentLevelIndex}", "", "Level_Progress");
         nextLevel.gameObject.SetActive(false);
         // Словарь для хранения родительских объектов по типам
         Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
@@ -281,9 +283,8 @@ public class LevelManager : MonoBehaviour
         if (currentLevelIndex >= loadedLevels.Count)
             currentLevelIndex = 0;
         PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"{currentLevelIndex}", "", "Level_Progress");
         LoadLevel(currentLevelIndex);
-
-
     }
 
     public void LoadPreviousLevel()
@@ -308,7 +309,11 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Wining");
             }
         }
-
-
     }
+
+    private void OnApplicationQuit()
+    {
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, $"{currentLevelIndex}", "", "Level_Progress");
+    }
+
 }

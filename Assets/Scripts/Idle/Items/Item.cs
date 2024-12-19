@@ -39,8 +39,6 @@ public class Item : MonoBehaviour
             var player = other.GetComponent<Player.Player>();
             if (player == null)
                 player = other.GetComponentInParent<Player.Player>();
-            if (!player.Backpack.ItemsContainer.CanAddItem())
-                return;
 
             if (player.Backpack.ItemsContainer.AddItem(this))
             {

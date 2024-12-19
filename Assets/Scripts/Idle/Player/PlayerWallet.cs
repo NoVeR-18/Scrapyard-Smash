@@ -1,6 +1,6 @@
+using GameAnalyticsSDK;
 using TMPro;
 using UnityEngine;
-
 namespace Player
 {
     public class PlayerWallet : MonoBehaviour
@@ -22,6 +22,7 @@ namespace Player
             Balance += amount;
             SaveBalance();
             UpdateBalanceUI();
+            GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Balance", Balance, "", "");
             Debug.Log($"Деньги добавлены: {amount}. Баланс: {Balance}");
         }
 
@@ -33,6 +34,7 @@ namespace Player
                 SaveBalance();
                 UpdateBalanceUI();
                 Debug.Log($"Снято: {amount}. Оставшийся баланс: {Balance}");
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "Money", 2, "", "");
                 return true;
             }
             else

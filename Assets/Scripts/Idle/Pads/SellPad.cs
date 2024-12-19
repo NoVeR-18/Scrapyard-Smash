@@ -14,6 +14,8 @@ public class SellPad : StoragePad
     public Animator animator;
     public ParticleSystem particle;
 
+    [SerializeField] private Transform _outputPoint;
+
     public override void OnTriggerEnter(Collider other)
     {
     }
@@ -37,15 +39,14 @@ public class SellPad : StoragePad
             if (!ItemsContainer.TakeItem(out takenItem))
                 StopCoroutine(Sell());
             var cost = takenItem.Cost;
-
             takenItem.Disappear();
             Item newItem = CreateItem();
+            newItem.transform.position = _outputPoint.transform.position;
             if (OutputStoragePads.ItemsContainer.AddItem(newItem) == false)
             {
                 newItem.Disappear();
                 StopCoroutine(Sell());
             }
-            newItem.transform.position = OutputStoragePads.transform.position;
             newItem.Cost = cost;
 
         }

@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemType: 1
   _itemRotationLerp: 10
-  CanTake: 1
+  CanTake: 0
   Cost: 50
   phisicCollider: {fileID: 0}
   audioSource: {fileID: 0}

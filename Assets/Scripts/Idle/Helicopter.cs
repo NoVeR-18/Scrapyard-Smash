@@ -96,9 +96,11 @@ public class Helicopter : Player.Player
             unlocked = true;
         else
             unlocked = false;
-
-        heliFuel.gameObject.SetActive(unlocked);
-        vehicleZone.gameObject.SetActive(unlocked);
+        if (!(LevelManager.Instance.currentVehicle is Helicopter))
+        {
+            heliFuel.gameObject.SetActive(unlocked);
+            vehicleZone.gameObject.SetActive(unlocked);
+        }
     }
     private void UpdateModel()
     {
@@ -194,6 +196,7 @@ public class Helicopter : Player.Player
                 vehicleZone?.gameObject.SetActive(false);
                 StartCoroutine(MoveUpSmoothly(new Vector3(_spawnPoint.x, _spawnPoint.y + 12f, _spawnPoint.z)));
                 _fuelConsumptionCoroutine = StartCoroutine(ConsumeFuel());
+                LevelManager.Instance.currentVehicle = this;
                 capacityBar.UpdateUI(this);
                 capacityBar.UpdateHelicopterUI();
                 foreach (var item in phisicColiders)
@@ -201,7 +204,10 @@ public class Helicopter : Player.Player
                     item.enabled = true;
                 }
                 heliFuel.gameObject.SetActive(false);
-                LevelManager.Instance.currentVehicle = this;
+
+                if (audioSource != null)
+                    audioSource?.Play();
+                LevelManager.Instance.changeVehicleTab.gameObject.SetActive(false);
                 return true;
 
             }
@@ -224,7 +230,7 @@ public class Helicopter : Player.Player
             item.enabled = false;
         }
         mainCamera.gameObject.SetActive(false);
-        vehicleZone?.gameObject.SetActive(true);
+        vehicleZone?.gameObject.SetActive(unlocked);
         _movement.boxCollider.isTrigger = true;
         StartCoroutine(MoveUpSmoothly(_spawnPoint));
         while (_backpack.ItemsContainer.CanTakeItem())
@@ -237,8 +243,11 @@ public class Helicopter : Player.Player
             item.phisicCollider.enabled = true;
             item.AddComponent<Rigidbody>();
         }
+        LevelManager.Instance.changeVehicleTab.gameObject.SetActive(true); s
 
-        heliFuel.gameObject.SetActive(true);
+        if (audioSource != null)
+            audioSource?.Stop();
+        heliFuel.gameObject.SetActive(unlocked);
         if (_fuelConsumptionCoroutine != null)
         {
             StopCoroutine(_fuelConsumptionCoroutine);

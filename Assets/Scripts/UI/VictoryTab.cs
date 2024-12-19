@@ -61,9 +61,9 @@ public class VictoryTab : MonoBehaviour
     }
     public void OpenTab()
     {
+        gameObject.SetActive(true);
         audioSource?.Play();
         VictoryVFX.Play();
-        gameObject.SetActive(true);
         capacityBar.gameObject.SetActive(false);
     }
     public void CloseTab()

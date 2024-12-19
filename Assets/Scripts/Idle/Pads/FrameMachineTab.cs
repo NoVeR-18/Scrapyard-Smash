@@ -1,3 +1,4 @@
+using UnityEngine;
 
 public class FrameMachineTab : StoragePad
 {
@@ -21,6 +22,7 @@ public class FrameMachineTab : StoragePad
             return;
         GameManager.Instance.Vibrate();
         ItemsContainer.AddItem(takenItem);
+        Destroy(takenItem.GetComponent<BoxCollider>());
         LevelManager.Instance.CarsCollected++;
         LevelManager.Instance.CheckWining();
     }

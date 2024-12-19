@@ -21,7 +21,7 @@ public class UFO : Player.Player
         {
             if (Backpack.ItemsContainer.Count > 0)
             {
-                Invoke("Sell", 0.5f);
+                Invoke("Sell", 1f);
             }
         }
     }

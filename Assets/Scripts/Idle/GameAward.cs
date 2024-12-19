@@ -12,7 +12,9 @@ public class GameAward : StoragePad
             base.Interact(collision.gameObject.GetComponent<Player.Player>());
         }
     }
-
+    public override void CloseInteract()
+    {
+    }
     public override void giveItemsToPlayer(Player.Player player)
     {
         if (player == null)
@@ -24,11 +26,8 @@ public class GameAward : StoragePad
         Item takenItem = null;
         if (!ItemsContainer.TakeItem(out takenItem))
             return;
-        if (takenItem.Type == Items.ItemType.Money)
-        {
-            LevelManager.Instance.wallet.AddMoney(takenItem.Cost);
-            Destroy(takenItem.gameObject);
-        }
+        LevelManager.Instance.wallet.AddMoney(takenItem.Cost);
+        Destroy(takenItem.gameObject);
     }
     bool CanCreaft()
     {
