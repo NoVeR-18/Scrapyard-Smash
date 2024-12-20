@@ -1,3 +1,4 @@
+using HomaGames.HomaBelly;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class HelicopterUpgradeTab : MonoBehaviour
     public TextMeshProUGUI RecoveryBlockedCostText;
     public Transform RecoveryUpgradeMax;
 
+    public Button FuelRecoveryAdsButton;
+
     [Header("Fuel Capacity")]
     public Button FuelUpgradeButton;
     public Image FuelLevelFillAmount;
@@ -25,6 +28,8 @@ public class HelicopterUpgradeTab : MonoBehaviour
     public Transform FuelUpgradeBlocked;
     public TextMeshProUGUI FuelBlockedCostText;
     public Transform FuelUpgradeMax;
+
+    public Button FuelAdsButton;
 
     [Header("Weight Capacity")]
     public Button WeightUpgradeButton;
@@ -35,13 +40,27 @@ public class HelicopterUpgradeTab : MonoBehaviour
     public TextMeshProUGUI WeightBlockedCostText;
     public Transform WeightUpgradeMax;
 
+    public Button WeightAdsButton;
+
     private void Start()
     {
         UpdatePanel();
 
-        RecoveryUpgradeButton.onClick.AddListener(() => { OnUpgradeRecoveryButton(); });
-        FuelUpgradeButton.onClick.AddListener(() => { OnUpgradeFuelButton(); });
-        WeightUpgradeButton.onClick.AddListener(() => { OnUpgradeWeightButton(); });
+        RecoveryUpgradeButton.onClick.AddListener(() =>
+        {
+            var currentCost = experienceTable.experiencePerLevel[helicopter.RecoveryUpgradeLevel];
+            if (LevelManager.Instance.wallet.WithdrawMoney(currentCost)) OnUpgradeRecoveryButton();
+        });
+        FuelUpgradeButton.onClick.AddListener(() =>
+        {
+            var currentCost = experienceTable.experiencePerLevel[helicopter.MaxFuelLevel];
+            if (LevelManager.Instance.wallet.WithdrawMoney(currentCost)) OnUpgradeFuelButton();
+        });
+        WeightUpgradeButton.onClick.AddListener(() =>
+        {
+            var currentCost = experienceTable.experiencePerLevel[helicopter.WeightLevel];
+            if (LevelManager.Instance.wallet.WithdrawMoney(currentCost)) OnUpgradeWeightButton();
+        });
 
         if (experienceTable == null)
             experienceTable = Resources.Load<ExperienceTable>("ExperienceTable");
@@ -51,16 +70,8 @@ public class HelicopterUpgradeTab : MonoBehaviour
     {
         if (helicopter != null)
         {
-            var currentCost = experienceTable.experiencePerLevel[helicopter.RecoveryUpgradeLevel];
-            if (LevelManager.Instance.wallet.WithdrawMoney(currentCost))
-            {
-                helicopter.UpgradeRecoverySpeed();
-                UpdatePanel();
-            }
-            else
-            {
-                Debug.Log("Недостаточно денег для улучшения скорости восстановления топлива.");
-            }
+            helicopter.UpgradeRecoverySpeed();
+            UpdatePanel();
         }
     }
 
@@ -68,16 +79,8 @@ public class HelicopterUpgradeTab : MonoBehaviour
     {
         if (helicopter != null)
         {
-            var currentCost = experienceTable.experiencePerLevel[helicopter.MaxFuelLevel]; // Пример расчета уровня
-            if (LevelManager.Instance.wallet.WithdrawMoney(currentCost))
-            {
-                helicopter.UpgradeFuel();
-                UpdatePanel();
-            }
-            else
-            {
-                Debug.Log("Недостаточно денег для увеличения бака.");
-            }
+            helicopter.UpgradeFuel();
+            UpdatePanel();
         }
     }
 
@@ -85,16 +88,8 @@ public class HelicopterUpgradeTab : MonoBehaviour
     {
         if (helicopter != null)
         {
-            var currentCost = experienceTable.experiencePerLevel[helicopter.WeightLevel];
-            if (LevelManager.Instance.wallet.WithdrawMoney(currentCost))
-            {
-                helicopter.UpgradeWeight();
-                UpdatePanel();
-            }
-            else
-            {
-                Debug.Log("Недостаточно денег для увеличения грузоподъемности.");
-            }
+            helicopter.UpgradeWeight();
+            UpdatePanel();
         }
     }
 
@@ -118,9 +113,28 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 RecoveryUpgradeMax.gameObject.SetActive(false);
 
                 var currentCost = experienceTable.experiencePerLevel[helicopter.RecoveryUpgradeLevel];
+                FuelRecoveryAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    RecoveryUpgradeBlocked.gameObject.SetActive(true);
+                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    {
+                        FuelRecoveryAdsButton.gameObject.SetActive(true);
+
+                        FuelRecoveryAdsButton.onClick.RemoveAllListeners();
+                        FuelRecoveryAdsButton.onClick.AddListener(() =>
+                        {
+                            Analytics.RewardedAdSuggested("HelicopterFuelRecoveryAds");
+                            HomaBelly.Instance.ShowRewardedVideoAd("HelicopterFuelRecoveryAds");
+                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                            {
+                                if (reward.getPlacementName() == "HelicopterFuelRecoveryAds")
+                                    OnUpgradeWeightButton();
+                            };
+
+                        });
+                    }
+                    else
+                        RecoveryUpgradeBlocked.gameObject.SetActive(true);
                     RecoveryBlockedCostText.text = currentCost.ToString();
                     RecoveryUpgradeButton.gameObject.SetActive(false);
                 }
@@ -146,9 +160,28 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 FuelUpgradeMax.gameObject.SetActive(false);
 
                 var currentCost = experienceTable.experiencePerLevel[helicopter.MaxFuelLevel];
+                FuelAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    FuelUpgradeBlocked.gameObject.SetActive(true);
+                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    {
+                        FuelAdsButton.gameObject.SetActive(true);
+
+                        FuelAdsButton.onClick.RemoveAllListeners();
+                        FuelAdsButton.onClick.AddListener(() =>
+                        {
+                            Analytics.RewardedAdSuggested("HelicopterFuelAds");
+                            HomaBelly.Instance.ShowRewardedVideoAd("HelicopterFuelAds");
+                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                            {
+                                if (reward.getPlacementName() == "HelicopterFuelAds")
+                                    OnUpgradeWeightButton();
+                            };
+
+                        });
+                    }
+                    else
+                        FuelUpgradeBlocked.gameObject.SetActive(true);
                     FuelBlockedCostText.text = currentCost.ToString();
                     FuelUpgradeButton.gameObject.SetActive(false);
                 }
@@ -174,9 +207,28 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 WeightUpgradeMax.gameObject.SetActive(false);
 
                 var currentCost = experienceTable.experiencePerLevel[helicopter.WeightLevel];
+                WeightAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    WeightUpgradeBlocked.gameObject.SetActive(true);
+                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    {
+                        WeightAdsButton.gameObject.SetActive(true);
+
+                        WeightAdsButton.onClick.RemoveAllListeners();
+                        WeightAdsButton.onClick.AddListener(() =>
+                        {
+                            Analytics.RewardedAdSuggested("HelicopterWeightAds");
+                            HomaBelly.Instance.ShowRewardedVideoAd("HelicopterWeightAds");
+                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                            {
+                                if (reward.getPlacementName() == "HelicopterWeightAds")
+                                    OnUpgradeWeightButton();
+                            };
+
+                        });
+                    }
+                    else
+                        WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }

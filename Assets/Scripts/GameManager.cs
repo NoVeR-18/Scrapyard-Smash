@@ -1,4 +1,5 @@
 ﻿using GameAnalyticsSDK;
+using HomaGames.HomaBelly;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -38,7 +39,17 @@ public class GameManager : MonoBehaviour
         LoadSoundSettings();
         LoadMusicSettings();
         LoadTutorial();
+
+        Events.onBannerAdLoadedEvent += OnBannerAdLoadedEvent;
+        HomaBelly.Instance.LoadBanner(HomaGames.HomaBelly.BannerSize.BANNER, HomaGames.HomaBelly.BannerPosition.BOTTOM);
+
     }
+
+    private void OnBannerAdLoadedEvent(AdInfo info)
+    {
+        HomaBelly.Instance.ShowBanner();
+    }
+
     private void LoadVibrationSettings()
     {
 

@@ -1,4 +1,5 @@
 using GameAnalyticsSDK;
+using HomaGames.HomaBelly;
 using Player;
 using System.Collections.Generic;
 using UnityEditor;
@@ -285,6 +286,11 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"{currentLevelIndex}", "", "Level_Progress");
         LoadLevel(currentLevelIndex);
+
+        if (HomaBelly.Instance.IsInterstitialAvailable())
+        {
+            HomaBelly.Instance.ShowInterstitial("interstitalAds");
+        }
     }
 
     public void LoadPreviousLevel()

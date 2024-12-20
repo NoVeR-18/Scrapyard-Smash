@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using HomaGames.HomaBelly;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class ForkliffUpgradeTab : MonoBehaviour
     public TextMeshProUGUI SpeedBlockedCostText;
     public Transform SpeedUpgradeMax;
 
+    public Button SpeedAdsButton;
+
     [Header("Weight")]
     public Button WeightUpgradeButton;
     public Image WeightLevelFillAmount;
@@ -25,12 +28,26 @@ public class ForkliffUpgradeTab : MonoBehaviour
     public TextMeshProUGUI WeightBlockedCostText;
     public Transform WeightUpgradeMax;
 
+    public Button WeightAdsButton;
+
     private void Start()
     {
         UpdatePanel();
 
-        SpeedUpgradeButton.onClick.AddListener(() => { OnUpgradeSpeedButton(); });
-        WeightUpgradeButton.onClick.AddListener(() => { OnUpgradeWeightButton(); });
+        SpeedUpgradeButton.onClick.AddListener(() =>
+        {
+            var currentLevel = experienceTable.experiencePerLevel[forkliff.SpeedLevel];
+            if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
+            {
+                OnUpgradeSpeedButton();
+            }
+        });
+        WeightUpgradeButton.onClick.AddListener(() =>
+        {
+            var currentLevel = experienceTable.experiencePerLevel[forkliff.WeightLevel];
+            if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
+                OnUpgradeWeightButton();
+        });
         if (experienceTable == null)
             experienceTable = Resources.Load<ExperienceTable>("ExperienceTable");
     }
@@ -40,16 +57,9 @@ public class ForkliffUpgradeTab : MonoBehaviour
     {
         if (forkliff != null)
         {
-            var currentLevel = experienceTable.experiencePerLevel[forkliff.SpeedLevel];
-            if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
-            {
-                forkliff.UpgradeSpeed();
-                UpdatePanel();
-            }
-            else
-            {
-                Debug.Log("Недостаточно денег для увеличения скорости.");
-            }
+
+            forkliff.UpgradeSpeed();
+            UpdatePanel();
         }
 
     }
@@ -58,20 +68,12 @@ public class ForkliffUpgradeTab : MonoBehaviour
     {
         if (forkliff != null)
         {
-            var currentLevel = experienceTable.experiencePerLevel[forkliff.WeightLevel];
-            if (LevelManager.Instance.wallet.WithdrawMoney(currentLevel))
-            {
-                forkliff.UpgradeWeight();
-                UpdatePanel();
+            forkliff.UpgradeWeight();
+            UpdatePanel();
 
-                if (Tutorial.instance != null)
-                    if (Tutorial.instance.TutorialIndex == 3)
-                        Tutorial.instance.CompleteZone(3);
-            }
-            else
-            {
-                Debug.Log("Недостаточно денег для увелечения денег.");
-            }
+            if (Tutorial.instance != null)
+                if (Tutorial.instance.TutorialIndex == 3)
+                    Tutorial.instance.CompleteZone(3);
         }
     }
 
@@ -98,9 +100,27 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 SpeedUpgradeMax.gameObject.SetActive(false);
 
                 var currentCost = experienceTable.experiencePerLevel[forkliff.SpeedLevel];
+                SpeedAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    SpeedUpgradeBlocked.gameObject.SetActive(true);
+                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    {
+                        SpeedAdsButton.gameObject.SetActive(true);
+
+                        SpeedAdsButton.onClick.RemoveAllListeners();
+                        SpeedAdsButton.onClick.AddListener(() =>
+                        {
+                            Analytics.RewardedAdSuggested("ForkliffSpeedAds");
+                            HomaBelly.Instance.ShowRewardedVideoAd("ForkliffSpeedAds");
+                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                            {
+                                if (reward.getPlacementName() == "ForkliffSpeedAds")
+                                    OnUpgradeSpeedButton();
+                            };
+                        });
+                    }
+                    else
+                        SpeedUpgradeBlocked.gameObject.SetActive(true);
                     SpeedBlockedCostText.text = currentCost.ToString();
                     SpeedUpgradeButton.gameObject.SetActive(false);
                 }
@@ -120,10 +140,29 @@ public class ForkliffUpgradeTab : MonoBehaviour
             {
                 WeightUpgradeMax.gameObject.SetActive(false);
 
+                WeightAdsButton.gameObject.SetActive(false);
                 var currentCost = experienceTable.experiencePerLevel[forkliff.WeightLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    WeightUpgradeBlocked.gameObject.SetActive(true);
+                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    {
+                        WeightAdsButton.gameObject.SetActive(true);
+
+                        WeightAdsButton.onClick.RemoveAllListeners();
+                        WeightAdsButton.onClick.AddListener(() =>
+                        {
+                            Analytics.RewardedAdSuggested("ForkliffWeightAds");
+                            HomaBelly.Instance.ShowRewardedVideoAd("ForkliffWeightAds");
+                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                            {
+                                if (reward.getPlacementName() == "ForkliffWeightAds")
+                                    OnUpgradeWeightButton();
+                            };
+
+                        });
+                    }
+                    else
+                        WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }
