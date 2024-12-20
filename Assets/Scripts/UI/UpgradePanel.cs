@@ -17,6 +17,9 @@ public class UpgradePanel : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public Transform tutorialClick;
+
+
     private void Start()
     {
         foreach (var item in forkliffOpenButton)
@@ -67,6 +70,11 @@ public class UpgradePanel : MonoBehaviour
         if (!helicopterUpgradeTab.helicopter.unlocked) { foreach (var item in helicopterOpenButton) { item.gameObject.SetActive(false); } }
         else { foreach (var item in helicopterOpenButton) { item.gameObject.SetActive(true); } }
 
+        if (Tutorial.instance != null)
+            if (Tutorial.instance.TutorialIndex == 3)
+                tutorialClick.gameObject.SetActive(true);
+            else
+                tutorialClick.gameObject.SetActive(false);
     }
 
 

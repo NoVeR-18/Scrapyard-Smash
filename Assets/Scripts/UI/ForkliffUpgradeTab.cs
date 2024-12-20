@@ -63,6 +63,10 @@ public class ForkliffUpgradeTab : MonoBehaviour
             {
                 forkliff.UpgradeWeight();
                 UpdatePanel();
+
+                if (Tutorial.instance != null)
+                    if (Tutorial.instance.TutorialIndex == 3)
+                        Tutorial.instance.CompleteZone(3);
             }
             else
             {

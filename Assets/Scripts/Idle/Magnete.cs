@@ -97,6 +97,9 @@ public class Magnete : Player.Player
         if (colectedDetails >= _detailsToUnlock)
         {
             unlocked = true;
+            if (Tutorial.instance != null)
+                if (Tutorial.instance.TutorialIndex == 4)
+                    Tutorial.instance.focusedItem[4].gameObject.SetActive(true);
         }
         else
             unlocked = false;

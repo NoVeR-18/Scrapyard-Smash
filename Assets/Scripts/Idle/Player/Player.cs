@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,6 +22,9 @@ namespace Player
         protected PlayerWallet _wallet;
         protected PlayerBackpack _backpack;
         protected PlayerMovement _movement;
+
+
+        public List<TrailRenderer> trailRenderers;
 
         private void Awake()
         {
@@ -76,6 +80,13 @@ namespace Player
                 item.phisicCollider.enabled = true;
                 item.AddComponent<Rigidbody>();
             }
+            if (trailRenderers != null)
+            {
+                foreach (var renderer in trailRenderers)
+                {
+                    renderer.time = 0;
+                }
+            }
             _movement.CanMoving = false;
             mainCamera.gameObject.SetActive(false);
             SpawnPlayer();
@@ -107,6 +118,13 @@ namespace Player
                 capacityBar.UpdateUI(this);
                 _backpack.ItemsContainer.editCountItems += capacityBar.UpdateUI;
             }
+            if (trailRenderers != null)
+            {
+                foreach (var renderer in trailRenderers)
+                {
+                    renderer.time = 8;
+                }
+            }
             return true;
         }
 
@@ -114,6 +132,7 @@ namespace Player
         {
             if (!_movement.CanMoving)
             {
+
                 this.transform.position = transform.position;
                 this.transform.rotation = transform.rotation;
                 LevelManager.Instance.currentVehicle.DisableVechicle();

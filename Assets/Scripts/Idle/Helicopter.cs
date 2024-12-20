@@ -243,7 +243,7 @@ public class Helicopter : Player.Player
             item.phisicCollider.enabled = true;
             item.AddComponent<Rigidbody>();
         }
-        LevelManager.Instance.changeVehicleTab.gameObject.SetActive(true); s
+        LevelManager.Instance.changeVehicleTab.gameObject.SetActive(true);
 
         if (audioSource != null)
             audioSource?.Stop();
@@ -271,14 +271,18 @@ public class Helicopter : Player.Player
 
         defaultVehickle?.EnableVechicle();
     }
-
+    private float recoveryRate = 0;
     private void FixedUpdate()
     {
         if (!_movement.CanMoving && Fuel < MaxFuel)
         {
-            float recoveryRate = Time.deltaTime / FuelRecoveryTime * MaxFuel * RecoverySpeedMultiplier;
-            Fuel += Mathf.RoundToInt(recoveryRate);
-            Fuel = Mathf.Clamp(Fuel, 0, MaxFuel);
+            recoveryRate += Time.deltaTime / FuelRecoveryTime * MaxFuel * RecoverySpeedMultiplier;
+            if (recoveryRate > 1)
+            {
+                Fuel += Mathf.RoundToInt(recoveryRate);
+                Fuel = Mathf.Clamp(Fuel, 0, MaxFuel);
+                recoveryRate = 0;
+            }
 
             fuelText.text = $"{Fuel}/{MaxFuel}";
         }
@@ -306,19 +310,19 @@ public class Helicopter : Player.Player
         Backpack.ItemsContainer.AddCloselyContainer(1);
 
         UpdateModel();
-        capacityBar.UpdateUI();
     }
 
     public void UpgradeFuel()
     {
         MaxFuelLevel++;
         Fuel += 10;
-        MaxFuel += MaxFuelLevel * 10;
+        MaxFuel += 10;
         upgradeNotification.FuelUpgrade();
         fuelText.text = $"{Fuel}/{MaxFuel}";
         PlayerPrefs.SetInt(FuelKey, Fuel);
         PlayerPrefs.SetInt(MaxFuelLevelKey, MaxFuelLevel);
 
+        capacityBar.UpdateHelicopterUI();
         UpdateModel();
     }
 

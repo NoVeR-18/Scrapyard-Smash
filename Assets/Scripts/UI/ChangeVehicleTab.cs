@@ -25,6 +25,8 @@ public class ChangeVehicleTab : MonoBehaviour
 
     public AudioSource audioSource;
 
+
+
     private void Start()
     {
         OpenCloseButton.onClick.AddListener(() =>
@@ -60,6 +62,12 @@ public class ChangeVehicleTab : MonoBehaviour
         else
         {
             animator?.SetTrigger(open);
+
+            if (Tutorial.instance != null)
+                if (Tutorial.instance.TutorialIndex == 4 && magnete.unlocked)
+                {
+                    Tutorial.instance.CompleteZone(4);
+                }
             TabIsOpen = true;
             UpdateUI();
         }
@@ -92,11 +100,16 @@ public class ChangeVehicleTab : MonoBehaviour
                 magnete.SelectVehicle(LevelManager.Instance.currentVehicle.transform);
             }
             else if (!(LevelManager.Instance.currentVehicle as Magnete))
-
             {
                 LevelManager.Instance.currentVehicle.DisableVechicle();
                 magnete.SelectVehicle();
             }
+
+            if (Tutorial.instance != null)
+                if (Tutorial.instance.TutorialIndex == 5)
+                {
+                    Tutorial.instance.CompleteZone(5);
+                }
         }
         CloseTab();
     }

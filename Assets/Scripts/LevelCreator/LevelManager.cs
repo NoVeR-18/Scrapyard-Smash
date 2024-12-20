@@ -281,7 +281,7 @@ public class LevelManager : MonoBehaviour
     {
         currentLevelIndex++;//= (currentLevelIndex + 1);
         if (currentLevelIndex >= loadedLevels.Count)
-            currentLevelIndex = 0;
+            currentLevelIndex = 4;
         PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"{currentLevelIndex}", "", "Level_Progress");
         LoadLevel(currentLevelIndex);
