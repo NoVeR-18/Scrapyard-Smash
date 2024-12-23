@@ -98,7 +98,8 @@ public class Tutorial : MonoBehaviour
 
             TutorialIndex++;
             PlayerPrefs.SetInt("TutorialIndex", TutorialIndex);
-            Arrow.gameObject.SetActive(false);
+            forkliffArrow.gameObject.SetActive(false);
+            magneteArrow.gameObject.SetActive(false);
             if (TutorialIndex < 3)
             {
                 Arrow = forkliffArrow;
@@ -112,7 +113,7 @@ public class Tutorial : MonoBehaviour
             else
                 Arrow = null;
 
-            if (TutorialIndex >= focusedItem.Count - 1) { CompleteTutorial(); return; }
+            if (TutorialIndex >= focusedItem.Count) { CompleteTutorial(); return; }
             if (TutorialIndex == 4)
             {
                 if (LevelManager.Instance.changeVehicleTab.magnete.unlocked)

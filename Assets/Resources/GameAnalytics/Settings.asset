@@ -27,20 +27,26 @@ MonoBehaviour:
   CustomArea: 
   gameKey:
   - e087dbe7899da4d1d45dd502aa53ca53
+  - 
   secretKey:
   - 9df4bb014dd3ed1c500dcee0cc5eb2c63b18c793
+  - 
   Build:
   - 0.3.1
+  - 0.1
   SelectedPlatformOrganization:
   - Luminary Forge
+  - 
   SelectedPlatformStudio:
   - luminary-forge
+  - 
   SelectedPlatformGame:
   - Junkyard Master
-  SelectedPlatformGameID: 81b30400
-  SelectedOrganization: 01000000
-  SelectedStudio: 01000000
-  SelectedGame: 01000000
+  - 
+  SelectedPlatformGameID: 81b30400ffffffff
+  SelectedOrganization: 0100000000000000
+  SelectedStudio: 0100000000000000
+  SelectedGame: 0100000000000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
@@ -122,7 +128,7 @@ MonoBehaviour:
   ResourceItemTypes: []
   ResourceCurrencies: []
   LastCreatedGamePlatform: -1
-  Platforms: 0b000000
+  Platforms: 0b00000008000000
   CurrentInspectorState: 1
   ClosedHints: 
   DisplayHints: 0
@@ -150,7 +156,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 01
+  PlatformFoldOut: 0101
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0
