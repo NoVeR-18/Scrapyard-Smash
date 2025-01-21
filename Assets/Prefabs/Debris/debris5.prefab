@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 4324724135739480543}
   - component: {fileID: 6966601581417247075}
   - component: {fileID: 7089346137957764896}
+  - component: {fileID: -8676654475323348414}
+  - component: {fileID: 3673618623708736261}
+  - component: {fileID: -8555801589913315988}
   m_Layer: 0
   m_Name: debris5
   m_TagString: Untagged
@@ -98,3 +101,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 2
   Name: debris5
+--- !u!65 &-8676654475323348414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783320065622054641}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2308071, y: 0.3652855, z: 1.2308071}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3673618623708736261
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783320065622054641}
+  serializedVersion: 4
+  m_Mass: 200
+  m_Drag: 3
+  m_AngularDrag: 0.2
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-8555801589913315988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4783320065622054641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d4558570a876b48aea0c31a1b02ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemType: 3
+  _itemRotationLerp: 10
+  CanTake: 1
+  Cost: 20
+  phisicCollider: {fileID: -8676654475323348414}
+  audioSource: {fileID: 0}
+  gravityScale: 10

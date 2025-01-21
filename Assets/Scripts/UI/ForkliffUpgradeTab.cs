@@ -61,7 +61,7 @@ public class ForkliffUpgradeTab : MonoBehaviour
             forkliff.UpgradeSpeed();
             UpdatePanel();
         }
-
+        GameManager.Instance.Vibrate();
     }
 
     public void OnUpgradeWeightButton()
@@ -75,6 +75,7 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 if (Tutorial.instance.TutorialIndex == 3)
                     Tutorial.instance.CompleteZone(3);
         }
+        GameManager.Instance.Vibrate();
     }
 
 

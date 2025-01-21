@@ -30,7 +30,20 @@ public class Item : MonoBehaviour
     public AudioSource audioSource;
 
     private float _slowFactor = 1f;
+    public float gravityScale = 1.0f;
 
+    // Global Gravity doesn't appear in the inspector. Modify it here in the code
+    // (or via scripting) to define a different default gravity for all objects.
+
+    public static float globalGravity = -9.81f;
+
+    Rigidbody m_rb;
+
+    void OnEnable()
+    {
+        m_rb = GetComponent<Rigidbody>();
+        m_rb.useGravity = false;
+    }
     private void OnTriggerEnter(Collider other)
     {
 
@@ -98,6 +111,11 @@ public class Item : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (m_rb != null)
+        {
+            Vector3 gravity = globalGravity * gravityScale * Vector3.up;
+            m_rb.AddForce(gravity, ForceMode.Acceleration);
+        }
         if (_currentSlot == null)
         {
             return;

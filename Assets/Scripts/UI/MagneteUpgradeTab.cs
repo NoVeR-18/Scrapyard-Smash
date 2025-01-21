@@ -76,6 +76,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             magnete.UpgradeSpeed();
             UpdatePanel();
         }
+        GameManager.Instance.Vibrate();
     }
 
     public void OnUpgradeWeightButton()
@@ -85,6 +86,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             magnete.UpgradeWeight();
             UpdatePanel();
         }
+        GameManager.Instance.Vibrate();
     }
 
     public void OnUpgradeMagnetButton()
@@ -94,6 +96,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             magnete.UpgradeMagnete();
             UpdatePanel();
         }
+        GameManager.Instance.Vibrate();
     }
 
 

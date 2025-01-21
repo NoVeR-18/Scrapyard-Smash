@@ -73,6 +73,7 @@ public class HelicopterUpgradeTab : MonoBehaviour
             helicopter.UpgradeRecoverySpeed();
             UpdatePanel();
         }
+        GameManager.Instance.Vibrate();
     }
 
     public void OnUpgradeFuelButton()
@@ -82,6 +83,7 @@ public class HelicopterUpgradeTab : MonoBehaviour
             helicopter.UpgradeFuel();
             UpdatePanel();
         }
+        GameManager.Instance.Vibrate();
     }
 
     public void OnUpgradeWeightButton()
@@ -91,6 +93,7 @@ public class HelicopterUpgradeTab : MonoBehaviour
             helicopter.UpgradeWeight();
             UpdatePanel();
         }
+        GameManager.Instance.Vibrate();
     }
 
     private void UpdatePanel()

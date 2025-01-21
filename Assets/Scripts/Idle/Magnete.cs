@@ -103,6 +103,8 @@ public class Magnete : Player.Player
         }
         else
             unlocked = false;
+
+        LevelManager.Instance.changeVehicleTab.gameObject.SetActive(unlocked);
     }
     private void UpdateModel()
     {
