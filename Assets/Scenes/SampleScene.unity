@@ -5274,7 +5274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balanceText: {fileID: 1852059035}
-  crystalsText: {fileID: 0}
+  crystalsText: {fileID: 1323721959}
 --- !u!4 &342024654
 Transform:
   m_ObjectHideFlags: 0
@@ -22586,6 +22586,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323528345}
   m_Mesh: {fileID: -4885573103786096825, guid: 3c3f63a5f16a86447850e239a57eeb54, type: 3}
+--- !u!114 &1323721959 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2133180353364171721, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1325265260
 PrefabInstance:
   m_ObjectHideFlags: 0
