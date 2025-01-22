@@ -1,4 +1,3 @@
-using HomaGames.HomaBelly;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -119,25 +118,25 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 FuelRecoveryAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    {
-                        FuelRecoveryAdsButton.gameObject.SetActive(true);
+                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    //{
+                    //    FuelRecoveryAdsButton.gameObject.SetActive(true);
 
-                        FuelRecoveryAdsButton.onClick.RemoveAllListeners();
-                        FuelRecoveryAdsButton.onClick.AddListener(() =>
-                        {
-                            Analytics.RewardedAdSuggested("HelicopterFuelRecoveryAds");
-                            HomaBelly.Instance.ShowRewardedVideoAd("HelicopterFuelRecoveryAds");
-                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                            {
-                                if (reward.getPlacementName() == "HelicopterFuelRecoveryAds")
-                                    OnUpgradeWeightButton();
-                            };
+                    //    FuelRecoveryAdsButton.onClick.RemoveAllListeners();
+                    //    FuelRecoveryAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        Analytics.RewardedAdSuggested("HelicopterFuelRecoveryAds");
+                    //        HomaBelly.Instance.ShowRewardedVideoAd("HelicopterFuelRecoveryAds");
+                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                    //        {
+                    //            if (reward.getPlacementName() == "HelicopterFuelRecoveryAds")
+                    //                OnUpgradeWeightButton();
+                    //        };
 
-                        });
-                    }
-                    else
-                        RecoveryUpgradeBlocked.gameObject.SetActive(true);
+                    //    });
+                    //}
+                    //else
+                    RecoveryUpgradeBlocked.gameObject.SetActive(true);
                     RecoveryBlockedCostText.text = currentCost.ToString();
                     RecoveryUpgradeButton.gameObject.SetActive(false);
                 }
@@ -166,25 +165,25 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 FuelAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    {
-                        FuelAdsButton.gameObject.SetActive(true);
+                    //    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    //    {
+                    //        FuelAdsButton.gameObject.SetActive(true);
 
-                        FuelAdsButton.onClick.RemoveAllListeners();
-                        FuelAdsButton.onClick.AddListener(() =>
-                        {
-                            Analytics.RewardedAdSuggested("HelicopterFuelAds");
-                            HomaBelly.Instance.ShowRewardedVideoAd("HelicopterFuelAds");
-                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                            {
-                                if (reward.getPlacementName() == "HelicopterFuelAds")
-                                    OnUpgradeWeightButton();
-                            };
+                    //        FuelAdsButton.onClick.RemoveAllListeners();
+                    //        FuelAdsButton.onClick.AddListener(() =>
+                    //        {
+                    //            Analytics.RewardedAdSuggested("HelicopterFuelAds");
+                    //            HomaBelly.Instance.ShowRewardedVideoAd("HelicopterFuelAds");
+                    //            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                    //            {
+                    //                if (reward.getPlacementName() == "HelicopterFuelAds")
+                    //                    OnUpgradeWeightButton();
+                    //            };
 
-                        });
-                    }
-                    else
-                        FuelUpgradeBlocked.gameObject.SetActive(true);
+                    //        });
+                    //    }
+                    //    else
+                    FuelUpgradeBlocked.gameObject.SetActive(true);
                     FuelBlockedCostText.text = currentCost.ToString();
                     FuelUpgradeButton.gameObject.SetActive(false);
                 }
@@ -213,25 +212,25 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 WeightAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    {
-                        WeightAdsButton.gameObject.SetActive(true);
+                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    //{
+                    //    WeightAdsButton.gameObject.SetActive(true);
 
-                        WeightAdsButton.onClick.RemoveAllListeners();
-                        WeightAdsButton.onClick.AddListener(() =>
-                        {
-                            Analytics.RewardedAdSuggested("HelicopterWeightAds");
-                            HomaBelly.Instance.ShowRewardedVideoAd("HelicopterWeightAds");
-                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                            {
-                                if (reward.getPlacementName() == "HelicopterWeightAds")
-                                    OnUpgradeWeightButton();
-                            };
+                    //    WeightAdsButton.onClick.RemoveAllListeners();
+                    //    WeightAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        Analytics.RewardedAdSuggested("HelicopterWeightAds");
+                    //        HomaBelly.Instance.ShowRewardedVideoAd("HelicopterWeightAds");
+                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                    //        {
+                    //            if (reward.getPlacementName() == "HelicopterWeightAds")
+                    //                OnUpgradeWeightButton();
+                    //        };
 
-                        });
-                    }
-                    else
-                        WeightUpgradeBlocked.gameObject.SetActive(true);
+                    //    });
+                    //}
+                    //else
+                    WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }

@@ -1,5 +1,3 @@
-using GameAnalyticsSDK;
-using HomaGames.HomaBelly;
 using Player;
 using System.Collections.Generic;
 using UnityEditor;
@@ -185,7 +183,7 @@ public class LevelManager : MonoBehaviour
         CarsOnScene = 0;
         TrashCollected = 0;
         TrashOnScene = 0;
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, $"{currentLevelIndex}", "", "Level_Progress");
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, $"{currentLevelIndex}", "", "Level_Progress");
         nextLevel.gameObject.SetActive(false);
         // Словарь для хранения родительских объектов по типам
         Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
@@ -284,13 +282,14 @@ public class LevelManager : MonoBehaviour
         if (currentLevelIndex >= loadedLevels.Count)
             currentLevelIndex = 4;
         PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"{currentLevelIndex}", "", "Level_Progress");
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"{currentLevelIndex}", "", "Level_Progress");
         LoadLevel(currentLevelIndex);
 
-        if (HomaBelly.Instance.IsInterstitialAvailable())
-        {
-            HomaBelly.Instance.ShowInterstitial("interstitalAds");
-        }
+        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(currentLevelIndex);
+        //if (HomaBelly.Instance.IsInterstitialAvailable())
+        //{
+        //    HomaBelly.Instance.ShowInterstitial("interstitalAds");
+        //}
     }
 
     public void LoadPreviousLevel()
@@ -311,7 +310,7 @@ public class LevelManager : MonoBehaviour
             {
                 nextLevel.gameObject.SetActive(false);
                 victoryTab.OpenTab();
-
+                YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
                 Debug.Log("Wining");
             }
         }
@@ -319,7 +318,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, $"{currentLevelIndex}", "", "Level_Progress");
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, $"{currentLevelIndex}", "", "Level_Progress");
     }
 
 }

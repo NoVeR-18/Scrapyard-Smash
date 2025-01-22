@@ -4,23 +4,19 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.android.installreferrer:installreferrer:2.2' // Packages/com.homagames.attribution.adjust/Editor/AdjustDependencies.xml:4
     implementation 'com.android.support:appcompat-v7:25.3.1' // Facebook.Unity.Editor.AndroidSupportLibraryResolver.addSupportLibraryDependency
     implementation 'com.android.support:cardview-v7:25.3.1' // Facebook.Unity.Editor.AndroidSupportLibraryResolver.addSupportLibraryDependency
     implementation 'com.android.support:customtabs:25.3.1' // Facebook.Unity.Editor.AndroidSupportLibraryResolver.addSupportLibraryDependency
     implementation 'com.android.support:support-v4:25.3.1' // Facebook.Unity.Editor.AndroidSupportLibraryResolver.addSupportLibraryDependency
-    implementation 'com.facebook.android:facebook-applinks:[17.0.0,18)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:6
-    implementation 'com.facebook.android:facebook-core:[17.0.0,18)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:5
-    implementation 'com.facebook.android:facebook-gamingservices:[17.0.0,18)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:9
-    implementation 'com.facebook.android:facebook-login:[17.0.0,18)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:7
-    implementation 'com.facebook.android:facebook-share:[17.0.0,18)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:8
-    // implementation 'com.google.android.gms:play-services-ads-identifier:[18.0.0]' // Packages/com.homagames.attribution.adjust/Editor/AdjustDependencies.xml:6
-    implementation 'com.google.android.gms:play-services-ads-identifier:[18.0.1]' // Packages/com.homagames.sdk-core/Utilities/Editor/Android/CoreDependencies.xml:6
-    // implementation 'com.google.android.gms:play-services-appset:[16.0.2]' // Packages/com.homagames.sdk-core/Utilities/Editor/Android/CoreDependencies.xml:4
-    implementation 'com.google.android.gms:play-services-appset:16.0.2' // Packages/com.gameanalytics.sdk/Editor/Android/Dependencies.xml:4
-    implementation 'com.google.android.gms:play-services-basement:[18.0.0]' // Packages/com.homagames.attribution.adjust/Editor/AdjustDependencies.xml:5
-    implementation 'com.google.android.instantapps:instantapps:1.1.0' // Packages/com.gameanalytics.sdk/Editor/Android/Dependencies.xml:3
+    implementation 'com.applovin:applovin-sdk:13.0.1' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
+    implementation 'com.facebook.android:facebook-applinks:[14.1, 15)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:6
+    implementation 'com.facebook.android:facebook-core:[14.1, 15)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:5
+    implementation 'com.facebook.android:facebook-gamingservices:[14.1, 15)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:9
+    implementation 'com.facebook.android:facebook-login:[14.1, 15)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:7
+    implementation 'com.facebook.android:facebook-share:[14.1, 15)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:8
+    implementation 'com.google.android.ump:user-messaging-platform:2.+' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:5
     implementation 'com.parse.bolts:bolts-android:1.4.0' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:4
+    implementation 'com.tenjin:android-sdk:1.16.1' // Assets/GameUtils/External/Tenjin/Editor/Dependencies.xml:4
 // Android Resolver Dependencies End
 **DEPS**}
 

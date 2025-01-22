@@ -1,5 +1,4 @@
-﻿using HomaGames.HomaBelly;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -104,24 +103,24 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 SpeedAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    {
-                        SpeedAdsButton.gameObject.SetActive(true);
+                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    //{
+                    //    SpeedAdsButton.gameObject.SetActive(true);
 
-                        SpeedAdsButton.onClick.RemoveAllListeners();
-                        SpeedAdsButton.onClick.AddListener(() =>
-                        {
-                            Analytics.RewardedAdSuggested("ForkliffSpeedAds");
-                            HomaBelly.Instance.ShowRewardedVideoAd("ForkliffSpeedAds");
-                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                            {
-                                if (reward.getPlacementName() == "ForkliffSpeedAds")
-                                    OnUpgradeSpeedButton();
-                            };
-                        });
-                    }
-                    else
-                        SpeedUpgradeBlocked.gameObject.SetActive(true);
+                    //    SpeedAdsButton.onClick.RemoveAllListeners();
+                    //    SpeedAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        Analytics.RewardedAdSuggested("ForkliffSpeedAds");
+                    //        HomaBelly.Instance.ShowRewardedVideoAd("ForkliffSpeedAds");
+                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                    //        {
+                    //            if (reward.getPlacementName() == "ForkliffSpeedAds")
+                    //                OnUpgradeSpeedButton();
+                    //        };
+                    //    });
+                    //}
+                    //else
+                    SpeedUpgradeBlocked.gameObject.SetActive(true);
                     SpeedBlockedCostText.text = currentCost.ToString();
                     SpeedUpgradeButton.gameObject.SetActive(false);
                 }
@@ -145,25 +144,25 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 var currentCost = experienceTable.experiencePerLevel[forkliff.WeightLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    {
-                        WeightAdsButton.gameObject.SetActive(true);
+                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
+                    //{
+                    //    WeightAdsButton.gameObject.SetActive(true);
 
-                        WeightAdsButton.onClick.RemoveAllListeners();
-                        WeightAdsButton.onClick.AddListener(() =>
-                        {
-                            Analytics.RewardedAdSuggested("ForkliffWeightAds");
-                            HomaBelly.Instance.ShowRewardedVideoAd("ForkliffWeightAds");
-                            Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                            {
-                                if (reward.getPlacementName() == "ForkliffWeightAds")
-                                    OnUpgradeWeightButton();
-                            };
+                    //    WeightAdsButton.onClick.RemoveAllListeners();
+                    //    WeightAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        Analytics.RewardedAdSuggested("ForkliffWeightAds");
+                    //        HomaBelly.Instance.ShowRewardedVideoAd("ForkliffWeightAds");
+                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
+                    //        {
+                    //            if (reward.getPlacementName() == "ForkliffWeightAds")
+                    //                OnUpgradeWeightButton();
+                    //        };
 
-                        });
-                    }
-                    else
-                        WeightUpgradeBlocked.gameObject.SetActive(true);
+                    //    });
+                    //}
+                    //else
+                    WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }

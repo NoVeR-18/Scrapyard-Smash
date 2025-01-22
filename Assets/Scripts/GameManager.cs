@@ -1,6 +1,4 @@
-﻿using GameAnalyticsSDK;
-using HomaGames.HomaBelly;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
@@ -31,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        GameAnalytics.Initialize();
+        //GameAnalytics.Initialize();
     }
     private void Start()
     {
@@ -40,15 +38,15 @@ public class GameManager : MonoBehaviour
         LoadMusicSettings();
         LoadTutorial();
 
-        Events.onBannerAdLoadedEvent += OnBannerAdLoadedEvent;
-        HomaBelly.Instance.LoadBanner(HomaGames.HomaBelly.BannerSize.BANNER, HomaGames.HomaBelly.BannerPosition.BOTTOM);
+        //Events.onBannerAdLoadedEvent += OnBannerAdLoadedEvent;
+        //HomaBelly.Instance.LoadBanner(HomaGames.HomaBelly.BannerSize.BANNER, HomaGames.HomaBelly.BannerPosition.BOTTOM);
 
     }
 
-    private void OnBannerAdLoadedEvent(AdInfo info)
-    {
-        HomaBelly.Instance.ShowBanner();
-    }
+    //private void OnBannerAdLoadedEvent(AdInfo info)
+    //{
+    //    HomaBelly.Instance.ShowBanner();
+    //}
 
     private void LoadVibrationSettings()
     {
