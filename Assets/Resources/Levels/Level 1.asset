@@ -664,3 +664,11 @@ MonoBehaviour:
     scales:
     - {x: 1, y: 1, z: 1}
     - {x: 1, y: 1, z: 1}
+  - prefabName: crystal
+    objectType: 5
+    positions:
+    - {x: 36.75, y: 1, z: 3.6230097}
+    rotations:
+    - {x: -0, y: -0, z: -0, w: 1}
+    scales:
+    - {x: 2, y: 2, z: 2}
