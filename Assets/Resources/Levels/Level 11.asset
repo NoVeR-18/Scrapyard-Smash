@@ -1237,3 +1237,17 @@ MonoBehaviour:
     - {x: -0, y: -0, z: -0, w: 1}
     scales:
     - {x: 1, y: 1, z: 1}
+  - prefabName: crystal
+    objectType: 5
+    positions:
+    - {x: 49, y: 1, z: 15.403009}
+    - {x: 41.5, y: 1, z: 3.5}
+    - {x: 49, y: 1, z: -7.652991}
+    rotations:
+    - {x: -0, y: -0, z: -0, w: 1}
+    - {x: -0, y: -0, z: -0, w: 1}
+    - {x: -0, y: -0, z: -0, w: 1}
+    scales:
+    - {x: 2, y: 2, z: 2}
+    - {x: 2, y: 2, z: 2}
+    - {x: 2, y: 2, z: 2}
