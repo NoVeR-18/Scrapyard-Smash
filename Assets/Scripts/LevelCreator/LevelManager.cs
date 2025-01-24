@@ -137,7 +137,8 @@ public class LevelManager : MonoBehaviour
 
         LevelData levelData = loadedLevels[levelIndex];
 
-        changeVehicleTab.gameObject.SetActive(true);
+        if (changeVehicleTab.magnete.unlocked)
+            changeVehicleTab.gameObject.SetActive(true);
         if ((levelIndex + 2) % 5 == 0 && levelIndex > 0)
         {
             foreach (var player in vechicles)
