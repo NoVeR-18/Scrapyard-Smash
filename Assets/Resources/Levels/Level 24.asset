@@ -2787,7 +2787,7 @@ MonoBehaviour:
   - prefabName: fence_enterance
     objectType: 3
     positions:
-    - {x: -18.432632, y: 0, z: -56}
+    - {x: -18.432632, y: 0, z: -56.75}
     rotations:
     - {x: 4.3261567e-14, y: -1, z: -0.00000008146035, w: 0.00000058114523}
     scales:
