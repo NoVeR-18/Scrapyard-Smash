@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemType: 2
+  _itemPositionLerp: 2
   _itemRotationLerp: 10
   CanTake: 1
   Cost: 30

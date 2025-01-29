@@ -135,7 +135,6 @@ namespace Player
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvas.transform as RectTransform, screenPos, canvas.worldCamera, out Vector2 localPos
             );
-
             // Создаем UI-кристалл
             GameObject crystalUI = Instantiate(crystalUIPrefab, canvas.transform);
             RectTransform crystalRect = crystalUI.GetComponent<RectTransform>();

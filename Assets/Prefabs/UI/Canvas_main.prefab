@@ -16670,7 +16670,7 @@ MonoBehaviour:
   forkliffUpgradeTab: {fileID: 2538897452241469517}
   magneteUpgradeTab: {fileID: 5623985675194044107}
   helicopterUpgradeTab: {fileID: 1392304501640663526}
-  changeVehicleTab: {fileID: 3336826314825728865}
+  changeVehicleTab: {fileID: 0}
   forkliffOpenButton:
   - {fileID: 1363593490911354015}
   - {fileID: 4946124710222610504}
@@ -28841,7 +28841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5202007407409757598}
-  - component: {fileID: 3336826314825728865}
+  - component: {fileID: 6166486322315678595}
   m_Layer: 5
   m_Name: vechicle_change_menu
   m_TagString: Untagged
@@ -28872,7 +28872,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -45}
   m_SizeDelta: {x: 0, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3336826314825728865
+--- !u!114 &6166486322315678595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28885,16 +28885,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8638879115555865545}
-  OpenCloseButton: {fileID: 459623007605451803}
-  SelectForkliffButton: {fileID: 1217021184434163062}
-  SelectMagneteButton: {fileID: 1936171534483058266}
+  OpenCloseButton: {fileID: 0}
+  SelectForkliffButton: {fileID: 0}
+  SelectMagneteButton: {fileID: 0}
   ForkliffActiveFrame: {fileID: 8052090593246831217}
   ForkliffInactiveFrame: {fileID: 8737913802784729109}
   MagneteActiveFrame: {fileID: 7332905368816102671}
   MagneteInactiveFrame: {fileID: 6090690149845793142}
   forkliff: {fileID: 0}
   magnete: {fileID: 0}
-  audioSource: {fileID: 2760209095338144467}
+  audioSource: {fileID: 0}
 --- !u!1 &5054273471640993570
 GameObject:
   m_ObjectHideFlags: 0

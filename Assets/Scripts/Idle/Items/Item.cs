@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
     public Action<Item> OnDisappear;
 
     [SerializeField] private ItemType _itemType;
-    private float _itemPositionLerp = 2f;
+    [SerializeField] private float _itemPositionLerp = 2f;
     [SerializeField] private float _itemRotationLerp = 10f;
     private float _arcHeight = 2f;
 
