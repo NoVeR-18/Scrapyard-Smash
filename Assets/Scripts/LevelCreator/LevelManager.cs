@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     private const string CurrentLevelKey = "currentLevelIndexKey";
+    private const string TempLevelKey = "tempLevelKey";
 
     public static LevelManager Instance { get; private set; }
     public PlayerWallet wallet;
@@ -52,13 +53,30 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         currentLevelIndex = PlayerPrefs.GetInt(CurrentLevelKey, 0);
+
         LoadLevel(currentLevelIndex);
+        // Проверяем наличие временных данных
+        if (PlayerPrefs.HasKey(TempLevelKey))
+        {
+            string tempLevelJson = PlayerPrefs.GetString(TempLevelKey);
+            LevelData tempLevel = ScriptableObject.CreateInstance<LevelData>();
+            JsonUtility.FromJsonOverwrite(tempLevelJson, tempLevel);
+
+            Debug.Log("Loading temporary level...");
+            LoadLevel(tempLevel);
+
+            // Удаляем временные данные после загрузки
+            PlayerPrefs.DeleteKey(TempLevelKey);
+            PlayerPrefs.Save();
+        }
+
         nextLevel.GetComponent<Button>().onClick.AddListener(() =>
         {
             nextLevel.gameObject.SetActive(false);
             GameManager.Instance.Vibrate();
             victoryTab.OpenTab();
         });
+
         if (experienceTable == null)
             experienceTable = Resources.Load<ExperienceTable>("ExperienceTable");
     }
@@ -125,8 +143,6 @@ public class LevelManager : MonoBehaviour
     }
 
 
-
-
     public void LoadLevel(int levelIndex)
     {
         if (levelIndex < 0 || levelIndex >= loadedLevels.Count)
@@ -165,7 +181,6 @@ public class LevelManager : MonoBehaviour
         // Удаляем старые объекты
         if (Application.isPlaying)
         {
-            // Если в игровом режиме, используем Destroy
             foreach (Transform child in parentContainer)
             {
                 Destroy(child.gameObject);
@@ -173,7 +188,6 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            // Если в редакторе, используем DestroyImmediate
             while (parentContainer.childCount > 0)
             {
                 DestroyImmediate(parentContainer.GetChild(0).gameObject);
@@ -184,7 +198,6 @@ public class LevelManager : MonoBehaviour
         CarsOnScene = 0;
         TrashCollected = 0;
         TrashOnScene = 0;
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, $"{currentLevelIndex}", "", "Level_Progress");
         nextLevel.gameObject.SetActive(false);
         // Словарь для хранения родительских объектов по типам
         Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
@@ -260,37 +273,21 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-
+        CheckWining();
         Debug.Log("Level loaded successfully and sorted by object types!");
     }
 
 
-
-    private GameObject FindObjectOnScene(string prefabName, Transform parentGroup)
-    {
-        foreach (Transform child in parentGroup)
-        {
-            if (child.name == prefabName)
-            {
-                return child.gameObject;
-            }
-        }
-        return null;
-    }
     public void LoadNextLevel()
     {
-        currentLevelIndex++;//= (currentLevelIndex + 1);
+        currentLevelIndex++;
         if (currentLevelIndex >= loadedLevels.Count)
             currentLevelIndex = 4;
         PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"{currentLevelIndex}", "", "Level_Progress");
         LoadLevel(currentLevelIndex);
 
         YsoCorp.GameUtils.YCManager.instance.OnGameStarted(currentLevelIndex);
-        //if (HomaBelly.Instance.IsInterstitialAvailable())
-        //{
-        //    HomaBelly.Instance.ShowInterstitial("interstitalAds");
-        //}
+
     }
 
     public void LoadPreviousLevel()
@@ -302,8 +299,10 @@ public class LevelManager : MonoBehaviour
     {
         if (CarsCollected < (0.8f * CarsOnScene) || TrashCollected < (0.8f * TrashOnScene))
             return;
-        if (CarsCollected > (0.8f * CarsOnScene) || TrashCollected > (0.8f * TrashOnScene))
+        if (CarsCollected >= (0.8f * CarsOnScene) || TrashCollected >= (0.8f * TrashOnScene))
         {
+
+            DailyTasksManager.Instance.PerformTask(TaskType.Clean80Percent);
             nextLevel.gameObject.SetActive(true);
             if ((CarsCollected < CarsOnScene) || (TrashCollected < TrashOnScene))
                 return;
@@ -319,7 +318,34 @@ public class LevelManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, $"{currentLevelIndex}", "", "Level_Progress");
+        SaveGameData();
+    }
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            Debug.Log("Приложение свернуто — выполняем сохранение");
+            SaveGameData();
+        }
     }
 
+    private void SaveGameData()
+    {
+
+        // Сохраняем текущий уровень в PlayerPrefs
+        PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
+
+        // Создаем временный уровень и сохраняем его
+        if (loadedLevels.Count > currentLevelIndex)
+        {
+            LevelData tempLevel = ScriptableObject.CreateInstance<LevelData>();
+            SaveLevel(tempLevel);
+
+            // Сохраняем данные временного уровня
+            string tempLevelJson = JsonUtility.ToJson(tempLevel);
+            PlayerPrefs.SetString(TempLevelKey, tempLevelJson);
+        }
+
+        PlayerPrefs.Save(); // Сохраняем изменения
+    }
 }

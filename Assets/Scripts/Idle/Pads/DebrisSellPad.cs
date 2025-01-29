@@ -22,6 +22,7 @@ public class DebrisSellPad : StoragePad
 
         if (!player.Backpack.ItemsContainer.TakeItem(out takenItem, ItemType))
             return;
+        DailyTasksManager.Instance.PerformTask(TaskType.CollectTrash);
         GameManager.Instance.Vibrate();
         Destroy(takenItem.GetComponent<BoxCollider>());
         ItemsContainer.AddItem(takenItem);

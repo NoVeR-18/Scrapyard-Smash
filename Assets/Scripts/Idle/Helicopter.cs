@@ -243,7 +243,8 @@ public class Helicopter : Player.Player
             item.phisicCollider.enabled = true;
             item.AddComponent<Rigidbody>();
         }
-        LevelManager.Instance.changeVehicleTab.gameObject.SetActive(true);
+        if (LevelManager.Instance.changeVehicleTab.magnete.unlocked)
+            LevelManager.Instance.changeVehicleTab.gameObject.SetActive(true);
 
         if (audioSource != null)
             audioSource?.Stop();

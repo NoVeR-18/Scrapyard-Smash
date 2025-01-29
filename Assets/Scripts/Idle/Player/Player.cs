@@ -13,6 +13,8 @@ namespace Player
         public Transform DefaultSpawnPoss;
         public Camera mainCamera;
         public VehicleZone vehicleZone;
+        public ParticleSystem changeEffect;
+
         [SerializeField] protected Vector3 _spawnPoint;
         [SerializeField] private float _dieHeight = -20;
 
@@ -107,7 +109,8 @@ namespace Player
             _movement.boxCollider.isTrigger = false;
             if (audioSource != null)
                 audioSource?.Play();
-
+            if (changeEffect != null)
+                changeEffect.Play();
             if (particle != null)
                 particle.Play();
             mainCamera.gameObject.SetActive(true);
@@ -132,7 +135,6 @@ namespace Player
         {
             if (!_movement.CanMoving)
             {
-
                 this.transform.position = transform.position;
                 this.transform.rotation = transform.rotation;
                 LevelManager.Instance.currentVehicle.DisableVechicle();

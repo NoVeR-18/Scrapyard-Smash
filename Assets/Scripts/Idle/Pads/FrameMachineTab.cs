@@ -20,6 +20,7 @@ public class FrameMachineTab : StoragePad
         Item takenItem = null;
         if (!player.Backpack.ItemsContainer.TakeItem(out takenItem, ItemType))
             return;
+        DailyTasksManager.Instance.PerformTask(TaskType.CollectCar);
         GameManager.Instance.Vibrate();
         ItemsContainer.AddItem(takenItem);
         Destroy(takenItem.GetComponent<BoxCollider>());

@@ -27,6 +27,8 @@ public class GameAward : StoragePad
         if (!ItemsContainer.TakeItem(out takenItem))
             return;
         LevelManager.Instance.wallet.AddMoney(takenItem.Cost);
+        LevelManager.Instance.wallet.CollectMoney(takenItem.transform.position);
+
         Destroy(takenItem.gameObject);
     }
     bool CanCreaft()

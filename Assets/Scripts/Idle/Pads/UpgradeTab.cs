@@ -9,9 +9,4 @@ public class UpgradeTab : StoragePad
         upgradePanel.OpenTab();
     }
 
-    public override void CloseInteract()
-    {
-        upgradePanel.gameObject.SetActive(false);
-    }
-
 }

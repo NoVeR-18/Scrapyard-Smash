@@ -56,10 +56,10 @@ public class ForkliffUpgradeTab : MonoBehaviour
     {
         if (forkliff != null)
         {
-
             forkliff.UpgradeSpeed();
             UpdatePanel();
         }
+        DailyTasksManager.Instance.PerformTask(TaskType.UpgradeForkliff);
         GameManager.Instance.Vibrate();
     }
 
@@ -74,6 +74,8 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 if (Tutorial.instance.TutorialIndex == 3)
                     Tutorial.instance.CompleteZone(3);
         }
+
+        DailyTasksManager.Instance.PerformTask(TaskType.UpgradeForkliff);
         GameManager.Instance.Vibrate();
     }
 

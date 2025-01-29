@@ -42,7 +42,8 @@ public class Item : MonoBehaviour
     void OnEnable()
     {
         m_rb = GetComponent<Rigidbody>();
-        m_rb.useGravity = false;
+        if (m_rb != null)
+            m_rb.useGravity = false;
     }
     private void OnTriggerEnter(Collider other)
     {

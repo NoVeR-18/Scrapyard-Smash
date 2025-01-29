@@ -75,6 +75,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             magnete.UpgradeSpeed();
             UpdatePanel();
         }
+        DailyTasksManager.Instance.PerformTask(TaskType.UpgradeMagnete);
         GameManager.Instance.Vibrate();
     }
 
@@ -85,6 +86,7 @@ public class MagneteUpgradeTab : MonoBehaviour
             magnete.UpgradeWeight();
             UpdatePanel();
         }
+        DailyTasksManager.Instance.PerformTask(TaskType.UpgradeMagnete);
         GameManager.Instance.Vibrate();
     }
 
@@ -95,6 +97,8 @@ public class MagneteUpgradeTab : MonoBehaviour
             magnete.UpgradeMagnete();
             UpdatePanel();
         }
+
+        DailyTasksManager.Instance.PerformTask(TaskType.UpgradeMagnete);
         GameManager.Instance.Vibrate();
     }
 

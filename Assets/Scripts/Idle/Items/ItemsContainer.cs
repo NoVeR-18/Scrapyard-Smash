@@ -13,14 +13,14 @@ namespace Items.Container
         {
             get
             {
-                return _items.Count >= _capacity;
+                return Items.Count >= _capacity;
             }
         }
         public int Count
         {
             get
             {
-                return _items.Count;
+                return Items.Count;
             }
         }
         public int Capacity { get => _capacity; }
@@ -33,7 +33,7 @@ namespace Items.Container
         [SerializeField] private int _sizeX = 3;
         [SerializeField] private int _sizeZ = 3;
 
-        private List<Item> _items = new List<Item>();
+        public List<Item> Items = new List<Item>();
         private ContainerSlot[] _slots;
         [SerializeField] private ContainerSlot _slotPrefab;                         // Markdown #2
 
@@ -198,8 +198,8 @@ namespace Items.Container
             {
                 return false;
             }
-            _items.Add(item);
-            item.GoToSlot(this, _items);
+            Items.Add(item);
+            item.GoToSlot(this, Items);
             editCountItems?.Invoke();
             return true;
         }
@@ -211,7 +211,7 @@ namespace Items.Container
                 return false;
             }
 
-            Item lastItem = _items[_items.Count - 1];
+            Item lastItem = Items[Items.Count - 1];
             item = lastItem;
             if (item == null)
                 return false;
@@ -221,10 +221,34 @@ namespace Items.Container
                 busySlotsWithItem?.First().Detach();
             }
 
-            _items.RemoveAt(_items.Count - 1);
+            Items.RemoveAt(Items.Count - 1);
 
             editCountItems?.Invoke();
             return true;
+        }
+        public bool TakeItem(Item item)
+        {
+            if (!CanTakeItem())
+            {
+                return false;
+            }
+            if (Items.Contains(item))
+            {
+                if (item == null)
+                    return false;
+                IEnumerable<ContainerSlot> busySlotsWithItem = _slots.Where(x => x.BusyItem == item);
+                if (busySlotsWithItem.Count() != 0)
+                {
+                    busySlotsWithItem?.First().Detach();
+                }
+
+                Items.Remove(item);
+
+                editCountItems?.Invoke();
+                return true;
+            }
+            else
+                return false;
         }
         public bool TakeItem(out Item item, ItemType type)
         {
@@ -234,7 +258,7 @@ namespace Items.Container
                 return false;
             }
 
-            IEnumerable<Item> typedItems = _items.Where(x => x.Type == type);
+            IEnumerable<Item> typedItems = Items.Where(x => x.Type == type);
             if (typedItems.Count() == 0)
             {
                 item = null;
@@ -250,7 +274,7 @@ namespace Items.Container
                 busySlotsWithItem?.First().Detach();
             }
 
-            _items.Remove(queryTakeItem);
+            Items.Remove(queryTakeItem);
 
             editCountItems?.Invoke();
             return true;
@@ -263,7 +287,7 @@ namespace Items.Container
             {
                 return 0;
             }
-            IEnumerable<Item> typedItems = _items.Where(x => x.Type == type);
+            IEnumerable<Item> typedItems = Items.Where(x => x.Type == type);
             if (typedItems.Count() == 0)
             {
                 return 0;
@@ -300,7 +324,7 @@ namespace Items.Container
         }
         public bool CanTakeItem()
         {
-            return _items.Count > 0;
+            return Items.Count > 0;
         }
 
         public ContainerSlot AttachItemToSlot(Item item)
@@ -326,7 +350,7 @@ namespace Items.Container
         }
         public List<Item> GetItems()
         {
-            return _items;
+            return Items;
         }
     }
 }
