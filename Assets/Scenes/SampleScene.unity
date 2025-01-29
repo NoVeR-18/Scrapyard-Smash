@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33927,7 +33927,7 @@ MonoBehaviour:
       Count: 500
       rewardType: 0
   - TaskType: 1
-    Description: RECYCLE DEBRIS
+    Description: RECYCLE JUNK
     RequiredCalls: 40
     CurrentCalls: 0
     IsCompleted: 0
@@ -33948,15 +33948,15 @@ MonoBehaviour:
     CurrentCalls: 0
     IsCompleted: 0
     reward:
-      Count: 1000
-      rewardType: 0
+      Count: 10
+      rewardType: 1
   - TaskType: 4
     Description: 'CLEAR LEVEL '
     RequiredCalls: 1
     CurrentCalls: 0
     IsCompleted: 0
     reward:
-      Count: 10
+      Count: 15
       rewardType: 1
   DescriptionText: {fileID: 1852059046}
   RewardText: {fileID: 1852059045}
@@ -44194,11 +44194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2566651768324218986, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_text
-      value: Take The Trash
+      value: Take The Junk
       objectReference: {fileID: 0}
     - target: {fileID: 2566651768324218986, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_fontSize
-      value: 15.1
+      value: 16.15
       objectReference: {fileID: 0}
     - target: {fileID: 4434339249668541566, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_Name
@@ -51227,11 +51227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2566651768324218986, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_text
-      value: Smash The Trash
+      value: Smash The Junk
       objectReference: {fileID: 0}
     - target: {fileID: 2566651768324218986, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_fontSize
-      value: 13.75
+      value: 14.6
       objectReference: {fileID: 0}
     - target: {fileID: 4434339249668541566, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_Name
@@ -59120,19 +59120,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4650398017451350763, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_Size.x
-      value: 3.2245922
+      value: 3.8679533
       objectReference: {fileID: 0}
     - target: {fileID: 4650398017451350763, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_Size.z
-      value: 4.236994
+      value: 5.596019
       objectReference: {fileID: 0}
     - target: {fileID: 4650398017451350763, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_Center.x
-      value: -1.4852791
+      value: -1.1635985
       objectReference: {fileID: 0}
     - target: {fileID: 4650398017451350763, guid: d54866e99a877b1438edf9110bc529f8, type: 3}
       propertyPath: m_Center.z
-      value: 0.3815031
+      value: -0.2980094
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
