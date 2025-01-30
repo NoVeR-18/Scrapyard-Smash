@@ -142,6 +142,7 @@ MonoBehaviour:
   _capacity: 40
   _sizeX: 1
   _sizeZ: 1
+  Items: []
   _slotPrefab: {fileID: 2753802703129427108, guid: 5a5bcb85583f74e4cba507ca4ce65b97, type: 3}
 --- !u!1 &4577367343832878754
 GameObject:
@@ -233,7 +234,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     _steeringAngle: 30
-  _modelContainer: {fileID: 5899670496083048601}
+  modelContainer: {fileID: 0}
   _controls: {fileID: 0}
   boxCollider: {fileID: 2673848681868050215}
   MoveLevel: 0
@@ -244,6 +245,7 @@ MonoBehaviour:
   frontRightWheel: {fileID: 0}
   wheelRotationSpeed: 360
   haveWheels: 0
+  crane: {fileID: 0}
 --- !u!114 &2016962639593936534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,13 +275,17 @@ MonoBehaviour:
   DefaultSpawnPoss: {fileID: 0}
   mainCamera: {fileID: 765454058025109679}
   vehicleZone: {fileID: 0}
+  changeEffect: {fileID: 0}
   _spawnPoint: {x: 0, y: 0, z: 0}
   _dieHeight: -20
+  capacityBar: {fileID: 0}
   audioSource: {fileID: 0}
   particle: {fileID: 0}
+  trailRenderers: []
   TrashPartickle: {fileID: 6308057575346782689}
   CarPartickle: {fileID: 0}
   CowPartickle: {fileID: 0}
+  ufoCash: {fileID: 0}
 --- !u!65 &7903407997792268086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -349,6 +355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7367917074131369257, guid: ae06f3723380bcf439f9cdcbd1b15625, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fa94269df40451d4597b29785e1de43e, type: 2}
     - target: {fileID: 9092688852064672816, guid: ae06f3723380bcf439f9cdcbd1b15625, type: 3}
       propertyPath: m_Name
       value: ufo

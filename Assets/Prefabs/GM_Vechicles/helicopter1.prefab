@@ -10512,7 +10512,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef6fc84ec523d2c40aa65554f8699ee5, type: 2}
+  - {fileID: 2100000, guid: fa94269df40451d4597b29785e1de43e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10667,6 +10667,7 @@ MonoBehaviour:
   _capacity: 5
   _sizeX: 1
   _sizeZ: 1
+  Items: []
   _slotPrefab: {fileID: 2753802703129427108, guid: 5a5bcb85583f74e4cba507ca4ce65b97, type: 3}
 --- !u!1 &5103584609869010486
 GameObject:
@@ -11017,7 +11018,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef6fc84ec523d2c40aa65554f8699ee5, type: 2}
+  - {fileID: 2100000, guid: fa94269df40451d4597b29785e1de43e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11100,7 +11101,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef6fc84ec523d2c40aa65554f8699ee5, type: 2}
+  - {fileID: 2100000, guid: fa94269df40451d4597b29785e1de43e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11622,11 +11623,13 @@ MonoBehaviour:
   DefaultSpawnPoss: {fileID: 0}
   mainCamera: {fileID: 7783501850846478234}
   vehicleZone: {fileID: 0}
+  changeEffect: {fileID: 0}
   _spawnPoint: {x: 0, y: 0, z: 0}
   _dieHeight: -20
   capacityBar: {fileID: 0}
   audioSource: {fileID: 7667081058587187168}
   particle: {fileID: 0}
+  trailRenderers: []
   TrashPartickle: {fileID: 3741073222249362494, guid: dba97df0dac542d409e38f7d5c82a398, type: 3}
   CarPartickle: {fileID: 8808218504972029794, guid: 9fdddb86cd6fd5741a19475cbc43bed5, type: 3}
   Fuel: 0
