@@ -109,8 +109,6 @@ namespace Player
             _movement.boxCollider.isTrigger = false;
             if (audioSource != null)
                 audioSource?.Play();
-            if (changeEffect != null)
-                changeEffect.Play();
             if (particle != null)
                 particle.Play();
             mainCamera.gameObject.SetActive(true);

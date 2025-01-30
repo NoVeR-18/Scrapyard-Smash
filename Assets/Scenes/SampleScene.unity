@@ -10558,7 +10558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &342133912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19966,6 +19966,10 @@ PrefabInstance:
     - target: {fileID: 5058783970430333982, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.58999944
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149852988355726934, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
+      propertyPath: m_Name
+      value: Forkliff Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 8128845104977701136, guid: 4e209d9e4f65ad84bb3ebc5f37c4464e, type: 3}
       propertyPath: _controls
@@ -30990,6 +30994,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2ca90b1c47d3d04c985ac78c3949e77, type: 3}
+--- !u!1 &944746825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1503000015941620038, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &945810009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33965,6 +33974,7 @@ MonoBehaviour:
   TaskPanelPopUp: {fileID: 1852059042}
   MoneyIcon: {fileID: 1852059041}
   CrystalIcon: {fileID: 1852059040}
+  Animator: {fileID: 1852059047}
   TakeAward: {fileID: 1852059039}
 --- !u!4 &1032998548 stripped
 Transform:
@@ -48919,7 +48929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1509700049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58056,7 +58066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1738518964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62502,7 +62512,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5320009720261326230, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+    - {fileID: 7688598414530524089, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+    - {fileID: 8572037600898016786, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7390140973811359985, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
@@ -62520,6 +62533,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7710530239139046202, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 749230834}
+    - targetCorrespondingSourceObject: {fileID: 1503000015941620038, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1981106256}
     - targetCorrespondingSourceObject: {fileID: 5879959954882748602, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 133949027}
@@ -62662,6 +62678,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1852059047 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1517636291729520681, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1854908687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8670253327725746708, guid: 439072470670d1b43ad5fde386cc4895, type: 3}
@@ -66851,6 +66872,27 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3854596692723310531, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
   m_PrefabInstance: {fileID: 1852059034}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1981106256
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944746825}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3df1dc95d591a5b4297dc5327e0de08a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1981635805
 PrefabInstance:
   m_ObjectHideFlags: 0

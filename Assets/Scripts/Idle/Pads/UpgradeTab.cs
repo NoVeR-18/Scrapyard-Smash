@@ -8,5 +8,9 @@ public class UpgradeTab : StoragePad
         upgradePanel.gameObject.SetActive(true);
         upgradePanel.OpenTab();
     }
-
+    public override void CloseInteract()
+    {
+        base.CloseInteract();
+        upgradePanel.CloseTab();
+    }
 }

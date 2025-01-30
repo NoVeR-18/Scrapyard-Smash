@@ -52,13 +52,8 @@ public class VehicleZone : MonoBehaviour
         LevelManager.Instance.currentVehicle.DisableVechicle();
         if (!vehicle.EnableVechicle())
             player.EnableVechicle();
-        // Дополнительная логика для управления транспортом
-        //PlayerController playerController = FindObjectOfType<PlayerController>();
-        //if (playerController != null)
-        //{
-        //    playerController.SetCurrentVehicle(vehicle); // Передаём управление транспортом игроку
-        //}
-
+        if (player.changeEffect != null)
+            player.changeEffect.Play();
         stayTimer = 0f; // Сбрасываем таймер
     }
 }

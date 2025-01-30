@@ -129,7 +129,7 @@ namespace Player
 
         public void CollectCrystal(Vector3 worldPosition)
         {
-            Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
+            Vector2 screenPos = LevelManager.Instance.currentVehicle.mainCamera.WorldToScreenPoint(worldPosition);
 
             // Конвертируем экранные координаты в локальные координаты Canvas
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -155,12 +155,11 @@ namespace Player
         }
         public void CollectMoney(Vector3 worldPosition)
         {
-            Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
-
+            Vector2 screenPos = LevelManager.Instance.currentVehicle.mainCamera.WorldToScreenPoint(worldPosition);
+            Debug.Log(Camera.main.name);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out Vector2 localPos);
             // Конвертируем экранные координаты в локальные координаты Canvas
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                canvas.transform as RectTransform, screenPos, canvas.worldCamera, out Vector2 localPos
-            );
+            //RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out Vector2 localPos);
 
             // Создаем UI-кристалл
             GameObject crystalUI = Instantiate(moneyUIPrefab, canvas.transform);

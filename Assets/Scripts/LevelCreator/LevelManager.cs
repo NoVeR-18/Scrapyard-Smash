@@ -33,7 +33,9 @@ public class LevelManager : MonoBehaviour
     public int currentLevelIndex; // Индекс текущего уровня
     public int CarsCollected = 0;
     public int TrashCollected = 0;
+    [SerializeField]
     private int CarsOnScene = 0;
+    [SerializeField]
     private int TrashOnScene = 0;
 
     private void Awake()
@@ -63,7 +65,7 @@ public class LevelManager : MonoBehaviour
             JsonUtility.FromJsonOverwrite(tempLevelJson, tempLevel);
 
             Debug.Log("Loading temporary level...");
-            LoadLevel(tempLevel);
+            LoadTempLevel(tempLevel);
 
             // Удаляем временные данные после загрузки
             PlayerPrefs.DeleteKey(TempLevelKey);
@@ -193,11 +195,11 @@ public class LevelManager : MonoBehaviour
                 DestroyImmediate(parentContainer.GetChild(0).gameObject);
             }
         }
-
         CarsCollected = 0;
         CarsOnScene = 0;
         TrashCollected = 0;
         TrashOnScene = 0;
+
         nextLevel.gameObject.SetActive(false);
         // Словарь для хранения родительских объектов по типам
         Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
@@ -227,10 +229,12 @@ public class LevelManager : MonoBehaviour
             // Создаем объекты
             for (int i = 0; i < group.positions.Count; i++)
             {
+
                 if (group.objectType == ObjectType.Car)
                     CarsOnScene++;
                 if (group.objectType == ObjectType.Trash)
                     TrashOnScene++;
+
                 if (i >= group.positions.Count || i >= group.rotations.Count || i >= group.scales.Count)
                 {
                     Debug.LogError("Invalid data in saved level!");
@@ -273,6 +277,108 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+        CheckWining();
+        Debug.Log("Level loaded successfully and sorted by object types!");
+    }
+    public void LoadTempLevel(LevelData levelData)
+    {
+        // Удаляем старые объекты
+        if (Application.isPlaying)
+        {
+            foreach (Transform child in parentContainer)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        else
+        {
+            while (parentContainer.childCount > 0)
+            {
+                DestroyImmediate(parentContainer.GetChild(0).gameObject);
+            }
+        }
+        CarsCollected = 0;
+        TrashCollected = 0;
+
+        nextLevel.gameObject.SetActive(false);
+        // Словарь для хранения родительских объектов по типам
+        Dictionary<ObjectType, Transform> parentGroups = new Dictionary<ObjectType, Transform>();
+
+        // Загружаем новые объекты
+        foreach (ObjectData group in levelData.groupedObjects)
+        {
+            // Находим префаб
+            GameObject prefab = prefabs.Find(p => p.name == group.prefabName);
+
+            if (prefab == null)
+            {
+                Debug.LogError($"Prefab {group.prefabName} not found in prefabs list!");
+                continue;
+            }
+
+            // Получаем или создаем родительский объект для данного типа
+            if (!parentGroups.ContainsKey(group.objectType))
+            {
+                GameObject newParent = new GameObject(group.objectType.ToString());
+                newParent.transform.SetParent(parentContainer);
+                parentGroups[group.objectType] = newParent.transform;
+            }
+
+            Transform parentGroup = parentGroups[group.objectType];
+
+            // Создаем объекты
+            for (int i = 0; i < group.positions.Count; i++)
+            {
+                if (group.objectType == ObjectType.Car)
+                    CarsCollected++;
+                if (group.objectType == ObjectType.Trash)
+                    TrashCollected++;
+
+                if (i >= group.positions.Count || i >= group.rotations.Count || i >= group.scales.Count)
+                {
+                    Debug.LogError("Invalid data in saved level!");
+                    continue;
+                }
+
+                Vector3 position = group.positions[i];
+                Quaternion rotation = group.rotations[i];
+                Vector3 scale = group.scales[i];
+
+                GameObject obj = null;
+
+#if UNITY_EDITOR
+                if (!Application.isPlaying)
+                    // Используем PrefabUtility для создания экземпляра префаба
+                    obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parentGroup);
+                else
+                    obj = Instantiate(prefab, parentGroup);
+#else
+            // Если не в редакторе, используем обычный Instantiate
+            obj = Instantiate(prefab, parentGroup);
+#endif
+
+                if (obj == null || obj.transform == null)
+                {
+                    Debug.LogError($"Failed to instantiate or find Transform for prefab {prefab.name}");
+                    continue;
+                }
+
+                // Применяем свойства
+                obj.transform.position = position;
+                obj.transform.rotation = rotation;
+                obj.transform.localScale = scale;
+
+                // Назначаем тип объекта
+                LevelObject levelObject = obj.GetComponent<LevelObject>();
+                if (levelObject != null)
+                {
+                    levelObject.objectType = group.objectType;
+                }
+            }
+
+        }
+        CarsCollected = CarsOnScene - CarsCollected;
+        TrashCollected = TrashOnScene - TrashCollected;
         CheckWining();
         Debug.Log("Level loaded successfully and sorted by object types!");
     }

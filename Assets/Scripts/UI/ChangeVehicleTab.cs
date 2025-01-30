@@ -87,6 +87,8 @@ public class ChangeVehicleTab : MonoBehaviour
             LevelManager.Instance.currentVehicle.DisableVechicle();
             forkliff.SelectVehicle();
         }
+        if (forkliff.changeEffect != null)
+            forkliff.changeEffect.Play();
 
         CloseTab();
     }
@@ -111,6 +113,8 @@ public class ChangeVehicleTab : MonoBehaviour
                     Tutorial.instance.CompleteZone(5);
                 }
         }
+        if (magnete.changeEffect != null)
+            magnete.changeEffect.Play();
         CloseTab();
     }
     private void UpdateUI()

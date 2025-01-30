@@ -32,6 +32,8 @@ public class UFO : Player.Player
         if (!Backpack.ItemsContainer.TakeItem(takenItem))
             return;
         LevelManager.Instance.wallet.AddMoney(takenItem.Cost);
+        GameManager.Instance.Vibrate();
+        LevelManager.Instance.wallet.CollectMoney(takenItem.transform.position);
         if (takenItem.Type == Items.ItemType.Car)
         {
             LevelManager.Instance.CarsCollected++;

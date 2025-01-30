@@ -17,6 +17,7 @@ public class Details : MonoBehaviour
 
         if (other.tag == "Player")
         {
+            GameManager.Instance.Vibrate();
             if (type == VehicleDetail.Helicopter)
             {
                 var helicopter = LevelManager.Instance.vechicles.OfType<Helicopter>().FirstOrDefault();

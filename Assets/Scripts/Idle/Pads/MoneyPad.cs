@@ -29,6 +29,7 @@ public class MoneyPad : StoragePad
             if (moneyItem != null)
             {
                 player.Wallet.AddMoney(1);
+                GameManager.Instance.Vibrate();
                 moneyItem.Disappear();
                 Debug.Log("MoneyAdded");
             }

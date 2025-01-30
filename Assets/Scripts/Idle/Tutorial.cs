@@ -65,11 +65,6 @@ public class Tutorial : MonoBehaviour
             }
 
         }
-        else
-        {
-            Destroy(gameObject);
-
-        }
     }
     private void Update()
     {
@@ -122,6 +117,13 @@ public class Tutorial : MonoBehaviour
                     focusedItem[TutorialIndex].gameObject.SetActive(false);
             }
             focusedItem[TutorialIndex].gameObject.SetActive(true);
+        }
+        else if (_tutorialCompleted)
+        {
+            if (TutorialIndex == 4)
+            {
+                focusedItem[TutorialIndex].gameObject.SetActive(false);
+            }
         }
     }
 

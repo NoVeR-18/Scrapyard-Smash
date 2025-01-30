@@ -43,6 +43,8 @@ public class DailyTasksManager : MonoBehaviour
     public Transform TaskPanelPopUp;
     public Transform MoneyIcon;
     public Transform CrystalIcon;
+    public Animator Animator;
+
 
     public Button TakeAward;
 
@@ -88,13 +90,17 @@ public class DailyTasksManager : MonoBehaviour
             if (currentTask.CurrentCalls >= currentTask.RequiredCalls)
             {
                 TakeAward.interactable = true;
+                Animator.SetBool("Complete", true);
                 if (currentTaskIndex == DailyTasks.Count)
                 {
                     Debug.Log("Все задания на сегодня выполнены!");
                 }
             }
             else
+            {
+                Animator.SetBool("Complete", false);
                 TakeAward.interactable = false;
+            }
         }
     }
     private void Start()
@@ -140,17 +146,18 @@ public class DailyTasksManager : MonoBehaviour
         var task = DailyTasks[currentTaskIndex];
         task.IsCompleted = true;
         var reward = task.reward;
-
         currentTaskIndex++;
         if (reward == null)
             return;
         if (reward.rewardType == RewardType.Crystal)
         {
             LevelManager.Instance.wallet.AddCrystals(reward.Count);
+            LevelManager.Instance.wallet.CollectCrystal(TakeAward.transform.position);
         }
         else if (reward.rewardType == RewardType.Money)
         {
             LevelManager.Instance.wallet.AddMoney(reward.Count);
+            LevelManager.Instance.wallet.CollectMoney(TakeAward.transform.position);
         }
         UpdateUI();
         SaveProgress();
@@ -169,8 +176,8 @@ public class DailyTasksManager : MonoBehaviour
         {
             return;
         }
-
-        currentTask.CurrentCalls++;
+        if (currentTask.CurrentCalls < currentTask.RequiredCalls)
+            currentTask.CurrentCalls++;
 
 
         UpdateUI();

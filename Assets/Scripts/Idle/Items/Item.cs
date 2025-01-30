@@ -47,7 +47,6 @@ public class Item : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.tag == "Player" && CanTake)
         {
             var player = other.GetComponent<Player.Player>();
@@ -117,6 +116,16 @@ public class Item : MonoBehaviour
             Vector3 gravity = globalGravity * gravityScale * Vector3.up;
             m_rb.AddForce(gravity, ForceMode.Acceleration);
         }
+
+        if (transform.position.y < -20)
+        {
+            if (_itemType == ItemType.Trash)
+                LevelManager.Instance.TrashCollected++;
+            else if (_itemType == ItemType.Car)
+                LevelManager.Instance.CarsCollected++;
+            Destroy(gameObject);
+        }
+
         if (_currentSlot == null)
         {
             return;

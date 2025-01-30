@@ -36,6 +36,7 @@ public class VictoryTab : MonoBehaviour
     {
         GameManager.Instance.Vibrate();
         levelManager.wallet.AddMoney(experienceTable.AwardLevelComplete[levelManager.currentLevelIndex]);
+        LevelManager.Instance.wallet.CollectMoney(takeButton.transform.position);
         CloseTab();
         foreach (Player.Player player in players)
         {
