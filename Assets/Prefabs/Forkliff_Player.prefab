@@ -655,24 +655,72 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_PreviewTimeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_MinVertexDistance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fa4370affb701694ea57e6b062749256, type: 2}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.numCapVertices
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.textureScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.textureScale.y
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.numCornerVertices
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.colorGradient.ctime1
+      value: 65150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.a
       value: 0.47058824
       objectReference: {fileID: 0}
     - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.colorGradient.key1.a
-      value: 0.47058824
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978982478368104579, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8072720993965994528, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Mesh
@@ -690,6 +738,10 @@ PrefabInstance:
       propertyPath: m_MinVertexDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fa4370affb701694ea57e6b062749256, type: 2}
     - target: {fileID: 8851309801910627935, guid: b7bdedba0a2476248bbfed1d1c7fb351, type: 3}
       propertyPath: m_Parameters.numCapVertices
       value: 5
