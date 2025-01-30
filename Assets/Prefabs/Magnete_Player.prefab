@@ -713,7 +713,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fa4370affb701694ea57e6b062749256, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -734,7 +734,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 8
+  m_Time: 4
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -756,8 +756,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0.43137255}
-      key1: {r: 0, g: 0, b: 0, a: 0.47058824}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -787,8 +787,8 @@ TrailRenderer:
     numCornerVertices: 5
     numCapVertices: 5
     alignment: 0
-    textureMode: 0
-    textureScale: {x: 1, y: 1}
+    textureMode: 4
+    textureScale: {x: 0.45, y: 0.45}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 1
@@ -1441,7 +1441,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fa4370affb701694ea57e6b062749256, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1462,7 +1462,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 8
+  m_Time: 4
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -1484,8 +1484,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0.43137255}
-      key1: {r: 0, g: 0, b: 0, a: 0.47058824}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1515,8 +1515,8 @@ TrailRenderer:
     numCornerVertices: 5
     numCapVertices: 5
     alignment: 0
-    textureMode: 0
-    textureScale: {x: 1, y: 1}
+    textureMode: 4
+    textureScale: {x: 0.45, y: 0.45}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 1
