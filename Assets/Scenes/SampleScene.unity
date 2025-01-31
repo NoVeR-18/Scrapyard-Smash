@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26184,63 +26184,63 @@ MonoBehaviour:
   forkliffSkins:
   - skinID: Default
     material: {fileID: 2100000, guid: fa94269df40451d4597b29785e1de43e, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
+    previewIcon: {fileID: 21300000, guid: 0a34dcab1f216554a9fad6d0478896c3, type: 3}
     price: 0
-    isPurchased: 0
+    isPurchased: 1
   - skinID: Arctic
     material: {fileID: 2100000, guid: 57cd724f20155954c8c525f66892c69a, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
+    previewIcon: {fileID: 21300000, guid: e52ad8b1c47853646b79e8803b087d8d, type: 3}
     price: 30
     isPurchased: 0
   - skinID: Fire
     material: {fileID: 2100000, guid: a76e3afea618f2a4baac47653b76eb71, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
+    previewIcon: {fileID: 21300000, guid: 4c68f10066ab63242a999193810db7cb, type: 3}
     price: 20
     isPurchased: 0
   - skinID: Gold
     material: {fileID: 2100000, guid: e70b85f6fe802fd4a92961abb6cad362, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
+    previewIcon: {fileID: 21300000, guid: 2f551335f83d9de4abb3aa10c8ae5064, type: 3}
     price: 0
     isPurchased: 0
   - skinID: Jungle
     material: {fileID: 2100000, guid: bb17f5e204381c44a8cf9a4363ae1725, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
+    previewIcon: {fileID: 21300000, guid: adc97076a0f35994db2f6fd40869d7b3, type: 3}
     price: 0
     isPurchased: 0
   - skinID: Military
     material: {fileID: 2100000, guid: 9dd18b03a77d01940981320f9bd5c7fe, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
+    previewIcon: {fileID: 21300000, guid: 57bec6ad479a01b4fa27ead31b930a40, type: 3}
     price: 0
     isPurchased: 0
   magneteSkins:
   - skinID: Default
     material: {fileID: 2100000, guid: fa94269df40451d4597b29785e1de43e, type: 2}
-    previewIcon: {fileID: 21300000, guid: a4d188fdab41c2348aaec5a217b8dd57, type: 3}
+    previewIcon: {fileID: 21300000, guid: 7c46d3338502b634b85f39697249b3e0, type: 3}
     price: 0
     isPurchased: 0
   - skinID: Arctic
     material: {fileID: 2100000, guid: 57cd724f20155954c8c525f66892c69a, type: 2}
-    previewIcon: {fileID: 21300000, guid: a4d188fdab41c2348aaec5a217b8dd57, type: 3}
+    previewIcon: {fileID: 21300000, guid: 248d7a861b2c19b4483e6b8969ac7f62, type: 3}
     price: 30
     isPurchased: 0
   - skinID: Fire
     material: {fileID: 2100000, guid: a76e3afea618f2a4baac47653b76eb71, type: 2}
-    previewIcon: {fileID: 21300000, guid: a4d188fdab41c2348aaec5a217b8dd57, type: 3}
+    previewIcon: {fileID: 21300000, guid: 50bb1c141167a95448d584e23aa7b814, type: 3}
     price: 20
     isPurchased: 0
   - skinID: Gold
     material: {fileID: 2100000, guid: e70b85f6fe802fd4a92961abb6cad362, type: 2}
-    previewIcon: {fileID: 21300000, guid: a4d188fdab41c2348aaec5a217b8dd57, type: 3}
+    previewIcon: {fileID: 21300000, guid: 3f4c74aa4a32d1640a760f9613a04cbe, type: 3}
     price: 0
     isPurchased: 0
   - skinID: Jungle
     material: {fileID: 2100000, guid: bb17f5e204381c44a8cf9a4363ae1725, type: 2}
-    previewIcon: {fileID: 21300000, guid: a4d188fdab41c2348aaec5a217b8dd57, type: 3}
+    previewIcon: {fileID: 21300000, guid: 6fb87760665d9c943ac1b6045bf75f2a, type: 3}
     price: 0
     isPurchased: 0
   - skinID: Military
     material: {fileID: 2100000, guid: 9dd18b03a77d01940981320f9bd5c7fe, type: 2}
-    previewIcon: {fileID: 21300000, guid: a4d188fdab41c2348aaec5a217b8dd57, type: 3}
+    previewIcon: {fileID: 21300000, guid: 0c3027c98d7a56c4b9939afd69ea42d6, type: 3}
     price: 0
     isPurchased: 0
   helicopterSkins:
@@ -26259,20 +26259,10 @@ MonoBehaviour:
     previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
     price: 20
     isPurchased: 0
-  - skinID: Gold
-    material: {fileID: 2100000, guid: e70b85f6fe802fd4a92961abb6cad362, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
-    price: 0
-    isPurchased: 0
-  - skinID: Jungle
-    material: {fileID: 2100000, guid: bb17f5e204381c44a8cf9a4363ae1725, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
-    price: 0
-    isPurchased: 0
   - skinID: Military
     material: {fileID: 2100000, guid: 9dd18b03a77d01940981320f9bd5c7fe, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
-    price: 0
+    previewIcon: {fileID: 21300000, guid: 3c48c198d8839b844a0c204d851cf4e0, type: 3}
+    price: 20
     isPurchased: 0
   TrailSkins:
   - skinID: Default
@@ -34301,6 +34291,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7753247272971345428, guid: 5bf80173e3b60c1458bd118dc7746c57, type: 3}
   m_PrefabInstance: {fileID: 1807148893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1012536917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3879012041577271632, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1012536919
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012536917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73c800774971aa14db01bca6d22074c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1012875701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1584436758257651794, guid: 0862c2a3d327a354ebc99d59edfbb2a4, type: 3}
@@ -40539,6 +40555,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15f77ac5a8b4f254a90aa24eed4b7be7, type: 3}
+--- !u!1 &1239900001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1602402789258492983, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+  m_PrefabInstance: {fileID: 1852059034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1239900005
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239900001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0d870407ec28544ab39425eb5a20b31, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1240194420 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8699563174021447899, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
@@ -63715,6 +63757,22 @@ PrefabInstance:
       propertyPath: players.Array.data[3]
       value: 
       objectReference: {fileID: 309076663}
+    - target: {fileID: 875946601441082337, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
+    - target: {fileID: 1349792711434301999, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
+    - target: {fileID: 1352341523074225527, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
+    - target: {fileID: 1363986660866049464, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8103281593993570451, guid: bcb0dd30d9b759143be098a14bcc1ea7, type: 3}
     - target: {fileID: 1392304501640663526, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: helicopter
       value: 
@@ -63743,10 +63801,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2193652361277470260, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1902015474795387276, guid: 9ebb9c6bb5709b24299bb2926cf7957c, type: 3}
     - target: {fileID: 2251318581604999356, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 749230829}
+    - target: {fileID: 2364789515407004369, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
     - target: {fileID: 2538897452241469517, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: forkliff
       value: 
@@ -63761,7 +63827,7 @@ PrefabInstance:
       objectReference: {fileID: 1903898088}
     - target: {fileID: 2821796061025102957, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2859029612107590674, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_Name
@@ -63770,6 +63836,10 @@ PrefabInstance:
     - target: {fileID: 3071588976235063863, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134559912926337450, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3186449890075275521, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_IsActive
@@ -63863,6 +63933,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -102.000244
       objectReference: {fileID: 0}
+    - target: {fileID: 3796223836480958172, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3863024248407165302, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 49.999756
@@ -63903,6 +63977,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -45.00049
       objectReference: {fileID: 0}
+    - target: {fileID: 5496780691419642813, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3606795461641053051, guid: 54167ba0f6f4423439c60db64a5a28ac, type: 3}
     - target: {fileID: 5623985675194044107, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: magnete
       value: 
@@ -63951,6 +64029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeliButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6679081056044539700, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
     - target: {fileID: 6927145544462156418, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -102.000244
@@ -64091,10 +64173,34 @@ PrefabInstance:
       propertyPath: helicopterSlots.Array.data[5]
       value: 
       objectReference: {fileID: 1667059815}
+    - target: {fileID: 7699243984404649541, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4173043479829887220, guid: 24a105d975c70e04fad8e6e63d1862b2, type: 3}
     - target: {fileID: 7710530239139046202, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_Name
       value: Canvas_main
       objectReference: {fileID: 0}
+    - target: {fileID: 7965862759789135965, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7130114771053388880, guid: fcadf4935b5f8d448b9c65a3192811d0, type: 3}
+    - target: {fileID: 7973003217299429522, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
+    - target: {fileID: 7987936636258729930, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
+    - target: {fileID: 8090236891270444548, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1357540093765194671, guid: ee2b643c1213bd346a70e8fd8c14862a, type: 3}
+    - target: {fileID: 8683790081909050289, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6198765451499058297, guid: 15b1f7f4bd10cb743bbe60117b17f205, type: 3}
     - target: {fileID: 9009457723051066685, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: m_Name
       value: MagneteButton
@@ -64190,12 +64296,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6659084706331282856, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1220427304}
+    - targetCorrespondingSourceObject: {fileID: 3879012041577271632, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1012536919}
     - targetCorrespondingSourceObject: {fileID: 5664559691783154630, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1341979920}
     - targetCorrespondingSourceObject: {fileID: 1757252340249517003, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1341404542}
+    - targetCorrespondingSourceObject: {fileID: 1602402789258492983, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1239900005}
     - targetCorrespondingSourceObject: {fileID: 8235423481116289975, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2057019141}
