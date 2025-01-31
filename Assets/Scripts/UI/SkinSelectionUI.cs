@@ -13,10 +13,69 @@ public class SkinSelectionUI : MonoBehaviour
     public List<SkinSlot> helicopterSlots;
     public List<SkinSlot> TrailSlots;
 
+    public Button trailSellectButton;
+    public Button forkliftSellectButton;
+    public Button magneteSellectButton;
+    public Button helicopterSellectButton;
+
+    public Transform trailConteiner;
+    public Transform forkliftConteiner;
+    public Transform magneteConteiner;
+    public Transform helicopterConteiner;
+
+    public Transform forkliftPreviewModel;
+    public Transform magnetePreviewModel;
+    public Transform helicopterPreviewModel;
+
+    private void Awake()
+    {
+        openButton.onClick.AddListener(() => popupPanel.SetActive(true));
+        closeButton.onClick.AddListener(() => popupPanel.SetActive(false));
+
+    }
+
     private void Start()
     {
-        closeButton.onClick.AddListener(() => popupPanel.SetActive(false));
-        //openButton.onClick.AddListener(() => popupPanel.SetActive(true));
+        trailSellectButton.onClick.AddListener(() =>
+        {
+            trailConteiner.gameObject.SetActive(true);
+            forkliftConteiner.gameObject.SetActive(false);
+            magneteConteiner.gameObject.SetActive(false);
+            helicopterConteiner.gameObject.SetActive(false);
+        });
+        forkliftSellectButton.onClick.AddListener(() =>
+        {
+            trailConteiner.gameObject.SetActive(false);
+            forkliftConteiner.gameObject.SetActive(true);
+            magneteConteiner.gameObject.SetActive(false);
+            helicopterConteiner.gameObject.SetActive(false);
+            forkliftPreviewModel.gameObject.SetActive(true);
+            magnetePreviewModel.gameObject.SetActive(false);
+            helicopterPreviewModel.gameObject.SetActive(false);
+        });
+        magneteSellectButton.onClick.AddListener(() =>
+        {
+            trailConteiner.gameObject.SetActive(false);
+            forkliftConteiner.gameObject.SetActive(false);
+            magneteConteiner.gameObject.SetActive(true);
+            helicopterConteiner.gameObject.SetActive(false);
+            forkliftPreviewModel.gameObject.SetActive(false);
+            magnetePreviewModel.gameObject.SetActive(true);
+            helicopterPreviewModel.gameObject.SetActive(false);
+        });
+        helicopterSellectButton.onClick.AddListener(() =>
+        {
+            trailConteiner.gameObject.SetActive(false);
+            forkliftConteiner.gameObject.SetActive(false);
+            magneteConteiner.gameObject.SetActive(false);
+            helicopterConteiner.gameObject.SetActive(true);
+            forkliftPreviewModel.gameObject.SetActive(false);
+            magnetePreviewModel.gameObject.SetActive(false);
+            helicopterPreviewModel.gameObject.SetActive(true);
+        });
+
+
+
         InitializeSlots(forkliffSlots, SkinCategory.Forklift);
         InitializeSlots(magneteSlots, SkinCategory.Magnete);
         InitializeSlots(helicopterSlots, SkinCategory.Helicopter);
