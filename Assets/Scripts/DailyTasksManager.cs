@@ -126,11 +126,24 @@ public class DailyTasksManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("LastResetDate"))
         {
-            lastResetDate = DateTime.Parse(PlayerPrefs.GetString("LastResetDate"));
+            string savedDate = PlayerPrefs.GetString("LastResetDate");
+            Debug.Log($"Загруженная дата (Ticks): {savedDate}");
+
+            if (long.TryParse(savedDate, out long ticks))
+            {
+                lastResetDate = new DateTime(ticks);
+                Debug.Log($"Дата успешно загружена: {lastResetDate}");
+            }
+            else
+            {
+                Debug.LogError($"Ошибка загрузки даты: {savedDate}");
+                lastResetDate = DateTime.Now;
+            }
         }
         else
         {
-            lastResetDate = DateTime.MinValue;
+            lastResetDate = DateTime.Now; // Если нет сохранённой даты, устанавливаем текущую
+            SaveProgress();
         }
 
         for (int i = 0; i < DailyTasks.Count; i++)
@@ -141,6 +154,7 @@ public class DailyTasksManager : MonoBehaviour
 
         UpdateUI();
     }
+
     private void GiveReward()
     {
         var task = DailyTasks[currentTaskIndex];
@@ -194,10 +208,10 @@ public class DailyTasksManager : MonoBehaviour
 
         Debug.Log("Задания сброшены. Можно начинать сначала!");
     }
-
     private void SaveProgress()
     {
-        PlayerPrefs.SetString("LastResetDate", lastResetDate.ToString());
+        PlayerPrefs.SetString("LastResetDate", lastResetDate.Ticks.ToString());
+        Debug.Log($"Сохраненная дата (Ticks): {lastResetDate.Ticks}");
 
         for (int i = 0; i < DailyTasks.Count; i++)
         {
@@ -206,6 +220,12 @@ public class DailyTasksManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentTaskIndex", currentTaskIndex);
 
         PlayerPrefs.Save();
+    }
+
+    private void OnApplicationPause()
+    {
+        if (Application.isMobilePlatform)
+            SaveProgress();
     }
     private void OnApplicationQuit()
     {

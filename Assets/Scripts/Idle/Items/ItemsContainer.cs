@@ -226,6 +226,29 @@ namespace Items.Container
             editCountItems?.Invoke();
             return true;
         }
+        public bool TakeLastItem(out Item item)
+        {
+            if (!CanTakeItem())
+            {
+                item = null;
+                return false;
+            }
+
+            Item lastItem = Items[Items.Count - 1];
+            item = lastItem;
+            if (item == null)
+                return false;
+            IEnumerable<ContainerSlot> busySlotsWithItem = _slots.Where(x => x.BusyItem == lastItem);
+            if (busySlotsWithItem.Count() != 0)
+            {
+                busySlotsWithItem?.First().Detach();
+            }
+
+            Items.RemoveAt(Items.Count - 1);
+
+            editCountItems?.Invoke();
+            return true;
+        }
         public bool TakeItem(Item item)
         {
             if (!CanTakeItem())
@@ -352,5 +375,6 @@ namespace Items.Container
         {
             return Items;
         }
+
     }
 }

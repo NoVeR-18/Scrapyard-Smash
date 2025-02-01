@@ -31,12 +31,13 @@ public class DebrisSellPad : StoragePad
     }
     private void FixedUpdate()
     {
-        if (ItemsContainer.Count > 0 && !sellPad.ItemsContainer.IsFull)
+        if (ItemsContainer.Count > 0 && sellPad.ItemsContainer.CanAddItem())
         {
             Item item;
             ItemsContainer.TakeItem(out item);
             sellPad.ItemsContainer.AddItem(item);
-            sellPad.StartCoroutine(sellPad.Sell());
+            //sellPad.AddToSellQueue(item);
+            sellPad.StartCoroutine(sellPad.SellDebris());
         }
     }
     public override void OnTriggerEnter(Collider other)

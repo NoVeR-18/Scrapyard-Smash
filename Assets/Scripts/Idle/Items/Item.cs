@@ -38,6 +38,7 @@ public class Item : MonoBehaviour
     public static float globalGravity = -9.81f;
 
     Rigidbody m_rb;
+    internal float spawnTime;
 
     void OnEnable()
     {

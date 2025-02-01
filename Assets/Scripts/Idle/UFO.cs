@@ -37,15 +37,15 @@ public class UFO : Player.Player
         if (takenItem.Type == Items.ItemType.Car)
         {
             LevelManager.Instance.CarsCollected++;
-            if (takenItem.name == "cow")
-                Instantiate(CowPartickle, ufoCash);
-            else
-                Instantiate(CarPartickle, ufoCash);
+            //if (takenItem.name == "cow")
+            //    //Instantiate(CowPartickle, ufoCash);
+            //else
+            //Instantiate(CarPartickle, ufoCash);
         }
         if (takenItem.Type == Items.ItemType.Trash)
         {
             LevelManager.Instance.TrashCollected++;
-            Instantiate(TrashPartickle, ufoCash);
+            //Instantiate(TrashPartickle, ufoCash);
         }
         LevelManager.Instance.CheckWining();
         takenItem.Disappear();
