@@ -14156,6 +14156,9 @@ MonoBehaviour:
   experienceTable: {fileID: 11400000, guid: 9d9ff2604ea86404aaa356ba0e8d4401, type: 2}
   AwardCount: {fileID: 6358339162779954487}
   takeButton: {fileID: 8652593542843580892}
+  takeADSButton: {fileID: 0}
+  NoThanksButton: {fileID: 0}
+  animator: {fileID: 0}
   players:
   - {fileID: 0}
   - {fileID: 0}
@@ -29176,8 +29179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -45.00049}
-  m_SizeDelta: {x: 0, y: 90}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6166486322315678595
 MonoBehaviour:
