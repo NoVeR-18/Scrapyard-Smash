@@ -179,6 +179,42 @@ namespace Player
             // Запускаем анимацию полета
             StartCoroutine(MoveToTarget(crystalRect, targetLocalPos));
         }
+        public void CollectUIMoney(Vector2 uiPosition)
+        {
+            GameObject moneyUI = Instantiate(moneyUIPrefab, canvas.transform);
+            RectTransform moneyRect = moneyUI.GetComponent<RectTransform>();
+            moneyRect.anchoredPosition = uiPosition;
+
+            RectTransform moneyTargetRect = balanceText.GetComponent<RectTransform>();
+            Vector2 targetLocalPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, moneyTargetRect.position),
+                canvas.worldCamera,
+                out targetLocalPos);
+
+            StartCoroutine(MoveToTarget(moneyRect, targetLocalPos));
+        }
+        public void CollectUICrystal(Vector2 uiPosition)
+        {
+            // Создаем UI-кристалл
+            GameObject crystalUI = Instantiate(crystalUIPrefab, canvas.transform);
+            RectTransform crystalRect = crystalUI.GetComponent<RectTransform>();
+
+            crystalRect.anchoredPosition = uiPosition; // Устанавливаем начальную позицию
+
+            // Получаем локальную позицию цели внутри Canvas
+            RectTransform crystalTargetRect = crystalsText.GetComponent<RectTransform>();
+            Vector2 targetLocalPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, crystalTargetRect.position),
+                canvas.worldCamera,
+                out targetLocalPos);
+
+            // Запускаем анимацию полета
+            StartCoroutine(MoveToTarget(crystalRect, targetLocalPos));
+        }
 
         private IEnumerator MoveToTarget(RectTransform crystalRect, Vector2 targetPos)
         {
@@ -198,8 +234,5 @@ namespace Player
 
             Destroy(crystalRect.gameObject);
         }
-
-
-
     }
 }

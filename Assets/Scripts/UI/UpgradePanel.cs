@@ -19,7 +19,7 @@ public class UpgradePanel : MonoBehaviour
 
     public Transform tutorialClick;
 
-    private bool TabIsOpen = false;
+    public bool TabIsOpen = false;
 
     private void Start()
     {
@@ -86,6 +86,7 @@ public class UpgradePanel : MonoBehaviour
     public void CloseTab()
     {
         TabIsOpen = false;
+        Debug.Log("Tab closed");
         gameObject.SetActive(false);
     }
     private void OpenMagneteTab()

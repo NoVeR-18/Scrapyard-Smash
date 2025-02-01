@@ -166,12 +166,28 @@ public class DailyTasksManager : MonoBehaviour
         if (reward.rewardType == RewardType.Crystal)
         {
             LevelManager.Instance.wallet.AddCrystals(reward.Count);
-            LevelManager.Instance.wallet.CollectCrystal(TakeAward.transform.position);
+            Vector2 uiPosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                LevelManager.Instance.wallet.canvas.transform as RectTransform,
+                RectTransformUtility.WorldToScreenPoint(LevelManager.Instance.wallet.canvas.worldCamera, TakeAward.transform.position),
+                LevelManager.Instance.wallet.canvas.worldCamera,
+                out uiPosition
+            );
+
+            LevelManager.Instance.wallet.CollectUICrystal(uiPosition);
         }
         else if (reward.rewardType == RewardType.Money)
         {
             LevelManager.Instance.wallet.AddMoney(reward.Count);
-            LevelManager.Instance.wallet.CollectMoney(TakeAward.transform.position);
+            Vector2 uiPosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                LevelManager.Instance.wallet.canvas.transform as RectTransform,
+                RectTransformUtility.WorldToScreenPoint(LevelManager.Instance.wallet.canvas.worldCamera, TakeAward.transform.position),
+                LevelManager.Instance.wallet.canvas.worldCamera,
+                out uiPosition
+            );
+
+            LevelManager.Instance.wallet.CollectUIMoney(uiPosition);
         }
         UpdateUI();
         SaveProgress();
@@ -222,11 +238,7 @@ public class DailyTasksManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void OnApplicationPause()
-    {
-        if (Application.isMobilePlatform)
-            SaveProgress();
-    }
+
     private void OnApplicationQuit()
     {
         SaveProgress();

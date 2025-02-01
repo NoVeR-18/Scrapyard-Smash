@@ -59,7 +59,7 @@ public class SellPad : StoragePad
                 newItem.Disappear();
                 yield break;
             }
-            newItem.transform.position = OutputStoragePads.transform.position;
+            newItem.transform.position = transform.position;
             ItemsContainer.gameObject.SetActive(true);
         }
     }
@@ -94,6 +94,7 @@ public class SellPad : StoragePad
         if (!ItemsContainer.CanTakeItem())
             yield break;
     }
+
     //private IEnumerator Sell()
     //{
     //    _isSelling = true;

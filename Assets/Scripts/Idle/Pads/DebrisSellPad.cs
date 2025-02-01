@@ -39,6 +39,10 @@ public class DebrisSellPad : StoragePad
             //sellPad.AddToSellQueue(item);
             sellPad.StartCoroutine(sellPad.SellDebris());
         }
+        if (sellPad.ItemsContainer.Count > 0 && sellPad.OutputStoragePads.ItemsContainer.CanAddItem())
+        {
+            sellPad.StartCoroutine(sellPad.SellDebris());
+        }
     }
     public override void OnTriggerEnter(Collider other)
     {

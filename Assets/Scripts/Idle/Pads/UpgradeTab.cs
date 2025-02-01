@@ -10,7 +10,10 @@ public class UpgradeTab : StoragePad
     }
     public override void CloseInteract()
     {
+        if (upgradePanel.TabIsOpen)
+            return;
         base.CloseInteract();
+
         upgradePanel.CloseTab();
     }
 }

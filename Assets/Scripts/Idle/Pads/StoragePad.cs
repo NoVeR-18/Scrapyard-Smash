@@ -97,7 +97,7 @@ public class StoragePad : MonoBehaviour
     private Item instantiateItem(Item item)
     {
         Item instance = Instantiate(item);
-        instance.transform.position = Vector3.zero;
+        instance.transform.position = transform.position;
         return instance;
     }
 }

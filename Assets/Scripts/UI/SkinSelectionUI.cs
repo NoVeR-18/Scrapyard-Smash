@@ -29,9 +29,8 @@ public class SkinSelectionUI : MonoBehaviour
 
     private void Awake()
     {
-        openButton.onClick.AddListener(() => popupPanel.SetActive(true));
+        openButton.onClick.AddListener(() => { popupPanel.SetActive(true); trailSellectButton.onClick.Invoke(); });
         closeButton.onClick.AddListener(() => popupPanel.SetActive(false));
-
     }
 
     private void Start()
@@ -42,6 +41,9 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftConteiner.gameObject.SetActive(false);
             magneteConteiner.gameObject.SetActive(false);
             helicopterConteiner.gameObject.SetActive(false);
+            forkliftPreviewModel.gameObject.SetActive(true);
+            magnetePreviewModel.gameObject.SetActive(false);
+            helicopterPreviewModel.gameObject.SetActive(false);
         });
         forkliftSellectButton.onClick.AddListener(() =>
         {
@@ -75,24 +77,30 @@ public class SkinSelectionUI : MonoBehaviour
         });
 
 
-
         InitializeSlots(forkliffSlots, SkinCategory.Forklift);
         InitializeSlots(magneteSlots, SkinCategory.Magnete);
         InitializeSlots(helicopterSlots, SkinCategory.Helicopter);
         InitializeSlots(TrailSlots, SkinCategory.Trail);
     }
-
     private void InitializeSlots(List<SkinSlot> slots, SkinCategory category)
     {
         List<SkinData> skins = SkinManager.Instance.GetSkinList(category);
         if (skins == null) return;
 
-        int selectedSkinIndex = SkinManager.Instance.GetSelectedSkinIndex(category); //  Получаем индекс выбранного скина
+        int selectedSkinIndex = SkinManager.Instance.GetSelectedSkinIndex(category);
 
-        for (int i = 0; i < slots.Count; i++)
+        // Отключаем лишние слоты
+        for (int i = skins.Count; i < slots.Count; i++)
+        {
+            slots[i].gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < skins.Count; i++)
         {
             int index = i;
             SkinSlot slot = slots[i];
+
+            slot.gameObject.SetActive(true); // Убеждаемся, что нужные слоты включены
 
             slot.buyButton.onClick.AddListener(() =>
             {
@@ -117,14 +125,14 @@ public class SkinSelectionUI : MonoBehaviour
                 Renderer vehicleRenderer = FindVehicleRenderer(category);
                 SkinManager.Instance.ApplySkin(category, index);
 
-                for (int i = 0; i < slots.Count; i++)
+                for (int j = 0; j < slots.Count; j++)
                 {
-                    if (skins[i].isPurchased)
+                    if (j < skins.Count && skins[j].isPurchased)
                     {
-                        slots[i].SetPurchased();
+                        slots[j].SetPurchased();
                     }
                 }
-                slot.SetSelected(); //  Выделяем выбранный скин
+                slot.SetSelected();
             });
 
             slot.UpdateUI(skins[index].isPurchased);
@@ -135,6 +143,7 @@ public class SkinSelectionUI : MonoBehaviour
             }
         }
     }
+
 
     private Renderer FindVehicleRenderer(SkinCategory category)
     {
