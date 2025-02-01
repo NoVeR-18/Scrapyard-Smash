@@ -15,6 +15,8 @@ MonoBehaviour:
   gameYcId: e1ab10
   InAppRemoveAds: 
   InAppRemoveAdsCanRemoveInBanner: 1
+  InAppConsumables: []
+  CustomInapps: []
   InappDebug: 1
   ABVersion: 1
   ABForcedSample: 
@@ -36,9 +38,9 @@ MonoBehaviour:
   IosInterstitial: 
   IosRewarded: 
   IosBanner: 
-  AndroidInterstitial: 
-  AndroidRewarded: 
-  AndroidBanner: 
+  AndroidInterstitial: b998b8144d365a1f
+  AndroidRewarded: 2faa339a3f3b042b
+  AndroidBanner: 92268fbf2286ade5
   AmazonIosAppID: 
   AmazonIosInterstitial: 
   AmazonIosRewarded: 

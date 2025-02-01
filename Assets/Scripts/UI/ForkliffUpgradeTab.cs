@@ -105,24 +105,23 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 SpeedAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    //{
-                    //    SpeedAdsButton.gameObject.SetActive(true);
 
-                    //    SpeedAdsButton.onClick.RemoveAllListeners();
-                    //    SpeedAdsButton.onClick.AddListener(() =>
-                    //    {
-                    //        Analytics.RewardedAdSuggested("ForkliffSpeedAds");
-                    //        HomaBelly.Instance.ShowRewardedVideoAd("ForkliffSpeedAds");
-                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                    //        {
-                    //            if (reward.getPlacementName() == "ForkliffSpeedAds")
-                    //                OnUpgradeSpeedButton();
-                    //        };
-                    //    });
-                    //}
-                    //else
-                    SpeedUpgradeBlocked.gameObject.SetActive(true);
+                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    {
+                        SpeedAdsButton.gameObject.SetActive(true);
+
+                        SpeedAdsButton.onClick.RemoveAllListeners();
+                        SpeedAdsButton.onClick.AddListener(() =>
+                        {
+                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                            {
+                                if (ok)
+                                    OnUpgradeSpeedButton();
+                            });
+                        });
+                    }
+                    else
+                        SpeedUpgradeBlocked.gameObject.SetActive(true);
                     SpeedBlockedCostText.text = currentCost.ToString();
                     SpeedUpgradeButton.gameObject.SetActive(false);
                 }
@@ -146,25 +145,21 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 var currentCost = experienceTable.experiencePerLevel[forkliff.WeightLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    //{
-                    //    WeightAdsButton.gameObject.SetActive(true);
-
-                    //    WeightAdsButton.onClick.RemoveAllListeners();
-                    //    WeightAdsButton.onClick.AddListener(() =>
-                    //    {
-                    //        Analytics.RewardedAdSuggested("ForkliffWeightAds");
-                    //        HomaBelly.Instance.ShowRewardedVideoAd("ForkliffWeightAds");
-                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                    //        {
-                    //            if (reward.getPlacementName() == "ForkliffWeightAds")
-                    //                OnUpgradeWeightButton();
-                    //        };
-
-                    //    });
-                    //}
-                    //else
-                    WeightUpgradeBlocked.gameObject.SetActive(true);
+                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    {
+                        WeightAdsButton.gameObject.SetActive(true);
+                        WeightAdsButton.onClick.RemoveAllListeners();
+                        WeightAdsButton.onClick.AddListener(() =>
+                        {
+                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                            {
+                                if (ok)
+                                    OnUpgradeWeightButton();
+                            });
+                        });
+                    }
+                    else
+                        WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }

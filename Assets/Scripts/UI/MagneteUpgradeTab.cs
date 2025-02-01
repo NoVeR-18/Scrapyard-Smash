@@ -130,24 +130,22 @@ public class MagneteUpgradeTab : MonoBehaviour
                 var currentCost = experienceTable.experiencePerLevel[magnete.SpeedLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    //{
-                    //    SpeedAdsButton.gameObject.SetActive(true);
+                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    {
+                        SpeedAdsButton.gameObject.SetActive(true);
 
-                    //    SpeedAdsButton.onClick.RemoveAllListeners();
-                    //    SpeedAdsButton.onClick.AddListener(() =>
-                    //    {
-                    //        Analytics.RewardedAdSuggested("MagneteSpeedAds");
-                    //        HomaBelly.Instance.ShowRewardedVideoAd("MagneteSpeedAds");
-                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                    //        {
-                    //            if (reward.getPlacementName() == "MagneteSpeedAds")
-                    //                OnUpgradeSpeedButton();
-                    //        };
-                    //    });
-                    //}
-                    //else
-                    SpeedUpgradeBlocked.gameObject.SetActive(true);
+                        SpeedAdsButton.onClick.RemoveAllListeners();
+                        SpeedAdsButton.onClick.AddListener(() =>
+                        {
+                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                            {
+                                if (ok)
+                                    OnUpgradeSpeedButton();
+                            });
+                        });
+                    }
+                    else
+                        SpeedUpgradeBlocked.gameObject.SetActive(true);
                     SpeedBlockedCostText.text = currentCost.ToString();
                     SpeedUpgradeButton.gameObject.SetActive(false);
                 }
@@ -171,25 +169,22 @@ public class MagneteUpgradeTab : MonoBehaviour
                 var currentCost = experienceTable.experiencePerLevel[magnete.WeightLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    //{
-                    //    WeightAdsButton.gameObject.SetActive(true);
+                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    {
+                        WeightAdsButton.gameObject.SetActive(true);
 
-                    //    WeightAdsButton.onClick.RemoveAllListeners();
-                    //    WeightAdsButton.onClick.AddListener(() =>
-                    //    {
-                    //        Analytics.RewardedAdSuggested("MagneteWeightAds");
-                    //        HomaBelly.Instance.ShowRewardedVideoAd("MagneteWeightAds");
-                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                    //        {
-                    //            if (reward.getPlacementName() == "MagneteWeightAds")
-                    //                OnUpgradeWeightButton();
-                    //        };
-
-                    //    });
-                    //}
-                    //else
-                    WeightUpgradeBlocked.gameObject.SetActive(true);
+                        WeightAdsButton.onClick.RemoveAllListeners();
+                        WeightAdsButton.onClick.AddListener(() =>
+                        {
+                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                            {
+                                if (ok)
+                                    OnUpgradeWeightButton();
+                            });
+                        });
+                    }
+                    else
+                        WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }
@@ -213,25 +208,22 @@ public class MagneteUpgradeTab : MonoBehaviour
                 MagnetAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    //if (HomaBelly.Instance.IsRewardedVideoAdAvailable())
-                    //{
-                    //    MagnetAdsButton.gameObject.SetActive(true);
+                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    {
+                        MagnetAdsButton.gameObject.SetActive(true);
 
-                    //    MagnetAdsButton.onClick.RemoveAllListeners();
-                    //    MagnetAdsButton.onClick.AddListener(() =>
-                    //    {
-                    //        Analytics.RewardedAdSuggested("MagneteMagnetAds");
-                    //        HomaBelly.Instance.ShowRewardedVideoAd("MagneteMagnetAds");
-                    //        Events.onRewardedVideoAdRewardedEvent += (reward, info) =>
-                    //        {
-                    //            if (reward.getPlacementName() == "MagneteMagnetAds")
-                    //                OnUpgradeWeightButton();
-                    //        };
-
-                    //    });
-                    //}
-                    //else
-                    MagnetUpgradeBlocked.gameObject.SetActive(true);
+                        MagnetAdsButton.onClick.RemoveAllListeners();
+                        MagnetAdsButton.onClick.AddListener(() =>
+                        {
+                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                            {
+                                if (ok)
+                                    OnUpgradeMagnetButton();
+                            });
+                        });
+                    }
+                    else
+                        MagnetUpgradeBlocked.gameObject.SetActive(true);
                     MagnetBlockedCostText.text = currentCost.ToString();
                     MagnetUpgradeButton.gameObject.SetActive(false);
                 }

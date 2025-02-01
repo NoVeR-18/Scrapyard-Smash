@@ -7,6 +7,7 @@ public class SkinSelectionUI : MonoBehaviour
     public GameObject popupPanel;
     public Button closeButton;
     public Button openButton;
+    public Button TakeADSCrystalButton;
 
     public List<SkinSlot> forkliffSlots;
     public List<SkinSlot> magneteSlots;
@@ -35,6 +36,26 @@ public class SkinSelectionUI : MonoBehaviour
 
     private void Start()
     {
+        TakeADSCrystalButton.onClick.AddListener(() =>
+        {
+            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+            {
+                if (ok)
+                {
+                    LevelManager.Instance.wallet.AddCrystals(30);
+                    Vector2 uiPosition;
+                    RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                        LevelManager.Instance.wallet.canvas.transform as RectTransform,
+                        RectTransformUtility.WorldToScreenPoint(LevelManager.Instance.wallet.canvas.worldCamera, TakeADSCrystalButton.transform.position),
+                        LevelManager.Instance.wallet.canvas.worldCamera,
+                        out uiPosition
+                    );
+
+                    LevelManager.Instance.wallet.CollectUICrystal(uiPosition);
+                }
+
+            });
+        });
         trailSellectButton.onClick.AddListener(() =>
         {
             trailConteiner.gameObject.SetActive(true);
@@ -44,6 +65,14 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(true);
             magnetePreviewModel.gameObject.SetActive(false);
             helicopterPreviewModel.gameObject.SetActive(false);
+            if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+            {
+                TakeADSCrystalButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                TakeADSCrystalButton.gameObject.SetActive(false);
+            }
         });
         forkliftSellectButton.onClick.AddListener(() =>
         {
@@ -54,6 +83,14 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(true);
             magnetePreviewModel.gameObject.SetActive(false);
             helicopterPreviewModel.gameObject.SetActive(false);
+            if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+            {
+                TakeADSCrystalButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                TakeADSCrystalButton.gameObject.SetActive(false);
+            }
         });
         magneteSellectButton.onClick.AddListener(() =>
         {
@@ -64,6 +101,14 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(false);
             magnetePreviewModel.gameObject.SetActive(true);
             helicopterPreviewModel.gameObject.SetActive(false);
+            if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+            {
+                TakeADSCrystalButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                TakeADSCrystalButton.gameObject.SetActive(false);
+            }
         });
         helicopterSellectButton.onClick.AddListener(() =>
         {
@@ -74,8 +119,16 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(false);
             magnetePreviewModel.gameObject.SetActive(false);
             helicopterPreviewModel.gameObject.SetActive(true);
+            if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+            {
+                TakeADSCrystalButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                TakeADSCrystalButton.gameObject.SetActive(false);
+            }
         });
-
+        trailSellectButton.onClick.Invoke();
 
         InitializeSlots(forkliffSlots, SkinCategory.Forklift);
         InitializeSlots(magneteSlots, SkinCategory.Magnete);
@@ -101,7 +154,8 @@ public class SkinSelectionUI : MonoBehaviour
             SkinSlot slot = slots[i];
 
             slot.gameObject.SetActive(true); // Убеждаемся, что нужные слоты включены
-
+            if (skins[index].skinID == "Default")
+                SkinManager.Instance.PurchaseSkin(category, index, LevelManager.Instance.wallet.Crystals);
             slot.buyButton.onClick.AddListener(() =>
             {
                 if (LevelManager.Instance.wallet.Crystals >= skins[index].price)
@@ -131,6 +185,8 @@ public class SkinSelectionUI : MonoBehaviour
                     {
                         slots[j].SetPurchased();
                     }
+                    else
+                        slots[j].UpdateUI(skins[j].isPurchased);
                 }
                 slot.SetSelected();
             });
