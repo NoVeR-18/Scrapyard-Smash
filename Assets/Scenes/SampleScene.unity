@@ -28251,7 +28251,7 @@ MonoBehaviour:
   TrailSkins:
   - skinID: Default
     material: {fileID: 2100000, guid: fa4370affb701694ea57e6b062749256, type: 2}
-    previewIcon: {fileID: 21300000, guid: 94c11f621ec472147a0dc495bba7869f, type: 3}
+    previewIcon: {fileID: 21300000, guid: 395c3d136a6be954399cc4eff60349fb, type: 3}
     price: 0
     isPurchased: 0
   - skinID: Aurora
