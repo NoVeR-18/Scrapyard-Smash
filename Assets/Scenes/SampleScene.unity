@@ -8563,6 +8563,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cd1091021afa6d54aad667fb3c346d16, type: 2}
   - {fileID: 11400000, guid: 6900644102b9e664fab4d24e3949ba70, type: 2}
   - {fileID: 11400000, guid: fba9afefd04186144a285ddeb9b40cc9, type: 2}
+  - {fileID: 11400000, guid: 09b62b5ff7925944989ccae8a6e8a853, type: 2}
+  - {fileID: 11400000, guid: 16065d9b8229808449b5662ee25953ad, type: 2}
+  - {fileID: 11400000, guid: e79b38f8e9e8bed43bf1edfba31fc154, type: 2}
+  - {fileID: 11400000, guid: f16eede10de74634cb4d70b5436dcbf2, type: 2}
+  - {fileID: 11400000, guid: 649fc63d0e5777b4fb81d816344fca9a, type: 2}
   currentVehicle: {fileID: 0}
   changeBackgroundZone: {fileID: 1174877525}
   currentLevelIndex: 1
@@ -65279,7 +65284,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
