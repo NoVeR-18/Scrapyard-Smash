@@ -388,7 +388,7 @@ public class LevelManager : MonoBehaviour
     {
         currentLevelIndex++;
         if (currentLevelIndex >= loadedLevels.Count)
-            currentLevelIndex = 4;
+            currentLevelIndex = 30;
         PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
         LoadLevel(currentLevelIndex);
 
