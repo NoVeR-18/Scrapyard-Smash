@@ -4923,6 +4923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5901878919837932870}
+  - component: {fileID: 2202982055582029775}
   m_Layer: 5
   m_Name: reward_button
   m_TagString: Untagged
@@ -4952,6 +4953,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 291}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &2202982055582029775
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109155707970592051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f401527729323c045a11619982896259, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1125512797675526920
 GameObject:
   m_ObjectHideFlags: 0
@@ -38159,6 +38181,7 @@ MonoBehaviour:
   popupPanel: {fileID: 7745031188323032670}
   closeButton: {fileID: 5864708013001815937}
   openButton: {fileID: 0}
+  TakeADSCrystalButton: {fileID: 0}
   forkliffSlots:
   - {fileID: 854888868303904195}
   - {fileID: 4429086695896905391}
@@ -38169,6 +38192,17 @@ MonoBehaviour:
   magneteSlots: []
   helicopterSlots: []
   TrailSlots: []
+  trailSellectButton: {fileID: 0}
+  forkliftSellectButton: {fileID: 0}
+  magneteSellectButton: {fileID: 0}
+  helicopterSellectButton: {fileID: 0}
+  trailConteiner: {fileID: 0}
+  forkliftConteiner: {fileID: 0}
+  magneteConteiner: {fileID: 0}
+  helicopterConteiner: {fileID: 0}
+  forkliftPreviewModel: {fileID: 0}
+  magnetePreviewModel: {fileID: 0}
+  helicopterPreviewModel: {fileID: 0}
 --- !u!1 &7755482427700993731
 GameObject:
   m_ObjectHideFlags: 0
