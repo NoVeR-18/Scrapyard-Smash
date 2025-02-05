@@ -36,7 +36,10 @@ public class SellPad : StoragePad
     public IEnumerator Sell()
     {
         animator?.SetTrigger("Crash");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeToSell / 2);
+        ItemsContainer.gameObject.SetActive(true);
+        yield return new WaitForSeconds(timeToSell / 2);
+        ItemsContainer.gameObject.SetActive(false);
         if (!OutputStoragePads.ItemsContainer.CanAddItem())
             yield break;
         if (!ItemsContainer.CanTakeItem())
@@ -44,7 +47,6 @@ public class SellPad : StoragePad
 
 
         particle?.Play();
-        ItemsContainer.gameObject.SetActive(false);
         if (Type == StorageBuildingType.Input)
         {
             Item takenItem;
@@ -60,7 +62,6 @@ public class SellPad : StoragePad
                 yield break;
             }
             newItem.transform.position = transform.position;
-            ItemsContainer.gameObject.SetActive(true);
         }
     }
     public IEnumerator SellDebris()

@@ -18,9 +18,7 @@ public class ChangeBackgroundZone : MonoBehaviour
     }
     public void ChaneMaterial(int numberofmaterial)
     {
-        _floorsNumber = numberofmaterial / 5;
-        if (_floorsNumber > _floors.Count)
-            _floorsNumber = 0;
+        _floorsNumber = (numberofmaterial / 5) % florsMaterial.Count;
 
         _floorsNumber = Mathf.Min(_floorsNumber, florsMaterial.Count - 1);
 

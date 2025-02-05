@@ -101,6 +101,9 @@ public class SkinManager : MonoBehaviour
                 selectedSkins[(SkinCategory)pair.key] = pair.value;
             }
         }
+        playerSkinControllers = new List<PlayerSkinController>();
+        foreach (var item in FindObjectsOfType<PlayerSkinController>(true))
+            playerSkinControllers.Add(item);
     }
 
 

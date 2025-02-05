@@ -343,6 +343,7 @@ namespace Items.Container
         }
         public bool CanAddItem()
         {
+            Items.RemoveAll(item => item == null);
             return !IsFull;
         }
         public bool CanTakeItem()

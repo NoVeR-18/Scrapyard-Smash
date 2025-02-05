@@ -10,7 +10,7 @@ public class Helicopter : Player.Player
 {
     public int Fuel;
     public int WeightLevel;
-    public int MaxFuel = 50;
+    public int MaxFuel = 100;
     public float FuelConsumptionRate = 0.5f;
     public float FuelRecoveryTime = 500f;
     public float RecoverySpeedMultiplier = 0.01f;
@@ -153,7 +153,7 @@ public class Helicopter : Player.Player
         RecoveryUpgradeLevel = PlayerPrefs.GetInt(RecoverySpeedKey, 0);
         MaxFuelLevel = PlayerPrefs.GetInt(MaxFuelLevelKey, 0);
         RecoverySpeedMultiplier += RecoveryUpgradeLevel * 0.002f;
-        MaxFuel += MaxFuelLevel * 10;
+        //MaxFuel += MaxFuelLevel * 10;
         Backpack.ItemsContainer.CapacityLevel = WeightLevel;
         fuelText.text = $"{Fuel}/{MaxFuel}";
         colectedDetails = PlayerPrefs.GetInt(DetailsKey, 0);
