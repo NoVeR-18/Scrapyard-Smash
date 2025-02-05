@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
         {
             nextLevel.gameObject.SetActive(false);
             GameManager.Instance.Vibrate();
-            victoryTab.StartCoroutine(victoryTab.OpenTab());
+            victoryTab.OpenTab();
         });
 
         if (experienceTable == null)
@@ -415,7 +415,7 @@ public class LevelManager : MonoBehaviour
             else
             {
                 nextLevel.gameObject.SetActive(false);
-                victoryTab.StartCoroutine(victoryTab.OpenTab());
+                victoryTab.OpenTab();
                 YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
                 Debug.Log("Wining");
             }

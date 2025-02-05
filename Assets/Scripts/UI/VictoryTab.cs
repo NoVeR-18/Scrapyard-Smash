@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -90,16 +89,13 @@ public class VictoryTab : MonoBehaviour
         levelManager.LoadNextLevel();
 
     }
-    public IEnumerator OpenTab()
+    public void OpenTab()
     {
         gameObject.SetActive(true);
         animator.SetTrigger("OpenWin");
         if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
         {
             takeADSButton.gameObject.SetActive(true);
-            NoThanksButton.gameObject.SetActive(false);
-
-            yield return new WaitForSeconds(1.5f);
             NoThanksButton.gameObject.SetActive(true);
 
             takeButton.gameObject.SetActive(false);
@@ -112,7 +108,6 @@ public class VictoryTab : MonoBehaviour
         audioSource?.Play();
         VictoryVFX.Play();
         capacityBar.gameObject.SetActive(false);
-        yield break;
     }
     public void CloseTab()
     {

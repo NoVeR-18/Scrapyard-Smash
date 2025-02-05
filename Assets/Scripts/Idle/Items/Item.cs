@@ -118,7 +118,7 @@ public class Item : MonoBehaviour
             m_rb.AddForce(gravity, ForceMode.Acceleration);
         }
 
-        if (transform.position.y < -20)
+        if (transform.position.y < -20 && CanTake)
         {
             if (_itemType == ItemType.Trash)
                 LevelManager.Instance.TrashCollected++;

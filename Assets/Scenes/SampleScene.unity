@@ -23737,8 +23737,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530409872}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071077, z: -0, w: 0.7071059}
-  m_LocalPosition: {x: 10.830186, y: 0, z: 6.699705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0799794, y: 0, z: 1.9500422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23748,7 +23748,7 @@ Transform:
   - {fileID: 1488598335}
   - {fileID: 889497315}
   m_Father: {fileID: 101032929}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &530409874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41123,13 +41123,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889497314}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.93, y: 0.39, z: 0.21}
+  m_LocalRotation: {x: -0, y: -0.7071058, z: -0, w: 0.7071078}
+  m_LocalPosition: {x: 7.8201413, y: 0.39, z: 3.459445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 530409873}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &890054696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67673,13 +67673,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488598334}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70710593, z: -0, w: 0.70710766}
-  m_LocalPosition: {x: 0.03, y: 0.3, z: 0.05}
+  m_LocalRotation: {x: -0, y: 0.0000004172325, z: -0, w: 1}
+  m_LocalPosition: {x: 7.030207, y: 0.3, z: 4.799696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 530409873}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1488598336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85835,7 +85835,7 @@ PrefabInstance:
       objectReference: {fileID: 1731812259}
     - target: {fileID: 7694131584465105245, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: helicopterSlots.Array.size
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7694131584465105245, guid: c95fda2a158e01b4da49b924eee5c327, type: 3}
       propertyPath: magneteSlots.Array.data[0]
