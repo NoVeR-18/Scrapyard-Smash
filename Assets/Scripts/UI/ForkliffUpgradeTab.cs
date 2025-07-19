@@ -106,22 +106,22 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
 
-                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
-                    {
-                        SpeedAdsButton.gameObject.SetActive(true);
+                    //if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    //{
+                    //    SpeedAdsButton.gameObject.SetActive(true);
 
-                        SpeedAdsButton.onClick.RemoveAllListeners();
-                        SpeedAdsButton.onClick.AddListener(() =>
-                        {
-                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
-                            {
-                                if (ok)
-                                    OnUpgradeSpeedButton();
-                            });
-                        });
-                    }
-                    else
-                        SpeedUpgradeBlocked.gameObject.SetActive(true);
+                    //    SpeedAdsButton.onClick.RemoveAllListeners();
+                    //    SpeedAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                    //        {
+                    //            if (ok)
+                    //                OnUpgradeSpeedButton();
+                    //        });
+                    //    });
+                    //}
+                    //else
+                    //    SpeedUpgradeBlocked.gameObject.SetActive(true);
                     SpeedBlockedCostText.text = currentCost.ToString();
                     SpeedUpgradeButton.gameObject.SetActive(false);
                 }
@@ -145,21 +145,21 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 var currentCost = experienceTable.experiencePerLevel[forkliff.WeightLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
-                    {
-                        WeightAdsButton.gameObject.SetActive(true);
-                        WeightAdsButton.onClick.RemoveAllListeners();
-                        WeightAdsButton.onClick.AddListener(() =>
-                        {
-                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
-                            {
-                                if (ok)
-                                    OnUpgradeWeightButton();
-                            });
-                        });
-                    }
-                    else
-                        WeightUpgradeBlocked.gameObject.SetActive(true);
+                    //if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    //{
+                    //    WeightAdsButton.gameObject.SetActive(true);
+                    //    WeightAdsButton.onClick.RemoveAllListeners();
+                    //    WeightAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                    //        {
+                    //            if (ok)
+                    //                OnUpgradeWeightButton();
+                    //        });
+                    //    });
+                    //}
+                    //else
+                    //    WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }

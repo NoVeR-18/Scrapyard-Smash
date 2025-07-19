@@ -392,7 +392,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt(CurrentLevelKey, currentLevelIndex);
         LoadLevel(currentLevelIndex);
 
-        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(currentLevelIndex);
+        //YsoCorp.GameUtils.YCManager.instance.OnGameStarted(currentLevelIndex);
 
     }
 
@@ -416,7 +416,7 @@ public class LevelManager : MonoBehaviour
             {
                 nextLevel.gameObject.SetActive(false);
                 victoryTab.OpenTab();
-                YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
+                //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
                 Debug.Log("Wining");
             }
         }
