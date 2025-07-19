@@ -118,22 +118,22 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 FuelRecoveryAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
-                    {
-                        FuelRecoveryAdsButton.gameObject.SetActive(true);
+                    //if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    //{
+                    //    FuelRecoveryAdsButton.gameObject.SetActive(true);
 
-                        FuelRecoveryAdsButton.onClick.RemoveAllListeners();
-                        FuelRecoveryAdsButton.onClick.AddListener(() =>
-                        {
-                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
-                            {
-                                if (ok)
-                                    OnUpgradeRecoveryButton();
-                            });
-                        });
-                    }
-                    else
-                        RecoveryUpgradeBlocked.gameObject.SetActive(true);
+                    //    FuelRecoveryAdsButton.onClick.RemoveAllListeners();
+                    //    FuelRecoveryAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                    //        {
+                    //            if (ok)
+                    //                OnUpgradeRecoveryButton();
+                    //        });
+                    //    });
+                    //}
+                    //else
+                    RecoveryUpgradeBlocked.gameObject.SetActive(true);
                     RecoveryBlockedCostText.text = currentCost.ToString();
                     RecoveryUpgradeButton.gameObject.SetActive(false);
                 }
@@ -163,22 +163,22 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
 
-                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
-                    {
-                        FuelAdsButton.gameObject.SetActive(true);
+                    //if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    //{
+                    //    FuelAdsButton.gameObject.SetActive(true);
 
-                        FuelAdsButton.onClick.RemoveAllListeners();
-                        FuelAdsButton.onClick.AddListener(() =>
-                        {
-                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
-                            {
-                                if (ok)
-                                    OnUpgradeFuelButton();
-                            });
-                        });
-                    }
-                    else
-                        FuelUpgradeBlocked.gameObject.SetActive(true);
+                    //    FuelAdsButton.onClick.RemoveAllListeners();
+                    //    FuelAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                    //        {
+                    //            if (ok)
+                    //                OnUpgradeFuelButton();
+                    //        });
+                    //    });
+                    //}
+                    //else
+                    FuelUpgradeBlocked.gameObject.SetActive(true);
                     FuelBlockedCostText.text = currentCost.ToString();
                     FuelUpgradeButton.gameObject.SetActive(false);
                 }
@@ -208,22 +208,22 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
 
-                    if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
-                    {
-                        WeightAdsButton.gameObject.SetActive(true);
+                    //if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+                    //{
+                    //    WeightAdsButton.gameObject.SetActive(true);
 
-                        WeightAdsButton.onClick.RemoveAllListeners();
-                        WeightAdsButton.onClick.AddListener(() =>
-                        {
-                            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
-                            {
-                                if (ok)
-                                    OnUpgradeWeightButton();
-                            });
-                        });
-                    }
-                    else
-                        WeightUpgradeBlocked.gameObject.SetActive(true);
+                    //    WeightAdsButton.onClick.RemoveAllListeners();
+                    //    WeightAdsButton.onClick.AddListener(() =>
+                    //    {
+                    //        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+                    //        {
+                    //            if (ok)
+                    //                OnUpgradeWeightButton();
+                    //        });
+                    //    });
+                    //}
+                    //else
+                    WeightUpgradeBlocked.gameObject.SetActive(true);
                     WeightBlockedCostText.text = currentCost.ToString();
                     WeightUpgradeButton.gameObject.SetActive(false);
                 }

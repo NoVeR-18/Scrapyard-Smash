@@ -24,13 +24,13 @@ public class VictoryTab : MonoBehaviour
     {
         takeButton.onClick.AddListener(() => { TakeAward(); });
         NoThanksButton.onClick.AddListener(() => { TakeAward(); });
-        takeADSButton.onClick.AddListener(() =>
-        {
-            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
-            {
-                if (ok) { TakeAward(3); }
-            });
-        });
+        //takeADSButton.onClick.AddListener(() =>
+        //{
+        //    YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded((bool ok) =>
+        //    {
+        //        if (ok) { TakeAward(3); }
+        //    });
+        //});
 
 
         levelManager = LevelManager.Instance;
@@ -67,11 +67,11 @@ public class VictoryTab : MonoBehaviour
         players[0]?.Movement._controls.EnableTutorial();
         players[0]?.EnableVechicle();
         if (multiplier == 1)
-            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial(() =>
-            {
-                levelManager.LoadNextLevel();
-            });
-        else
+        //    YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial(() =>
+        //    {
+        //        levelManager.LoadNextLevel();
+        //    });
+        //else
         {
             levelManager.LoadNextLevel();
         }
@@ -93,18 +93,18 @@ public class VictoryTab : MonoBehaviour
     {
         gameObject.SetActive(true);
         animator.SetTrigger("OpenWin");
-        if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
-        {
-            takeADSButton.gameObject.SetActive(true);
-            NoThanksButton.gameObject.SetActive(true);
+        //if (YsoCorp.GameUtils.YCManager.instance.adsManager.IsRewardedAdReady())
+        //{
+        //    takeADSButton.gameObject.SetActive(true);
+        //    NoThanksButton.gameObject.SetActive(true);
 
-            takeButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            takeADSButton.gameObject.SetActive(false);
-            takeButton.gameObject.SetActive(true);
-        }
+        //    takeButton.gameObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    takeADSButton.gameObject.SetActive(false);
+        //    takeButton.gameObject.SetActive(true);
+        //}
         audioSource?.Play();
         VictoryVFX.Play();
         capacityBar.gameObject.SetActive(false);
