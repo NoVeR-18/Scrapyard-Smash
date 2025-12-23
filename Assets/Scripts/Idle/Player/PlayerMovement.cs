@@ -68,7 +68,7 @@ namespace Player
 
             // Устанавливаем скорость Rigidbody
             float speed = _settings.Speed + MoveLevel * 0.5f;
-            _rigidbody.velocity = _move * speed;
+            _rigidbody.linearVelocity = _move * speed;
         }
         private void rotateModel()
         {

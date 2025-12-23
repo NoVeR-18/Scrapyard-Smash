@@ -1,9 +1,0 @@
-"interstitalAds" - name for intestitial Ads
-"ForkliffSpeedAds"- name for rewarder Ads
-"ForkliffWeightAds"- name for rewarder Ads
-"MagneteSpeedAds"- name for rewarder Ads
-"MagneteWeightAds"- name for rewarder Ads
-"MagneteMagnetAds"- name for rewarder Ads
-"HelicopterFuelRecoveryAds"- name for rewarder Ads
-"HelicopterFuelAds"- name for rewarder Ads
-"HelicopterWeightAds"- name for rewarder Ads
