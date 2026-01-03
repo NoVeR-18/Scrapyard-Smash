@@ -105,13 +105,13 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 SpeedAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
                         SpeedAdsButton.gameObject.SetActive(true);
                         SpeedAdsButton.onClick.RemoveAllListeners();
                         SpeedAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeSpeedButton();
                             });
@@ -142,13 +142,13 @@ public class ForkliffUpgradeTab : MonoBehaviour
                 var currentCost = experienceTable.experiencePerLevel[forkliff.WeightLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
                         WeightAdsButton.gameObject.SetActive(true);
                         WeightAdsButton.onClick.RemoveAllListeners();
                         WeightAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeWeightButton();
                             });

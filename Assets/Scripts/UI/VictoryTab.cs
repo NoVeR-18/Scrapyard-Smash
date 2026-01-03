@@ -25,7 +25,7 @@ public class VictoryTab : MonoBehaviour
         NoThanksButton.onClick.AddListener(() => { TakeAward(); });
         takeADSButton.onClick.AddListener(() =>
         {
-            AdManager.Instance.ShowRewardedAd(() =>
+            AdManager.Instance.ShowRewarded(() =>
             {
                 TakeAward(3); // x3 reward for watching ad
             });
@@ -67,12 +67,12 @@ public class VictoryTab : MonoBehaviour
 
         players[0]?.Movement._controls.EnableTutorial();
         players[0]?.EnableVechicle();
-        if (AdManager.Instance.IsInterstitialAdReady())
+        if (AdManager.Instance.IsInterstitialReady())
         {
             if (multiplier == 1)
             {
                 // Show interstitial before loading next level
-                AdManager.Instance.ShowInterstitialAd(() =>
+                AdManager.Instance.ShowInterstitial(() =>
                 {
                     levelManager.LoadNextLevel();
                 });
@@ -108,7 +108,7 @@ public class VictoryTab : MonoBehaviour
         animator.SetTrigger("OpenWin");
 
         // Show/hide buttons depending on ad availability
-        if (AdManager.Instance != null && AdManager.Instance.IsRewardedAdReady())
+        if (AdManager.Instance != null && AdManager.Instance.IsRewardedReady())
         {
             takeADSButton.gameObject.SetActive(true);
             NoThanksButton.gameObject.SetActive(true);

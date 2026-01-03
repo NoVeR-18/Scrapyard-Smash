@@ -38,12 +38,12 @@ public class SkinSelectionUI : MonoBehaviour
     {
         TakeADSCrystalButton.onClick.AddListener(() =>
         {
-            if (!AdManager.Instance.IsRewardedAdReady())
+            if (!AdManager.Instance.IsRewardedReady())
             {
                 Debug.LogWarning("Rewarded ad is not ready.");
                 return;
             }
-            AdManager.Instance.ShowRewardedAd(() =>
+            AdManager.Instance.ShowRewarded(() =>
             {
                 LevelManager.Instance.wallet.AddCrystals(30);
                 Vector2 uiPosition;
@@ -64,7 +64,7 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(true);
             magnetePreviewModel.gameObject.SetActive(false);
             helicopterPreviewModel.gameObject.SetActive(false);
-            if (AdManager.Instance.IsRewardedAdReady())
+            if (AdManager.Instance.IsRewardedReady())
             {
                 TakeADSCrystalButton.gameObject.SetActive(true);
             }
@@ -82,7 +82,7 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(true);
             magnetePreviewModel.gameObject.SetActive(false);
             helicopterPreviewModel.gameObject.SetActive(false);
-            if (AdManager.Instance.IsRewardedAdReady())
+            if (AdManager.Instance.IsRewardedReady())
             {
                 TakeADSCrystalButton.gameObject.SetActive(true);
             }
@@ -100,7 +100,7 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(false);
             magnetePreviewModel.gameObject.SetActive(true);
             helicopterPreviewModel.gameObject.SetActive(false);
-            if (AdManager.Instance.IsRewardedAdReady())
+            if (AdManager.Instance.IsRewardedReady())
             {
                 TakeADSCrystalButton.gameObject.SetActive(true);
             }
@@ -118,7 +118,7 @@ public class SkinSelectionUI : MonoBehaviour
             forkliftPreviewModel.gameObject.SetActive(false);
             magnetePreviewModel.gameObject.SetActive(false);
             helicopterPreviewModel.gameObject.SetActive(true);
-            if (AdManager.Instance.IsRewardedAdReady())
+            if (AdManager.Instance.IsRewardedReady())
             {
                 TakeADSCrystalButton.gameObject.SetActive(true);
             }

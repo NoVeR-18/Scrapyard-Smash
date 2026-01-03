@@ -131,7 +131,7 @@ public class MagneteUpgradeTab : MonoBehaviour
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
 
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
 
                         SpeedAdsButton.gameObject.SetActive(true);
@@ -139,7 +139,7 @@ public class MagneteUpgradeTab : MonoBehaviour
                         SpeedAdsButton.onClick.RemoveAllListeners();
                         SpeedAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeSpeedButton();
                             });
@@ -170,13 +170,13 @@ public class MagneteUpgradeTab : MonoBehaviour
                 var currentCost = experienceTable.experiencePerLevel[magnete.WeightLevel];
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
                         WeightAdsButton.gameObject.SetActive(true);
                         WeightAdsButton.onClick.RemoveAllListeners();
                         WeightAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeWeightButton();
                             });
@@ -207,13 +207,13 @@ public class MagneteUpgradeTab : MonoBehaviour
                 MagnetAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
                         MagnetAdsButton.gameObject.SetActive(true);
                         MagnetAdsButton.onClick.RemoveAllListeners();
                         MagnetAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeMagnetButton();
                             });

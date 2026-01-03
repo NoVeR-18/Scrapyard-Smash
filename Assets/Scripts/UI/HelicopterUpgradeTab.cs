@@ -118,14 +118,14 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 FuelRecoveryAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
                         FuelRecoveryAdsButton.gameObject.SetActive(true);
 
                         FuelRecoveryAdsButton.onClick.RemoveAllListeners();
                         FuelRecoveryAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeRecoveryButton();
                             });
@@ -161,14 +161,14 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 FuelAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
                         FuelAdsButton.gameObject.SetActive(true);
 
                         FuelAdsButton.onClick.RemoveAllListeners();
                         FuelAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeFuelButton();
                             });
@@ -204,14 +204,14 @@ public class HelicopterUpgradeTab : MonoBehaviour
                 WeightAdsButton.gameObject.SetActive(false);
                 if (!LevelManager.Instance.wallet.CanWithdrawMoney(currentCost))
                 {
-                    if (AdManager.Instance.IsRewardedAdReady())
+                    if (AdManager.Instance.IsRewardedReady())
                     {
                         WeightAdsButton.gameObject.SetActive(true);
 
                         WeightAdsButton.onClick.RemoveAllListeners();
                         WeightAdsButton.onClick.AddListener(() =>
                         {
-                            AdManager.Instance.ShowRewardedAd(() =>
+                            AdManager.Instance.ShowRewarded(() =>
                             {
                                 OnUpgradeWeightButton();
                             });
