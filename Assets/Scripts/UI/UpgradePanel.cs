@@ -1,0 +1,114 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+public class UpgradePanel : MonoBehaviour
+{
+    public ForkliffUpgradeTab forkliffUpgradeTab;
+    public MagneteUpgradeTab magneteUpgradeTab;
+    public HelicopterUpgradeTab helicopterUpgradeTab;
+
+    public ChangeVehicleTab changeVehicleTab;
+
+    public Button[] forkliffOpenButton;
+    public Button[] magneteOpenButton;
+    public Button[] helicopterOpenButton;
+
+    public Button closeButton;
+
+    public AudioSource audioSource;
+
+    public Transform tutorialClick;
+
+    public bool TabIsOpen = false;
+
+    private void Start()
+    {
+        foreach (var item in forkliffOpenButton)
+            item.onClick.AddListener(() =>
+            {
+                OpenForkliffTab();
+                audioSource?.Play();
+            });
+        foreach (var item in magneteOpenButton)
+            item.onClick.AddListener(() =>
+            {
+                OpenMagneteTab();
+                audioSource?.Play();
+            });
+        foreach (var item in helicopterOpenButton)
+            item.onClick.AddListener(() =>
+            {
+                OpenHelicopterTab();
+                audioSource?.Play();
+            });
+
+        closeButton.onClick.AddListener(() =>
+        {
+            CloseTab();
+            audioSource?.Play();
+        });
+    }
+
+    public void OpenTab()
+    {
+        if (!TabIsOpen)
+        {
+            changeVehicleTab.CloseTab();
+            TabIsOpen = true;
+            var player = LevelManager.Instance.currentVehicle;
+            if (player as Magnete)
+            {
+                OpenMagneteTab();
+            }
+            else if (player as Forkliff)
+            {
+                OpenForkliffTab();
+            }
+            else if (player as Helicopter)
+            {
+                OpenHelicopterTab();
+            }
+            if (!magneteUpgradeTab.magnete.unlocked) { foreach (var item in magneteOpenButton) { item.gameObject.SetActive(false); } }
+            else { foreach (var item in magneteOpenButton) { item.gameObject.SetActive(true); } }
+
+            if (!helicopterUpgradeTab.helicopter.unlocked) { foreach (var item in helicopterOpenButton) { item.gameObject.SetActive(false); } }
+            else { foreach (var item in helicopterOpenButton) { item.gameObject.SetActive(true); } }
+
+            if (Tutorial.instance != null)
+                if (Tutorial.instance.TutorialIndex == 3)
+                    tutorialClick.gameObject.SetActive(true);
+                else
+                    tutorialClick.gameObject.SetActive(false);
+        }
+    }
+
+
+    public void CloseTab()
+    {
+        TabIsOpen = false;
+        Debug.Log("Tab closed");
+        gameObject.SetActive(false);
+    }
+    private void OpenMagneteTab()
+    {
+        forkliffUpgradeTab.gameObject.SetActive(false);
+        helicopterUpgradeTab.gameObject.SetActive(false);
+        magneteUpgradeTab.gameObject.SetActive(true);
+        if (!(LevelManager.Instance.currentVehicle as Magnete)) changeVehicleTab.SelectMagnete();
+    }
+
+    private void OpenForkliffTab()
+    {
+        magneteUpgradeTab.gameObject.SetActive(false);
+        helicopterUpgradeTab.gameObject.SetActive(false);
+        forkliffUpgradeTab.gameObject.SetActive(true);
+        if (!(LevelManager.Instance.currentVehicle as Forkliff))
+            changeVehicleTab.SelectForkliff();
+    }
+    private void OpenHelicopterTab()
+    {
+        magneteUpgradeTab.gameObject.SetActive(false);
+        forkliffUpgradeTab.gameObject.SetActive(false);
+        helicopterUpgradeTab.gameObject.SetActive(true);
+    }
+}
